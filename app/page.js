@@ -188,8 +188,6 @@ export default function Page() {
                 <main>
                     <Hero />
                     <Divider />
-                    <AboutTeaser />
-                    <Divider />
                     <ProjectShowcase />
                     <Divider />
                     <Skills />
@@ -267,9 +265,12 @@ function Hero() {
                             <a href={`mailto:${LINKS.email}`} className="hover:text-[#EDF0FC] transition" aria-label="Email"><Mail className="h-5 w-5" /></a>
                         </motion.div>
                     </div>
-                    <motion.div variants={fadeUp} className="flex justify-center md:justify-end">
+                    <motion.div variants={fadeUp} className="flex flex-col items-center md:items-end gap-4">
                         <Image src="/moi.png" alt="Photo de Lou-Ann Barry" width={360} height={480}
                             className="rounded-3xl object-cover shadow-2xl border border-[#C3D0F6]/10" priority />
+                        <Link href="/about" className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-5 py-2.5 text-sm text-[#C3D0F6] hover:bg-[#1F3E71]/35 hover:text-[#EDF0FC] transition">
+                            À propos de moi <ChevronRight className="h-4 w-4" />
+                        </Link>
                     </motion.div>
                 </motion.div>
             </div>
@@ -283,51 +284,6 @@ function Divider() {
         <div className="mx-auto max-w-6xl px-6">
             <div className="h-px bg-gradient-to-r from-transparent via-[#C3D0F6]/20 to-transparent" />
         </div>
-    );
-}
-
-// ——— About Teaser ———
-function AboutTeaser() {
-    return (
-        <section id="about" className="mx-auto max-w-6xl px-6 py-20">
-            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}
-                className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-
-                <motion.div variants={fadeUp} className="flex justify-center md:justify-start">
-                    <div className="relative">
-                        <Image src="/moi.png" alt="Lou-Ann Barry" width={380} height={460}
-                            className="rounded-3xl object-cover shadow-2xl border border-[#C3D0F6]/10" />
-                        <div className="absolute -bottom-4 -right-4 rounded-2xl border border-[#C3D0F6]/20 bg-[#0D1F3E]/80 backdrop-blur-sm px-4 py-2.5 text-sm">
-                            <p className="text-[#8BA8EE] text-xs uppercase tracking-widest">ICAN Lyon · 3ème année</p>
-                            <p className="text-[#EDF0FC] font-medium">Game Design · TechArt</p>
-                        </div>
-                    </div>
-                </motion.div>
-
-                <div className="flex flex-col gap-6">
-                    <motion.div variants={fadeUp}>
-                        <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">À propos</p>
-                        <h2 className="text-3xl font-semibold tracking-tight">Qui suis-je ?</h2>
-                    </motion.div>
-
-                    <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                        Passionnée par le jeu vidéo depuis toujours, je me forme à l'ICAN Lyon pour devenir{" "}
-                        <strong className="text-[#EDF0FC]">productrice de jeux vidéo</strong>. Mon parcours mêle Game Design, direction artistique et gestion de projet — avec l'objectif de guider des équipes créatives de la conception jusqu'à la livraison.
-                    </motion.p>
-
-                    <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                        De l'Unreal Engine 5 au jeu de société coopératif, mes projets m'ont forgé une vision globale et polyvalente de la production, avec une vraie sensibilité pour le game design et l'expérience joueur.
-                    </motion.p>
-
-                    <motion.div variants={fadeUp}>
-                        <Link href="/about"
-                            className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-2.5 font-medium hover:bg-[#EDF0FC] transition text-sm">
-                            En savoir plus sur moi <ChevronRight className="h-4 w-4" />
-                        </Link>
-                    </motion.div>
-                </div>
-            </motion.div>
-        </section>
     );
 }
 
