@@ -209,8 +209,8 @@ function Header() {
             <div className="mx-auto max-w-6xl px-6">
                 <div className="flex items-center justify-between py-4">
                     <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full overflow-hidden border border-[#C3D0F6]/20">
-                            <Image src="/moi.png" alt="Lou-Ann Barry" width={40} height={40} className="object-cover w-full h-full" />
+                        <div className="w-10 h-10 rounded-full border border-[#C3D0F6]/20 bg-[#1F3E71]/40 flex items-center justify-center text-[#EDF0FC] font-semibold text-sm tracking-widest select-none">
+                            LB
                         </div>
                         <span className="font-semibold tracking-tight text-[#EDF0FC]">Lou-Ann Barry</span>
                     </div>
