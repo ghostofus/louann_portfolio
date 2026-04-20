@@ -239,9 +239,6 @@ function Hero() {
                 <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.4 }}
                     className="grid gap-10 md:grid-cols-2 md:items-center">
                     <div>
-                        <motion.p variants={fadeUp} className="text-sm text-[#8BA8EE] uppercase tracking-widest mb-3">
-                            Game Designer · Productrice
-                        </motion.p>
                         <motion.h1 variants={fadeUp} className="text-4xl/tight md:text-5xl/tight font-semibold tracking-tight">
                             Bonjour, je m'appelle<br />BARRY Lou-Ann
                         </motion.h1>
@@ -292,7 +289,6 @@ function ProjectShowcase() {
     return (
         <section id="projets" className="mx-auto max-w-6xl px-6 py-20">
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-14">
-                <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Mes travaux</p>
                 <h2 className="text-3xl font-semibold tracking-tight">Projets</h2>
             </motion.div>
 
@@ -389,7 +385,6 @@ function Skills() {
     return (
         <section id="competences" className="mx-auto max-w-6xl px-6 py-20">
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-14">
-                <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Ce que je sais faire</p>
                 <h2 className="text-3xl font-semibold tracking-tight">Compétences</h2>
             </motion.div>
 
