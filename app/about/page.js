@@ -132,11 +132,11 @@ function GamesMarquee() {
             transition={{ duration: 0.6 }} viewport={{ once: true }} className="relative overflow-hidden pb-4">
             <div className="marquee-track flex gap-8 py-2 items-center">
                 {doubled.map((game, i) => (
-                    <div key={i} className="flex-none rounded-2xl bg-[#1F3E71]/20 border border-[#C3D0F6]/10 p-4">
+                    <div key={i} className="flex-none rounded-2xl bg-[#1F3E71]/20 border border-[#C3D0F6]/10 p-5">
                         <img
                             src={game.src}
                             alt={game.name}
-                            className="h-14 w-auto object-contain opacity-80 hover:opacity-100 transition"
+                            className="h-24 w-auto object-contain opacity-80 hover:opacity-100 transition"
                         />
                     </div>
                 ))}
