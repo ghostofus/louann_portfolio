@@ -25,18 +25,18 @@ const fadeLeft = {
 const stagger = { animate: { transition: { staggerChildren: 0.12 } } };
 
 const GAMES = [
-    { name: "The Last of Us Part II",  src: "tlou.webp" },
-    { name: "God of War Ragnarök",     src: "gow.jpg" },
-    { name: "Resident Evil Biohazard", src: "re.webp" },
-    { name: "Red Dead Redemption 2",   src: "rd2.jpg" },
-    { name: "Dying Light",             src: "DL.avif" },
-    { name: "Super Mario Galaxy",      src: "SMG.avif" },
-    { name: "Jedi Fallen Order",       src: "SJFO.jpeg" },
-    { name: "Until Dawn",              src: "UD.jpg" },
-    { name: "Far Cry 4",               src: "F4.jpg" },
-    { name: "Dispatch",                src: "D.webp" },
-    { name: "Cyberpunk 2077",          src: "C2077.jpg" },
-    { name: "Road 96",                 src: "R96.avif" },
+    { name: "The Last of Us Part II",  src: "tlou.png" },
+    { name: "God of War Ragnarök",     src: "gow.png" },
+    { name: "Resident Evil Biohazard", src: "re.png" },
+    { name: "Red Dead Redemption 2",   src: "rd2.png" },
+    { name: "Dying Light",             src: "DL.png" },
+    { name: "Super Mario Galaxy",      src: "SMG.png" },
+    { name: "Jedi Fallen Order",       src: "SJFO.png" },
+    { name: "Until Dawn",              src: "UD.png" },
+    { name: "Far Cry 4",               src: "F4.png" },
+    { name: "Dispatch",                src: "D.png" },
+    { name: "Cyberpunk 2077",          src: "C2077.png" },
+    { name: "Road 96",                 src: "R96.png" },
 ];
 
 function StarField() {
