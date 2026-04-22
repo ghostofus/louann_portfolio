@@ -136,7 +136,7 @@ function GamesMarquee() {
                         <img
                             src={game.src}
                             alt={game.name}
-                            className="h-24 w-auto object-contain opacity-80 hover:opacity-100 transition"
+                            className="h-32 w-auto object-contain opacity-80 hover:opacity-100 transition"
                         />
                     </div>
                 ))}
