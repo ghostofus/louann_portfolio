@@ -31,14 +31,6 @@ const GAMES = [
     { name: "Hades",                       src: "/games/hades.png" },
     { name: "Celeste",                     src: "/games/celeste.png" },
     { name: "Stardew Valley",              src: "/games/stardew-valley.png" },
-    { name: "Undertale",                   src: "/games/undertale.png" },
-    { name: "Portal 2",                    src: "/games/portal-2.png" },
-    { name: "Disco Elysium",               src: "/games/disco-elysium.png" },
-    { name: "Ori and the Blind Forest",    src: "/games/ori.png" },
-    { name: "Life is Strange",             src: "/games/life-is-strange.png" },
-    { name: "Elden Ring",                  src: "/games/elden-ring.png" },
-    { name: "Firewatch",                   src: "/games/firewatch.png" },
-    { name: "Outer Wilds",                 src: "/games/outer-wilds.png" },
 ];
 
 function StarField() {
