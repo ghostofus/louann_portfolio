@@ -131,27 +131,19 @@ function Footer() {
 function GamesMarquee() {
     const doubled = [...GAMES, ...GAMES];
     return (
-        <section className="py-16">
-            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }} viewport={{ once: true }}>
-                <div className="mx-auto max-w-6xl px-6 mb-10">
-                    <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Mes inspirations</p>
-                    <h2 className="text-3xl font-semibold tracking-tight">Jeux qui m'ont marquée</h2>
-                </div>
-                <div className="relative overflow-hidden">
-                    <div className="marquee-track flex gap-4 py-2">
-                        {doubled.map((game, i) => (
-                            <div key={i} className="flex-none flex items-center gap-3 rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 px-6 py-3.5">
-                                <Gamepad2 className="h-4 w-4 text-[#4782E4] flex-none" />
-                                <span className="text-sm text-[#C3D0F6] whitespace-nowrap font-medium">{game}</span>
-                            </div>
-                        ))}
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }} viewport={{ once: true }} className="relative overflow-hidden pb-4">
+            <div className="marquee-track flex gap-4 py-2">
+                {doubled.map((game, i) => (
+                    <div key={i} className="flex-none flex items-center gap-3 rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 px-6 py-3.5">
+                        <Gamepad2 className="h-4 w-4 text-[#4782E4] flex-none" />
+                        <span className="text-sm text-[#C3D0F6] whitespace-nowrap font-medium">{game}</span>
                     </div>
-                    <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#080f1e] to-transparent pointer-events-none z-10" />
-                    <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#080f1e] to-transparent pointer-events-none z-10" />
-                </div>
-            </motion.div>
-        </section>
+                ))}
+            </div>
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#080f1e] to-transparent pointer-events-none z-10" />
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#080f1e] to-transparent pointer-events-none z-10" />
+        </motion.div>
     );
 }
 
@@ -202,12 +194,8 @@ export default function AboutPage() {
                                     className="rounded-3xl object-cover shadow-2xl border border-[#C3D0F6]/10" priority />
                             </motion.div>
                         </motion.div>
+                        <GamesMarquee />
                     </section>
-
-                    <Divider />
-
-                    {/* ——— GAMES MARQUEE ——— */}
-                    <GamesMarquee />
 
                     <Divider />
 
