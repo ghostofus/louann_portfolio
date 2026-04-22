@@ -25,20 +25,20 @@ const fadeLeft = {
 const stagger = { animate: { transition: { staggerChildren: 0.12 } } };
 
 const GAMES = [
-    "Dark Souls III",
-    "The Legend of Zelda: BotW",
-    "Hollow Knight",
-    "Hades",
-    "Celeste",
-    "Stardew Valley",
-    "Undertale",
-    "Portal 2",
-    "Disco Elysium",
-    "Ori and the Blind Forest",
-    "Life is Strange",
-    "Elden Ring",
-    "Firewatch",
-    "Outer Wilds",
+    { name: "Dark Souls III",              src: "/games/dark-souls-3.png" },
+    { name: "Zelda Breath of the Wild",    src: "/games/zelda-botw.png" },
+    { name: "Hollow Knight",               src: "/games/hollow-knight.png" },
+    { name: "Hades",                       src: "/games/hades.png" },
+    { name: "Celeste",                     src: "/games/celeste.png" },
+    { name: "Stardew Valley",              src: "/games/stardew-valley.png" },
+    { name: "Undertale",                   src: "/games/undertale.png" },
+    { name: "Portal 2",                    src: "/games/portal-2.png" },
+    { name: "Disco Elysium",               src: "/games/disco-elysium.png" },
+    { name: "Ori and the Blind Forest",    src: "/games/ori.png" },
+    { name: "Life is Strange",             src: "/games/life-is-strange.png" },
+    { name: "Elden Ring",                  src: "/games/elden-ring.png" },
+    { name: "Firewatch",                   src: "/games/firewatch.png" },
+    { name: "Outer Wilds",                 src: "/games/outer-wilds.png" },
 ];
 
 function StarField() {
@@ -133,11 +133,14 @@ function GamesMarquee() {
     return (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }} viewport={{ once: true }} className="relative overflow-hidden pb-4">
-            <div className="marquee-track flex gap-4 py-2">
+            <div className="marquee-track flex gap-8 py-2 items-center">
                 {doubled.map((game, i) => (
-                    <div key={i} className="flex-none flex items-center gap-3 rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 px-6 py-3.5">
-                        <Gamepad2 className="h-4 w-4 text-[#4782E4] flex-none" />
-                        <span className="text-sm text-[#C3D0F6] whitespace-nowrap font-medium">{game}</span>
+                    <div key={i} className="flex-none rounded-2xl bg-[#1F3E71]/20 border border-[#C3D0F6]/10 p-4">
+                        <img
+                            src={game.src}
+                            alt={game.name}
+                            className="h-14 w-auto object-contain opacity-80 hover:opacity-100 transition"
+                        />
                     </div>
                 ))}
             </div>
