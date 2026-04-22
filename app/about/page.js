@@ -25,12 +25,18 @@ const fadeLeft = {
 const stagger = { animate: { transition: { staggerChildren: 0.12 } } };
 
 const GAMES = [
-    { name: "Dark Souls III",              src: "/games/dark-souls-3.png" },
-    { name: "Zelda Breath of the Wild",    src: "/games/zelda-botw.png" },
-    { name: "Hollow Knight",               src: "/games/hollow-knight.png" },
-    { name: "Hades",                       src: "/games/hades.png" },
-    { name: "Celeste",                     src: "/games/celeste.png" },
-    { name: "Stardew Valley",              src: "/games/stardew-valley.png" },
+    { name: "The Last of Us Part II",  src: "/games/the-last-of-us-2.png" },
+    { name: "God of War Ragnarök",     src: "/games/god-of-war-ragnarok.png" },
+    { name: "Resident Evil Biohazard", src: "/games/resident-evil-7.png" },
+    { name: "Red Dead Redemption 2",   src: "/games/red-dead-2.png" },
+    { name: "Dying Light",             src: "/games/dying-light.png" },
+    { name: "Super Mario Galaxy",      src: "/games/mario-galaxy.png" },
+    { name: "Jedi Fallen Order",       src: "/games/jedi-fallen-order.png" },
+    { name: "Until Dawn",              src: "/games/until-dawn.png" },
+    { name: "Far Cry 4",               src: "/games/far-cry-4.png" },
+    { name: "Dispatch",                src: "/games/dispatch.png" },
+    { name: "Cyberpunk 2077",          src: "/games/cyberpunk-2077.png" },
+    { name: "Road 96",                 src: "/games/road-96.png" },
 ];
 
 function StarField() {
