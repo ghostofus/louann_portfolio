@@ -194,7 +194,9 @@ export default function AboutPage() {
                                     className="rounded-3xl object-cover shadow-2xl border border-[#C3D0F6]/10" priority />
                             </motion.div>
                         </motion.div>
-                        <GamesMarquee />
+                        <div className="mt-14">
+                            <GamesMarquee />
+                        </div>
                     </section>
 
                     <Divider />
