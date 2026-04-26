@@ -12,7 +12,7 @@ const PROJECTS = [
     {
         title: "IRA",
         period: "2025/2026 : 10 mois",
-        role: "Cheffe de projet",
+        role: "Producer / Cheffe de Projet",
         summary: "Souls like narratif 3D réaliste - Unreal Engine 5",
         tags: ["Agile", "JIRA", "Roadmapping", "Risk mgmt"],
         src: "/ira.png",
@@ -20,9 +20,11 @@ const PROJECTS = [
         teamSize: "8",
         duration: "10 mois",
         responsibilities: [
-            "À remplir — responsabilité 1",
-            "À remplir — responsabilité 2",
-            "À remplir — responsabilité 3",
+            "Organiser des entretiens individuels réguliers avec l'ensemble de l'équipe tout au long du projet.",
+            "Fournir aux départements Art et Audio des listes de ressources afin de prioriser les tâches et d'éviter les dépendances.",
+            "Animer les réunions de planification de sprint et les rétrospectives conformément à notre approche agile.",
+            "Organisation et coordination des sessions de playtesting.",
+            "Gestion de la documentation de production et du GDD.",
         ],
     },
     {
