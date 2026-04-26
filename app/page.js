@@ -153,7 +153,7 @@ const LANGUAGES = [
 
 const EXPERIENCE = [
     {
-        period: "2026 - 90 jours",
+        period: "90 jours - En cours",
         title: "Stage - Gestion de projets Data",
         place: "Orange",
         items: ["Suivi et coordination de projets data en environnement DSI","Pilotage des livrables et reporting aux parties prenantes","Gestion du backlog et animation des réunions de suivi"],
