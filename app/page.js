@@ -14,11 +14,11 @@ const PROJECTS = [
         period: "2025/2026 : 10 mois",
         role: "Producer / Cheffe de Projet",
         summary: "Souls like narratif 3D réaliste - Unreal Engine 5",
-        tags: ["Agile", "JIRA", "Roadmapping", "Risk mgmt"],
+        tags: ["Agile", "Notion", "Roadmapping", "Playtesting" , GDD],
         src: "/ira.png",
         slug: "ira",
         teamSize: "8",
-        duration: "10 mois",
+        duration: "10 mois" ,
         responsibilities: [
             "Organiser des entretiens individuels réguliers avec l'ensemble de l'équipe tout au long du projet.",
             "Fournir aux départements Art et Audio des listes de ressources afin de prioriser les tâches et d'éviter les dépendances.",
@@ -30,7 +30,7 @@ const PROJECTS = [
     {
         title: "Gecko Pulco",
         period: "2025 : 4 mois",
-        role: "Cheffe de projet",
+        role: "Producer / Cheffe de Projet",
         summary: "Plateformer 3D cartoon - Unity 6",
         tags: ["Scrum", "Stakeholders", "KPIs"],
         src: "/gecko.jpg",
@@ -38,9 +38,12 @@ const PROJECTS = [
         teamSize: "4",
         duration: "4 mois",
         responsibilities: [
-            "À remplir — responsabilité 1",
-            "À remplir — responsabilité 2",
-            "À remplir — responsabilité 3",
+            "Rédiger le document de cadrage initial du projet (scope, organisation, livrables) via le GDD.",
+            "Créer un planning haut niveau et l'utiliser comme base pour structurer les plannings hebdomadaires.",
+            "Suivre la vélocité et l'avancement en fournissant des rapports de progression à l'équipe.",
+            "Définir les deadlines et les livrables clés et assurer leur suivi tout au long du projet.",
+            "Gérer le scope et prendre des décisions de coupure de contenu en fonction des contraintes.",
+            "Gérer le backlog et résoudre les conflits au sein de l'équipe.",
         ],
     },
     {
