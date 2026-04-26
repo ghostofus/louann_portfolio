@@ -17,7 +17,7 @@ const PROJECTS = [
         tags: ["Agile", "JIRA", "Roadmapping", "Risk mgmt"],
         src: "/ira.png",
         slug: "ira",
-        teamSize: "À remplir",
+        teamSize: "8",
         duration: "10 mois",
         awards: "À remplir",
     },
@@ -29,7 +29,7 @@ const PROJECTS = [
         tags: ["Scrum", "Stakeholders", "KPIs"],
         src: "/gecko.jpg",
         slug: "gecko-pulco",
-        teamSize: "À remplir",
+        teamSize: "5",
         duration: "4 mois",
         awards: "À remplir",
     },
@@ -355,10 +355,11 @@ function ProjectRow({ project, reverse }) {
                     <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-4">Responsabilités</h4>
                     <p className="text-[#C3D0F6] text-sm italic mb-3">Rôle : {project.role}</p>
                     <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
-                        <li>À remplir — décris ici ta première responsabilité principale</li>
-                        <li>À remplir — décris ici ta deuxième responsabilité</li>
-                        <li>À remplir — décris ici une troisième responsabilité</li>
-                        <li>À remplir — ajoute autant de points que nécessaire</li>
+                        <li>Pilotage du backlog projet via Notion — création, priorisation et suivi des tâches selon une méthodologie agile, avec attribution des tickets aux membres de l'équipe</li>
+                        <li>Rédaction et gestion du Game Design Document (GDD) — structuration, versionnage et mise à jour des spécifications de design tout au long du cycle de développement</li>
+                        <li>Organisation et coordination des sessions de playtesting — planification, recrutement des testeurs, collecte de feedback et restitution des résultats à l'équipe</li>
+                        <li>Médiation et résolution de conflits au sein de l'équipe — facilitation de la communication interdisciplinaire entre profils design, art et programmation</li>
+                        <li>Gestion de la documentation de production — mise en place et maintien d'une base de connaissances centralisée (réunions, comptes-rendus, templates, pipelines de livraison)</li>
                     </ul>
                 </div>
 
