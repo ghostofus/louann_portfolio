@@ -32,7 +32,7 @@ const PROJECTS = [
         period: "2025 : 4 mois",
         role: "Producer / Cheffe de Projet",
         summary: "Plateformer 3D cartoon - Unity 6",
-        tags: ["Scrum", "Stakeholders", "KPIs"],
+        tags: ["Agile", "Notion", "Roadmapping"],
         src: "/gecko.jpg",
         slug: "gecko-pulco",
         teamSize: "4",
@@ -51,7 +51,7 @@ const PROJECTS = [
         period: "2023/2024",
         role: "Directrice Artistique / Producer",
         summary: "Click & Point 3D - Unreal",
-        tags: ["Planning", "Delivery", "QA"],
+        tags: ["Jira", "Nuclino", "Figma"],
         src: "/figureout.jpg",
         slug: "figure-out",
         teamSize: "13",
@@ -81,7 +81,7 @@ const PROJECTS = [
         period: "2023 : 4 mois",
         role: "Conceptrice de jeu",
         summary: "Jeu de société coopératif stratégique - Univers Japon féodal/Samouraïs",
-        tags: ["Planning", "Delivery", "QA"],
+        tags: ["Playtesting", "QA"],
         src: "/10nichi.png",
         slug: "10-nichi",
         teamSize: "4",
@@ -330,18 +330,18 @@ function ProjectShowcase() {
 
             <div className="grid gap-24">
                 {PROJECTS.map((p, i) => (
-                    <ProjectRow key={i} project={p} reverse={i % 2 !== 0} />
+                    <ProjectRow key={i} project={p} />
                 ))}
             </div>
         </section>
     );
 }
 
-function ProjectRow({ project, reverse }) {
+function ProjectRow({ project }) {
     return (
         <motion.div
             variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}
-            className={`grid md:grid-cols-2 gap-10 md:gap-16 items-start ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}
+            className="grid md:grid-cols-2 gap-10 md:gap-16 items-start"
         >
             {/* Colonne gauche : infos projet */}
             <motion.div variants={fadeLeft} className="flex flex-col gap-6">
