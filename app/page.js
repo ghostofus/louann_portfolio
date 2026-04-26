@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, Users, Clock, ChevronRight } from "lucide-react";
+import { Mail, Github, Linkedin, Download, Users, Clock, ChevronRight, Lightbulb, Globe } from "lucide-react";
 
 // ——— Données ———
 const PROJECTS = [
@@ -97,12 +97,12 @@ const PROJECTS = [
 
 const SKILLS_TOP = [
     {
-        emoji: "👥",
+        icon: Users,
         title: "Leadership & Ambition",
         description: "Je cherche à m'améliorer chaque jour et à appliquer cette progression constante aux équipes dont je fais partie. Je crois fermement en la facilitation et le soutien de l'équipe pour qu'elle grandisse tout au long d'un projet, que ce soit via des entretiens individuels, des rétrospectives ou des post-mortems. Cela favorise une réflexion individuelle qui bénéficie à l'ensemble du groupe.",
     },
     {
-        emoji: "✏️",
+        icon: Lightbulb,
         title: "Créativité",
         description: "Autant que je suis productrice, je suis aussi game designer et je comprends les aspects créatifs de la conception de jeux. J'essaie d'apporter cette créativité dans mon rôle de productrice — non pas en étant limitée à une boîte à outils ou une méthode éprouvée, mais en proposant des solutions créatives et adaptées aux défis d'un projet. C'est pourquoi je cherche continuellement à apprendre et à trouver le bon équilibre entre méthode et touche personnelle.",
     },
@@ -150,8 +150,8 @@ const SKILLS_SOFTWARE = [
 ];
 
 const LANGUAGES = [
-    { flag: "🇫🇷", name: "Français", level: "Natif" },
-    { flag: "🇬🇧", name: "Anglais", level: "Courant" },
+    { name: "Français", level: "Natif" },
+    { name: "Anglais", level: "Courant" },
 ];
 
 const EXPERIENCE = [
@@ -462,7 +462,7 @@ function Skills() {
                 {SKILLS_TOP.map((s, i) => (
                     <motion.div key={i} variants={fadeUp}
                         className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-8 flex flex-col items-center text-center gap-4">
-                        <span className="text-4xl">{s.emoji}</span>
+                        <s.icon className="h-10 w-10 text-[#8BA8EE]" strokeWidth={1.5} />
                         <h3 className="text-base font-semibold text-[#8BA8EE] uppercase tracking-wider">{s.title}</h3>
                         <p className="text-[#C3D0F6] text-sm leading-relaxed">{s.description}</p>
                     </motion.div>
@@ -499,10 +499,10 @@ function Skills() {
                 <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">Langues</h3>
                 <div className="flex gap-12">
                     {LANGUAGES.map((l, i) => (
-                        <div key={i} className="flex flex-col items-center gap-2">
-                            <span className="text-4xl">{l.flag}</span>
-                            <p className="text-[#EDF0FC] text-sm font-medium">{l.name}</p>
-                            <p className="text-[#8BA8EE] text-xs">{l.level}</p>
+                        <div key={i} className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center w-32">
+                            <Globe className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
+                            <p className="text-xs text-[#8BA8EE] mb-1">{l.name}</p>
+                            <p className="text-sm font-medium text-[#EDF0FC]">{l.level}</p>
                         </div>
                     ))}
                 </div>
