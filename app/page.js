@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, Users, Clock, Trophy, ChevronRight } from "lucide-react";
+import { Mail, Github, Linkedin, Download, Users, Clock, ChevronRight } from "lucide-react";
 
 // ——— Données ———
 const PROJECTS = [
@@ -19,7 +19,11 @@ const PROJECTS = [
         slug: "ira",
         teamSize: "8",
         duration: "10 mois",
-        awards: "À remplir",
+        responsibilities: [
+            "À remplir — responsabilité 1",
+            "À remplir — responsabilité 2",
+            "À remplir — responsabilité 3",
+        ],
     },
     {
         title: "Gecko Pulco",
@@ -31,7 +35,11 @@ const PROJECTS = [
         slug: "gecko-pulco",
         teamSize: "4",
         duration: "4 mois",
-        awards: "À remplir",
+        responsibilities: [
+            "À remplir — responsabilité 1",
+            "À remplir — responsabilité 2",
+            "À remplir — responsabilité 3",
+        ],
     },
     {
         title: "Figure Out",
@@ -43,7 +51,11 @@ const PROJECTS = [
         slug: "figure-out",
         teamSize: "À remplir",
         duration: "À remplir",
-        awards: "À remplir",
+        responsibilities: [
+            "À remplir — responsabilité 1",
+            "À remplir — responsabilité 2",
+            "À remplir — responsabilité 3",
+        ],
     },
     {
         title: "10 Nichi!",
@@ -55,7 +67,11 @@ const PROJECTS = [
         slug: "10-nichi",
         teamSize: "À remplir",
         duration: "4 mois",
-        awards: "À remplir",
+        responsibilities: [
+            "À remplir — responsabilité 1",
+            "À remplir — responsabilité 2",
+            "À remplir — responsabilité 3",
+        ],
     },
 ];
 
@@ -329,8 +345,8 @@ function ProjectRow({ project, reverse }) {
                     </div>
                 </div>
 
-                {/* Stats : taille équipe / durée / récompenses */}
-                <div className="grid grid-cols-3 gap-3">
+                {/* Stats : taille équipe / durée */}
+                <div className="grid grid-cols-2 gap-3">
                     <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
                         <Users className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
                         <p className="text-xs text-[#8BA8EE] mb-1">Équipe</p>
@@ -341,11 +357,6 @@ function ProjectRow({ project, reverse }) {
                         <p className="text-xs text-[#8BA8EE] mb-1">Durée</p>
                         <p className="text-sm font-medium text-[#EDF0FC]">{project.duration}</p>
                     </div>
-                    <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
-                        <Trophy className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
-                        <p className="text-xs text-[#8BA8EE] mb-1">Récompenses</p>
-                        <p className="text-sm font-medium text-[#EDF0FC]">{project.awards}</p>
-                    </div>
                 </div>
             </motion.div>
 
@@ -355,10 +366,9 @@ function ProjectRow({ project, reverse }) {
                     <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-4">Responsabilités</h4>
                     <p className="text-[#C3D0F6] text-sm italic mb-3">Rôle : {project.role}</p>
                     <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
-                        <li>À remplir — décris ici ta première responsabilité principale</li>
-                        <li>À remplir — décris ici ta deuxième responsabilité</li>
-                        <li>À remplir — décris ici une troisième responsabilité</li>
-                        <li>À remplir — ajoute autant de points que nécessaire</li>
+                        {project.responsibilities.map((r, idx) => (
+                            <li key={idx}>{r}</li>
+                        ))}
                     </ul>
                 </div>
 
