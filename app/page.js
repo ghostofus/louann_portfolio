@@ -95,31 +95,63 @@ const PROJECTS = [
     },
 ];
 
+const SKILLS_TOP = [
+    {
+        emoji: "👥",
+        title: "Leadership & Ambition",
+        description: "Je cherche à m'améliorer chaque jour et à appliquer cette progression constante aux équipes dont je fais partie. Je crois fermement en la facilitation et le soutien de l'équipe pour qu'elle grandisse tout au long d'un projet, que ce soit via des entretiens individuels, des rétrospectives ou des post-mortems. Cela favorise une réflexion individuelle qui bénéficie à l'ensemble du groupe.",
+    },
+    {
+        emoji: "✏️",
+        title: "Créativité",
+        description: "Autant que je suis productrice, je suis aussi game designer et je comprends les aspects créatifs de la conception de jeux. J'essaie d'apporter cette créativité dans mon rôle de productrice — non pas en étant limitée à une boîte à outils ou une méthode éprouvée, mais en proposant des solutions créatives et adaptées aux défis d'un projet. C'est pourquoi je cherche continuellement à apprendre et à trouver le bon équilibre entre méthode et touche personnelle.",
+    },
+];
+
 const SKILLS_PRODUCTION = [
-    "Gestion de projet Agile, Waterfall, Kanban",
-    "JIRA, Confluence, Notion",
-    "Roadmapping & Risk Management",
-    "Sprint Planning & Rétrospectives",
+    "Identification et gestion des risques",
+    "JIRA · Confluence · Notion",
+    "Scrum et méthodologies Agile",
+    "Kanban · Waterfall",
     "Suivi KPIs & vélocité",
+    "Sprint Planning & Rétrospectives",
+    "Décomposition du scope et du budget",
     "Gestion des ressources",
-    "Communication équipe & stakeholders",
+    "Définition des jalons et deadlines",
+    "Suivi de la progression individuelle",
+    "Représentation d'un projet ou d'une équipe",
+    "Réalisation de présentations",
+    "Gestion de la sous-traitance",
+    "Planification haut niveau & dépendances",
+    "Surveillance du scope projet",
 ];
 
 const SKILLS_DESIGN = [
-    "Game Design & Level Design",
+    "Level Design (esquisse → final)",
+    "Intégration design, programmation et art",
+    "Analyse concurrentielle",
+    "Écriture narrative & scénario",
+    "Game Design & conception de mécaniques",
     "Direction Artistique",
-    "Unreal Engine 5",
-    "Unity 6",
-    "Ecriture narrative",
     "Conception de jeux de société",
+    "Veille créative & références",
 ];
 
-const SKILLS_SOFT = [
-    "Leadership",
-    "Facilitation d'équipe",
-    "Gestion des conflits",
-    "Feedback constructif",
-    "Travail en équipe cross-disciplinaire",
+const SKILLS_SOFTWARE = [
+    "Unreal Engine 5",
+    "Unity 6",
+    "JIRA · Confluence",
+    "Notion · Nuclino",
+    "Figma",
+    "Adobe Illustrator",
+    "Photoshop",
+    "Microsoft Office Suite",
+    "GitHub",
+];
+
+const LANGUAGES = [
+    { flag: "🇫🇷", name: "Français", level: "Natif" },
+    { flag: "🇬🇧", name: "Anglais", level: "Courant" },
 ];
 
 const EXPERIENCE = [
@@ -420,33 +452,62 @@ function Skills() {
     return (
         <section id="competences" className="mx-auto max-w-6xl px-6 py-20">
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-14">
+                <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Ce que je sais faire</p>
                 <h2 className="text-3xl font-semibold tracking-tight">Compétences</h2>
             </motion.div>
 
+            {/* ——— Bloc 1 : Leadership & Créativité (2 colonnes, icône + texte long) ——— */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
-                className="grid md:grid-cols-3 gap-6">
-                <SkillBlock title="Production & Gestion" items={SKILLS_PRODUCTION} />
-                <SkillBlock title="Design & Technique" items={SKILLS_DESIGN} />
-                <SkillBlock title="Soft Skills" items={SKILLS_SOFT} />
+                className="grid md:grid-cols-2 gap-8 mb-16">
+                {SKILLS_TOP.map((s, i) => (
+                    <motion.div key={i} variants={fadeUp}
+                        className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-8 flex flex-col items-center text-center gap-4">
+                        <span className="text-4xl">{s.emoji}</span>
+                        <h3 className="text-base font-semibold text-[#8BA8EE] uppercase tracking-wider">{s.title}</h3>
+                        <p className="text-[#C3D0F6] text-sm leading-relaxed">{s.description}</p>
+                    </motion.div>
+                ))}
+            </motion.div>
+
+            {/* ——— Bloc 2 : 3 colonnes de listes (Production / Design / Logiciels) ——— */}
+            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
+                className="grid md:grid-cols-3 gap-8 mb-16">
+                {[
+                    { title: "Compétences de Production", items: SKILLS_PRODUCTION },
+                    { title: "Compétences Design", items: SKILLS_DESIGN },
+                    { title: "Logiciels & Outils", items: SKILLS_SOFTWARE },
+                ].map((col, i) => (
+                    <motion.div key={i} variants={fadeUp} className="flex flex-col gap-4">
+                        <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest text-center pb-2 border-b border-[#C3D0F6]/10">
+                            {col.title}
+                        </h3>
+                        <ul className="space-y-2">
+                            {col.items.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-[#C3D0F6] text-sm">
+                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4782E4] flex-shrink-0" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                ))}
+            </motion.div>
+
+            {/* ——— Bloc 3 : Langues (drapeaux centrés) ——— */}
+            <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
+                className="flex flex-col items-center gap-6">
+                <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">Langues</h3>
+                <div className="flex gap-12">
+                    {LANGUAGES.map((l, i) => (
+                        <div key={i} className="flex flex-col items-center gap-2">
+                            <span className="text-4xl">{l.flag}</span>
+                            <p className="text-[#EDF0FC] text-sm font-medium">{l.name}</p>
+                            <p className="text-[#8BA8EE] text-xs">{l.level}</p>
+                        </div>
+                    ))}
+                </div>
             </motion.div>
         </section>
-    );
-}
-
-function SkillBlock({ title, items }) {
-    return (
-        <motion.div variants={fadeUp}
-            className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-            <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-5">{title}</h3>
-            <ul className="space-y-2">
-                {items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[#C3D0F6] text-sm">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4782E4] flex-shrink-0" />
-                        {item}
-                    </li>
-                ))}
-            </ul>
-        </motion.div>
     );
 }
 
