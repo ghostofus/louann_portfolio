@@ -49,17 +49,31 @@ const PROJECTS = [
     {
         title: "Figure Out",
         period: "2023/2024",
-        role: "Directrice Artistique",
+        role: "Directrice Artistique / Producer",
         summary: "Click & Point 3D - Unreal",
         tags: ["Planning", "Delivery", "QA"],
         src: "/figureout.jpg",
         slug: "figure-out",
-        teamSize: "À remplir",
-        duration: "À remplir",
+        teamSize: "13",
+        duration: "1 ans",
         responsibilities: [
-            "À remplir — responsabilité 1",
-            "À remplir — responsabilité 2",
-            "À remplir — responsabilité 3",
+            {
+                category: "DIRECTION ARTISTIQUE",
+                items: [
+                    "Définir l'ambiance générale et la direction visuelle du jeu, en se concentrant sur la direction des environnements.",
+                    "Rédiger et maintenir l'Art Style Guide en s'appuyant sur une veille de jeux et techniques de référence.",
+                    "Collaborer avec les artistes en fournissant un feedback créatif itératif pour guider la production visuelle.",
+                ],
+            },
+            {
+                category: "PRODUCTION",
+                items: [
+                    "Gérer le backlog et les tâches de l'ensemble de l'équipe artistique via Jira.",
+                    "Assurer l'intégration et la documentation de la production sur Nuclino.",
+                    "Former et accompagner l'équipe à l'utilisation de Jira et Nuclino tout au long du projet.",
+                    "Produire des comptes rendus hebdomadaires à destination du chef de projet suite aux réunions d'équipe."
+                ],
+            },
         ],
     },
     {
@@ -370,11 +384,26 @@ function ProjectRow({ project, reverse }) {
                 <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
                     <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-4">Responsabilités</h4>
                     <p className="text-[#C3D0F6] text-sm italic mb-3">Rôle : {project.role}</p>
-                    <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
-                        {project.responsibilities.map((r, idx) => (
-                            <li key={idx}>{r}</li>
-                        ))}
-                    </ul>
+                    {typeof project.responsibilities[0] === "string" ? (
+                        <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
+                            {project.responsibilities.map((r, idx) => (
+                                <li key={idx}>{r}</li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <div className="space-y-5">
+                            {project.responsibilities.map((group, idx) => (
+                                <div key={idx}>
+                                    <p className="text-xs font-semibold text-[#4782E4] uppercase tracking-widest mb-2">{group.category}</p>
+                                    <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
+                                        {group.items.map((r, i) => (
+                                            <li key={i}>{r}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
