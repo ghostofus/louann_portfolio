@@ -156,8 +156,16 @@ const EXPERIENCE = [
         period: "2026 - 90 jours",
         title: "Stage - Gestion de projets Data",
         place: "Orange",
-        items: ["À remplir", "À remplir"],
+        items: ["Suivi et coordination de projets data en environnement DSI","Pilotage des livrables et reporting aux parties prenantes","Gestion du backlog et animation des réunions de suivi"],
     },
+
+    {
+        period: "2026 - En cours",
+        title: "Mission Freelance - Producer",
+        place: "StellarPunk",
+        items: ["Formalisation et pilotage du backlog de l'équipe","Structuration de la production en vue d'une Vertical Slice","Coordination des équipes pour la livraison des livrables clés"],
+    },
+
     {
         period: "2025 - 44 jours",
         title: "Stage - Game / Narrative Designer",
