@@ -330,96 +330,86 @@ function ProjectShowcase() {
 
             <div className="grid gap-24">
                 {PROJECTS.map((p, i) => (
-                    <ProjectRow key={i} project={p} />
+                    <ProjectRow key={i} project={p} reverse={i % 2 !== 0} />
                 ))}
             </div>
         </section>
     );
 }
 
-function ProjectRow({ project }) {
+function ProjectRow({ project, reverse }) {
     return (
         <motion.div
-            variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}
-            className="grid md:grid-cols-2 gap-10 md:gap-16 items-start"
+            variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.15 }}
+            className="flex flex-col gap-8"
         >
-            {/* Colonne gauche : infos projet */}
-            <motion.div variants={fadeLeft} className="flex flex-col gap-6">
-                <div>
-                    <div className="overflow-hidden rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20">
-                        <Image src={project.src} alt={project.title} width={600} height={340}
-                            className="w-full object-cover" />
-                    </div>
-                </div>
+            {/* ——— Haut : image + infos (2 colonnes alternées) ——— */}
+            <div className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
 
-                <div>
-                    <h3 className="text-2xl font-semibold">{project.title}</h3>
-                    <p className="mt-1 text-[#8BA8EE] text-sm">{project.period}</p>
-                    <p className="mt-2 text-[#C3D0F6]">{project.summary}</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                        {project.tags.map((t, idx) => (
-                            <span key={idx} className="rounded-full border border-[#C3D0F6]/15 bg-[#0D1F3E]/40 px-3 py-1 text-xs text-[#EDF0FC]">
-                                {t}
-                            </span>
-                        ))}
-                    </div>
-                </div>
+                {/* Image */}
+                <motion.div variants={fadeLeft} className="overflow-hidden rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20">
+                    <Image src={project.src} alt={project.title} width={600} height={340}
+                        className="w-full object-cover" />
+                </motion.div>
 
-                {/* Stats : taille équipe / durée */}
-                <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
-                        <Users className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
-                        <p className="text-xs text-[#8BA8EE] mb-1">Équipe</p>
-                        <p className="text-sm font-medium text-[#EDF0FC]">{project.teamSize}</p>
-                    </div>
-                    <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
-                        <Clock className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
-                        <p className="text-xs text-[#8BA8EE] mb-1">Durée</p>
-                        <p className="text-sm font-medium text-[#EDF0FC]">{project.duration}</p>
-                    </div>
-                </div>
-            </motion.div>
-
-            {/* Colonne droite : responsabilités + lien */}
-            <motion.div variants={fadeUp} className="flex flex-col gap-6">
-                <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-                    <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-4">Responsabilités</h4>
-                    <p className="text-[#C3D0F6] text-sm italic mb-3">Rôle : {project.role}</p>
-                    {typeof project.responsibilities[0] === "string" ? (
-                        <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
-                            {project.responsibilities.map((r, idx) => (
-                                <li key={idx}>{r}</li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <div className="space-y-5">
-                            {project.responsibilities.map((group, idx) => (
-                                <div key={idx}>
-                                    <p className="text-xs font-semibold text-[#4782E4] uppercase tracking-widest mb-2">{group.category}</p>
-                                    <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
-                                        {group.items.map((r, i) => (
-                                            <li key={i}>{r}</li>
-                                        ))}
-                                    </ul>
-                                </div>
+                {/* Infos : titre + tags + stats + bouton */}
+                <motion.div variants={fadeUp} className="flex flex-col gap-5">
+                    <div>
+                        <h3 className="text-2xl font-semibold">{project.title}</h3>
+                        <p className="mt-1 text-[#8BA8EE] text-sm">{project.period}</p>
+                        <p className="mt-2 text-[#C3D0F6]">{project.summary}</p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                            {project.tags.map((t, idx) => (
+                                <span key={idx} className="rounded-full border border-[#C3D0F6]/15 bg-[#0D1F3E]/40 px-3 py-1 text-xs text-[#EDF0FC]">
+                                    {t}
+                                </span>
                             ))}
                         </div>
-                    )}
-                </div>
-
-                <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-                    <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-4">Screenshots / Vidéo</h4>
-                    <div className="aspect-video rounded-2xl bg-[#0D1F3E]/60 border border-[#C3D0F6]/10 flex items-center justify-center">
-                        <p className="text-[#8BA8EE] text-sm text-center px-4">
-                            Ajoute ici une vidéo YouTube ou des screenshots du projet
-                        </p>
                     </div>
-                </div>
 
-                <a href={`/projets/${project.slug}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-3 font-medium hover:bg-[#EDF0FC] transition text-sm self-start">
-                    En savoir plus <ChevronRight className="h-4 w-4" />
-                </a>
+                    <div className="grid grid-cols-2 gap-3">
+                        <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
+                            <Users className="h-5 w-5 mx-auto mb-1.5 text-[#8BA8EE]" />
+                            <p className="text-xs text-[#8BA8EE] mb-1">Équipe</p>
+                            <p className="text-sm font-medium text-[#EDF0FC]">{project.teamSize}</p>
+                        </div>
+                        <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
+                            <Clock className="h-5 w-5 mx-auto mb-1.5 text-[#8BA8EE]" />
+                            <p className="text-xs text-[#8BA8EE] mb-1">Durée</p>
+                            <p className="text-sm font-medium text-[#EDF0FC]">{project.duration}</p>
+                        </div>
+                    </div>
+
+                    <a href={`/projets/${project.slug}`}
+                        className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-2.5 font-medium hover:bg-[#EDF0FC] transition text-sm self-start">
+                        En savoir plus <ChevronRight className="h-4 w-4" />
+                    </a>
+                </motion.div>
+            </div>
+
+            {/* ——— Bas : responsabilités (pleine largeur) ——— */}
+            <motion.div variants={fadeUp} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
+                <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-2">Responsabilités</h4>
+                <p className="text-[#C3D0F6] text-sm italic mb-4">Rôle : {project.role}</p>
+
+                {typeof project.responsibilities[0] === "string" ? (
+                    <ul className="grid md:grid-cols-2 gap-x-10 gap-y-2 text-[#C3D0F6] text-sm list-disc pl-5">
+                        {project.responsibilities.map((r, idx) => (
+                            <li key={idx}>{r}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {project.responsibilities.map((group, idx) => (
+                            <div key={idx}>
+                                <p className="text-xs font-semibold text-[#4782E4] uppercase tracking-widest mb-3">{group.category}</p>
+                                <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
+                                    {group.items.map((r, i) => <li key={i}>{r}</li>)}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </motion.div>
         </motion.div>
     );
