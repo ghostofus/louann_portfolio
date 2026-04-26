@@ -14,7 +14,7 @@ const PROJECTS = [
         period: "2025/2026 : 10 mois",
         role: "Producer / Cheffe de Projet",
         summary: "Souls like narratif 3D réaliste - Unreal Engine 5",
-        tags: ["Agile", "Notion", "Roadmapping", "Playtesting" , GDD],
+        tags: ["Agile", "Notion", "Roadmapping", "Playtesting", "GDD"],
         src: "/ira.png",
         slug: "ira",
         teamSize: "8",
