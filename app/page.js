@@ -79,17 +79,18 @@ const PROJECTS = [
     {
         title: "10 Nichi!",
         period: "2023 : 4 mois",
-        role: "Conceptrice",
+        role: "Conceptrice de jeu",
         summary: "Jeu de société coopératif stratégique - Univers Japon féodal/Samouraïs",
         tags: ["Planning", "Delivery", "QA"],
         src: "/10nichi.png",
         slug: "10-nichi",
-        teamSize: "À remplir",
+        teamSize: "4",
         duration: "4 mois",
         responsibilities: [
-            "À remplir — responsabilité 1",
-            "À remplir — responsabilité 2",
-            "À remplir — responsabilité 3",
+            "Participer à la conception des mécaniques et des règles du jeu, avec itérations successives basées sur les retours des sessions de test.",
+            "Créer les illustrations et icônes des éléments de jeu (gourde, feu, etc.) sur Illustrator.",
+            "Animer les sessions de playtesting : présentation des règles, observation des joueurs et collecte de feedback structuré.",
+            "Présenter le jeu devant un jury et auprès de testeurs externes.",
         ],
     },
 ];
