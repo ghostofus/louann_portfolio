@@ -104,16 +104,15 @@ const SKILLS_TOP = [
     {
         icon: Lightbulb,
         title: "Créativité",
-        description: "Autant que je suis productrice, je suis aussi game designer et je comprends les aspects créatifs de la conception de jeux. J'essaie d'apporter cette créativité dans mon rôle de productrice — non pas en étant limitée à une boîte à outils ou une méthode éprouvée, mais en proposant des solutions créatives et adaptées aux défis d'un projet. C'est pourquoi je cherche continuellement à apprendre et à trouver le bon équilibre entre méthode et touche personnelle.",
+        description: "Autant que je suis productrice, je suis aussi game designer et je comprends les aspects créatifs de la conception de jeux. J'essaie d'apporter cette créativité dans mon rôle de productrice , non pas en étant limitée à une boîte à outils ou une méthode éprouvée, mais en proposant des solutions créatives et adaptées aux défis d'un projet. C'est pourquoi je cherche continuellement à apprendre et à trouver le bon équilibre entre méthode et touche personnelle.",
     },
 ];
 
 const SKILLS_PRODUCTION = [
     "Identification et gestion des risques",
-    "JIRA · Confluence · Notion",
+    "JIRA · Notion",
     "Scrum et méthodologies Agile",
     "Kanban · Waterfall",
-    "Suivi KPIs & vélocité",
     "Sprint Planning & Rétrospectives",
     "Décomposition du scope et du budget",
     "Gestion des ressources",
@@ -127,11 +126,9 @@ const SKILLS_PRODUCTION = [
 ];
 
 const SKILLS_DESIGN = [
-    "Level Design (esquisse → final)",
     "Intégration design, programmation et art",
     "Analyse concurrentielle",
-    "Écriture narrative & scénario",
-    "Game Design & conception de mécaniques",
+    "Game Design",
     "Direction Artistique",
     "Conception de jeux de société",
     "Veille créative & références",
@@ -140,7 +137,7 @@ const SKILLS_DESIGN = [
 const SKILLS_SOFTWARE = [
     "Unreal Engine 5",
     "Unity 6",
-    "JIRA · Confluence",
+    "JIRA",
     "Notion · Nuclino",
     "Figma",
     "Adobe Illustrator",
