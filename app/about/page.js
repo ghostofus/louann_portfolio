@@ -201,6 +201,38 @@ export default function AboutPage() {
 
                     <Divider />
 
+                    {/* ——— SECTION : Qu'est-ce qui me motive ? ——— */}
+                    <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+                        <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}
+                            className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+                            <motion.div variants={fadeLeft} className="flex justify-center md:justify-start">
+                                <Image src="/moi.png" alt="Lou-Ann Barry" width={420} height={500}
+                                    className="rounded-3xl object-cover shadow-2xl border border-[#C3D0F6]/10" />
+                            </motion.div>
+
+                            <motion.div variants={fadeUp} className="flex flex-col gap-6">
+                                <div>
+                                    <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Ma vision</p>
+                                    <h2 className="text-3xl font-semibold tracking-tight">Qu'est-ce qui me motive ?</h2>
+                                </div>
+                                <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
+                                    <p className="text-[#C3D0F6] leading-relaxed">
+                                        En tant que productrice, ce qui me drive c'est de créer le jeu le plus abouti possible — en sachant que la perfection n'existe pas, mais qu'on peut toujours s'en approcher.
+                                    </p>
+                                    <p className="text-[#C3D0F6] leading-relaxed">
+                                        Pour y arriver, je me concentre sur l'amélioration et le soutien des personnes autour de moi. Créer un jeu est un effort d'équipe, et faciliter la progression de chacun tout au long du développement est l'un de mes moteurs principaux.
+                                    </p>
+                                    <p className="text-[#C3D0F6] leading-relaxed">
+                                        C'est, selon moi, la base du succès — et ce que je cherche à atteindre dans chaque équipe dont je fais partie.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    </section>
+
+                    <Divider />
+
                     {/* ——— SECTION 2 : Mes passions ——— */}
                     <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
                         <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-12">
