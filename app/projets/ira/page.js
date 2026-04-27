@@ -21,12 +21,12 @@ const PROJECT = {
     duration: "10 mois",
     src: "/ira.png",
 
-    summary: `À remplir — résumé du jeu. De quoi s'agit-il ? Quel est le concept, l'univers, le gameplay principal ?`,
+    summary: `Dans un empire né d’une guerre sans fin, les Dreadborn ont pris le pouvoir et fondé Deador  une dystopie dictatoriale à l’allure romaine, bâtie sur les ruines des Solari. Lorsque le Voidwalker a massacré ses parents, Kaia Valdrik, dernière héritière Solari, a juré vengeance. Depuis, elle vit loin des cités impériales, au sein de la résistance Solari, traquant sans relâche la créature responsable de la chute de sa lignée. Mais plus elle s’approche du Voidwalker, plus elle sent quelque chose d’étrange se réveiller en elle. Une ombre ancienne, un écho du monstre qu’elle pourchasse. Jusqu’à comprendre la vérité : le démon qu’elle cherche à détruire… vit peut-être déjà dans son propre corps.`,
 
     keyFeatures: [
-        { title: "Fonctionnalité clé 1", description: "À remplir — décris ici la première fonctionnalité marquante du jeu." },
-        { title: "Fonctionnalité clé 2", description: "À remplir — décris ici la deuxième fonctionnalité marquante du jeu." },
-        { title: "Fonctionnalité clé 3", description: "À remplir — décris ici la troisième fonctionnalité marquante du jeu." },
+        { title: "Maîtrisez l'art du combat", description: "En incarnant Kaia, vous choisissez votre approche à chaque affrontement. Enchaînez des combos légers rapides pour maintenir la pression, chargez des frappes lourdes dévastatrices pour briser la posture de vos ennemis, ou harcelez-les à distance avec des projectiles. Remplissez votre jauge de Rage au fil des combats pour déclencher une transformation frénétique, boostant vos dégâts et votre vitesse pour quelques instants de domination totale." },
+        { title: "Combattez avec intelligence, pas seulement avec la force", description: "Survivre dans IRA demande bien plus que la brutalité. Adaptez votre approche en plein combat en alternant entre trois postures tactiques : offensive, défensive ou équilibrée, chacune modifiant la façon dont Kaia attaque et encaisse les coups. Maîtrisez le timing de la parade parfaite pour étourdir vos adversaires et les ouvrir à une contre-attaque, ou déchaînez des sorts élémentaires alimentés par votre Rage pour contrôler la foule, brûler votre cible ou vous protéger des projectiles ennemis." },
+        { title: "Démêlez une identité sombre", description: "Incarnez Kaia Valdrik, dernière héritière des Solari, dans une traque implacable de la créature qui a anéanti sa lignée. Plus vous approchez de la vérité, plus la frontière entre la chasseuse et le monstre s'efface car les ténèbres anciennes qu'elle pourchasse vivent peut-être déjà en elle. Explorez un monde d'empires effondrés et de secrets enfouis, reconstituez le passé de Kaia, et découvrez ce que signifie vraiment être la dernière de son espèce." },
     ],
 
     mainRole: {
@@ -231,7 +231,7 @@ export default function ProjetIRA() {
                                 {/* Infos de développement */}
                                 <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
                                     className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
-                                    <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">Infos de développement</h3>
+                                    <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">Infos de développement (en cours)</h3>
                                     {[
                                         { label: "Taille de l'équipe", value: `${PROJECT.teamSize} personnes` },
                                         { label: "Durée du projet", value: PROJECT.duration },
