@@ -49,17 +49,18 @@ const PROJECT = {
     analysis: [
         {
             heading: "Mise en place du projet",
-            text: `À remplir — décris comment tu as mis en place le projet. Comment l'équipe s'est-elle formée ? Quels ont été les premiers défis organisationnels ? Comment as-tu structuré la production dès le départ ?`,
+            text: `Dès le lancement d'IRA, j'ai structuré l'équipe autour de deux leads : une Lead Game Art et un Lead Game Programer afin d'établir une hiérarchie claire et des canaux de communication efficaces entre les départements qui dans cette catégorie était assez nombreux. Les réunions d'équipe se tenaient chaque mercredi, en présentiel ou à distance, complétées par un suivi continu sur Discord. L'ensemble de la production était centralisé sur Notion : backlog, sprints, attribution des tâches par département et comptes rendus hebdomadaires.
+`,
             image: null,
         },
         {
             heading: "Déroulement du développement",
-            text: `À remplir — raconte le déroulement du développement. Quelles phases as-tu traversées ? Comment as-tu géré les imprévus, les changements de scope, les problèmes techniques ou humains ?`,
+            text: `La phase de pré-production s'est bien déroulée. La Direction Artistique a fourni un travail solide très tôt, ce qui a permis aux artistes de disposer d'une base visuelle claire dès le départ. De leur côté, les programmeurs ont pu commencer à travailler directement après la définition des mécaniques. Je coordonnais les décisions de design en collaboration avec les leads, en m'assurant de recueillir leur avis avant de trancher. Certains désaccords ont émergé autour des mécaniques de combat , notamment sur l'armement du personnage et c'est moi qui ai pris la décision finale après concertation.Face aux contraintes de temps imposées par le cadre scolaire, nous avons dû réduire le scope à deux reprises. Le nombre d'ennemis prévus a été réduit : le projet initial comprenait cinq ennemis dont un boss final, une charge trop importante pour notre character artist seule dans le temps imparti. Les environnements ont également été rescopés , le jeu devait initialement comprendre trois zones (la ville, le marché et la zone du boss). Après de longues discussions en équipe, nous avons décidé de nous concentrer sur les deux zones les plus importantes pour la vertical slice, réduisant également le nombre de props à produire pour notre environment artist.`,
             image: null,
         },
         {
             heading: "Défis rencontrés",
-            text: `À remplir — quels ont été les principaux défis du projet ? Comment les as-tu surmontés ? Qu'as-tu appris de ces expériences en tant que productrice ?`,
+            text: `Les principaux défis étaient humains. Des inégalités d'implication au sein de l'équipe ont créé des tensions : certains membres très investis se frustraient de voir d'autres contribuer moins. Plutôt que de laisser ces tensions s'installer, j'ai organisé des entretiens individuels avec chaque personne concernée. Ces discussions m'ont permis de comprendre qu'il s'agissait avant tout de malentendus. Des compromis ont été trouvés, sans promesses vides ,chacun a pu ajuster son implication sans générer de frustration supplémentaire ni de conflit ouvert. C'est l'une des décisions dont je suis la plus fière sur ce projet.`,
             image: null,
         },
     ],
