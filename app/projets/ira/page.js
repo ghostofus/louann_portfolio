@@ -71,11 +71,11 @@ const PROJECT = {
     ],
 
     screenshots: [
-    "/screenshots/arene.png",
-    "/screenshots/IRA_Concept_Perso_Kaila_V3.png",
-    "/screenshots/jeuglobal.png",
-    "/screenshots/temple.png",
-    "/screenshots/sbire parade.png",
+        "/IRA/arene.png",
+        "/IRA/IRA_Concept_Perso_Kaia.png",
+        "/IRA/jeuglobal.png",
+        "/IRA/temple.png",
+        "/IRA/sbire-parade.png",
     ],
 };
 
