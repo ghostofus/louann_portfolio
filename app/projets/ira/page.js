@@ -32,11 +32,15 @@ const PROJECT = {
     mainRole: {
         title: "Producer / Cheffe de Projet",
         items: [
+            "Établir un contrat de communication définissant les règles de fonctionnement, le temps hebdomadaire requis et les modalités de réunion.",
             "Organiser des entretiens individuels réguliers avec l'ensemble de l'équipe tout au long du projet.",
             "Fournir aux départements Art et Audio des listes de ressources afin de prioriser les tâches et d'éviter les dépendances.",
             "Animer les réunions de planification de sprint et les rétrospectives conformément à notre approche agile.",
+            "Définir les deadlines et les livrables clés et assurer leur suivi tout au long du projet.",
+            "Gérer le scope et prendre des décisions de coupure de contenu en fonction des contraintes.",
             "Organisation et coordination des sessions de playtesting.",
             "Gestion de la documentation de production et du GDD.",
+            "Médiation et résolution de conflits au sein de l'équipe.",
         ],
     },
 
