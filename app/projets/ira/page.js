@@ -70,7 +70,13 @@ const PROJECT = {
         { title: "Planning de production", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
     ],
 
-    screenshots: [],
+    screenshots: [
+    "/screenshots/arene.png",
+    "/screenshots/IRA_Concept_Perso_Kaila_V3.png",
+    "/screenshots/jeuglobal.png",
+    "/screenshots/temple.png",
+    "/screenshots/sbire parade.png",
+    ],
 };
 
 const LINKS = {
