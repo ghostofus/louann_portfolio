@@ -72,7 +72,7 @@ const PROJECT = {
 
     screenshots: [
         "/IRA/arene.png",
-        "/IRA/IRA_Concept_Perso_Kaia.png",
+        "/IRA/Kaia.png",
         "/IRA/jeuglobal.png",
         "/IRA/temple.png",
         "/IRA/sbire-parade.png",
