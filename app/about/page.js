@@ -176,7 +176,7 @@ export default function AboutPage() {
                                     <h1 className="text-4xl font-semibold tracking-tight">Comment j'en suis arrivée là</h1>
                                 </motion.div>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Je suis Lou-Ann Barry, une productrice de jeux vidéo originaire de France, actuellement en dernière année de licence à l'ICAN Lyon. Si vous êtes arrivé sur cette page, c'est que vous voulez en savoir un peu plus sur moi.
+                                    Je suis Lou-Ann Barry, étudiante en dernière année de licence à l'ICAN Lyon, en train de me construire dans le monde du développement de jeux vidéo, avec une appétence naturelle pour la production. Si vous êtes arrivé sur cette page, c'est que vous voulez en savoir un peu plus sur moi.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
                                     J'ai grandi en jouant en cachette à des jeux qui n'étaient pas vraiment de mon âge (Destiny, Far Cry 4) attirée par les univers riches et les histoires qui me laissaient bouche bée. C'est en posant les mains sur The Last of Us que tout a basculé. La façon dont ce jeu réussit à toucher les gens, à manier narration et gameplay avec une telle précision j'ai su à ce moment-là que je voulais comprendre et intégrer cet univers.
