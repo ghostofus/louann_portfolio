@@ -284,32 +284,6 @@ export default function AboutPage() {
 
                     <Divider />
 
-                    {/* ——— SECTION 3 : Mes domaines ——— */}
-                    <section className="mx-auto max-w-6xl px-6 py-20">
-                        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-12">
-                            <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Mes domaines</p>
-                            <h2 className="text-3xl font-semibold tracking-tight">Ce que je fais</h2>
-                        </motion.div>
-
-                        <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
-                            className="grid md:grid-cols-3 gap-6">
-                            {[
-                                { icon: Settings2, title: "Production & Gestion", desc: "Agile, Waterfall, Kanban, Scrum · JIRA, Notion · Roadmapping, Risk Management, Sprint Planning" },
-                                { icon: Gamepad2, title: "Game Design & Level Design", desc: "Conception de mécaniques · Écriture narrative · Unreal Engine 5 · Unity 6 · Jeux de société" },
-                                { icon: Palette, title: "Direction Artistique & TechArt", desc: "Identité visuelle · Cohérence artistique · Coordination Art & Technique · Charte graphique" },
-                            ].map((item, i) => (
-                                <motion.div key={i} variants={fadeUp}
-                                    className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col items-center text-center gap-4">
-                                    <item.icon className="h-10 w-10 text-[#EDF0FC]" strokeWidth={1.5} />
-                                    <h3 className="text-sm font-semibold text-[#EDF0FC] uppercase tracking-wider">{item.title}</h3>
-                                    <p className="text-[#8BA8EE] text-sm italic leading-relaxed">{item.desc}</p>
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </section>
-
-                    <Divider />
-
                     {/* ——— SECTION CONTACT ——— */}
                     <section className="mx-auto max-w-6xl px-6 py-20">
                         <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
