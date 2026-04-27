@@ -176,16 +176,16 @@ export default function AboutPage() {
                                     <h1 className="text-4xl font-semibold tracking-tight">Comment j'en suis arrivée là</h1>
                                 </motion.div>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Je m'appelle Lou-Ann Barry, j'ai 20 ans et je suis étudiante en Game Design à l'ICAN Lyon. Mais puisque vous êtes sur cette page, vous voulez en savoir un peu plus.
+                                    Je suis Lou-Ann Barry, une productrice de jeux vidéo originaire de France, actuellement en dernière année de licence à l'ICAN Lyon. Si vous êtes arrivé sur cette page, c'est que vous voulez en savoir un peu plus sur moi.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Tout a commencé avec les jeux vidéo. En grandissant, j'ai réalisé que les histoires les plus fortes se racontent à travers l'interactivité — et cette conviction m'a naturellement poussée vers le <strong className="text-[#EDF0FC]">Game Design</strong>, puis vers la <strong className="text-[#EDF0FC]">production</strong>.
+                                    J'ai grandi en jouant en cachette à des jeux qui n'étaient pas vraiment de mon âge (Destiny, Far Cry 4) attirée par les univers riches et les histoires qui me laissaient bouche bée. C'est en posant les mains sur The Last of Us que tout a basculé. La façon dont ce jeu réussit à toucher les gens, à manier narration et gameplay avec une telle précision j'ai su à ce moment-là que je voulais comprendre et intégrer cet univers.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Au fil de mes projets — d'un souls-like en Unreal Engine 5 à un jeu de société coopératif — j'ai compris que mon vrai point fort est la <strong className="text-[#EDF0FC]">coordination des équipes</strong> et la <strong className="text-[#EDF0FC]">vision globale du projet</strong>.
+                                    Ce qui m'a naturellement amenée vers la production, c'est mon besoin de voir un projet mené jusqu'au bout, avec une équipe soudée où chacun se sent à sa place. Pas de petit rôle, pas de personne mise de côté tout le monde compte et tout le monde avance ensemble.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Mon stage chez StellarPunk a confirmé cette direction : j'aime être à la croisée entre vision artistique et contraintes de production, au service du jeu et de l'équipe. C'est ce qui me drive — créer l'expérience la plus aboutie possible en soutenant les personnes autour de moi.
+                                    En équipe, on remarque souvent mon enthousiasme et ma façon de gérer les choses : j'écoute, je facilite, et je fais en sorte que les tensions se règlent avant de devenir des blocages. Pour moi, un bon producer c'est quelqu'un qui maintient la cohésion humaine du projet autant que sa cohésion technique.
                                 </motion.p>
                             </div>
 
