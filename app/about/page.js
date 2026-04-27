@@ -218,13 +218,13 @@ export default function AboutPage() {
                                 </div>
                                 <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
                                     <p className="text-[#C3D0F6] leading-relaxed">
-                                        En tant que productrice, ce qui me drive c'est de créer le jeu le plus abouti possible — en sachant que la perfection n'existe pas, mais qu'on peut toujours s'en approcher.
+                                        Ce qui me motive est de créer le jeu le plus abouti possible , en sachant que la perfection n'existe pas, mais qu'on peut toujours s'en approcher.
                                     </p>
                                     <p className="text-[#C3D0F6] leading-relaxed">
                                         Pour y arriver, je me concentre sur l'amélioration et le soutien des personnes autour de moi. Créer un jeu est un effort d'équipe, et faciliter la progression de chacun tout au long du développement est l'un de mes moteurs principaux.
                                     </p>
                                     <p className="text-[#C3D0F6] leading-relaxed">
-                                        C'est, selon moi, la base du succès — et ce que je cherche à atteindre dans chaque équipe dont je fais partie.
+                                        C'est, selon moi, la base du succès et ce que je cherche à atteindre dans chaque équipe dont je fais partie.
                                     </p>
                                 </div>
                             </motion.div>
