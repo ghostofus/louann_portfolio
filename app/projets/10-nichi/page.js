@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, Github, Linkedin, Mail, Users, Clock, Monitor, FileText } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText } from "lucide-react";
 
 const fadeUp = {
     initial: { opacity: 0, y: 24 },
@@ -72,6 +72,35 @@ function StarField() {
     return <canvas ref={canvasRef} style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />;
 }
 
+function ScreenshotCarousel() {
+    const [current, setCurrent] = React.useState(0);
+    const screens = PROJECT.screenshots;
+    const prev = () => setCurrent((c) => (c - 1 + Math.max(screens.length, 1)) % Math.max(screens.length, 1));
+    const next = () => setCurrent((c) => (c + 1) % Math.max(screens.length, 1));
+    if (screens.length === 0) {
+        return (
+            <div className="rounded-3xl border border-dashed border-[#C3D0F6]/20 bg-[#0D1F3E]/40 h-80 flex flex-col items-center justify-center gap-2">
+                <p className="text-[#8BA8EE] text-sm">Screenshots à ajouter</p>
+                <p className="text-xs text-[#8BA8EE]/50">Remplis le tableau screenshots[] dans PROJECT</p>
+            </div>
+        );
+    }
+    return (
+        <div className="rounded-3xl overflow-hidden border border-[#C3D0F6]/10 h-80 relative">
+            <Image src={screens[current]} alt={`Screenshot ${current + 1}`} width={700} height={400} className="w-full h-full object-cover" />
+            {screens.length > 1 && (
+                <>
+                    <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/70 backdrop-blur p-2 hover:bg-[#1F3E71] transition"><ChevronLeft className="h-5 w-5 text-[#EDF0FC]" /></button>
+                    <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/70 backdrop-blur p-2 hover:bg-[#1F3E71] transition"><ChevronRight className="h-5 w-5 text-[#EDF0FC]" /></button>
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        {screens.map((_, i) => <button key={i} onClick={() => setCurrent(i)} className={`w-2 h-2 rounded-full transition ${i === current ? "bg-[#EDF0FC]" : "bg-[#EDF0FC]/30"}`} />)}
+                    </div>
+                </>
+            )}
+        </div>
+    );
+}
+
 function SectionTitle({ label, title }) {
     return <div className="mb-8"><p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">{label}</p><h2 className="text-2xl font-semibold tracking-tight">{title}</h2></div>;
 }
@@ -107,8 +136,11 @@ export default function Projet10Nichi() {
                     </div>
                 </div>
                 <div className="mx-auto max-w-7xl px-6 pt-10 pb-0">
-                    <motion.div variants={fadeUp} initial="initial" animate="animate" className="rounded-3xl overflow-hidden border border-[#C3D0F6]/10 max-h-96">
-                        <Image src={PROJECT.src} alt={PROJECT.title} width={1400} height={500} className="w-full object-cover" priority />
+                    <motion.div variants={fadeUp} initial="initial" animate="animate" className="grid md:grid-cols-2 gap-4">
+                        <div className="rounded-3xl overflow-hidden border border-[#C3D0F6]/10 h-80">
+                            <Image src={PROJECT.src} alt={PROJECT.title} width={700} height={400} className="w-full h-full object-cover" priority />
+                        </div>
+                        <ScreenshotCarousel />
                     </motion.div>
                 </div>
                 <div className="mx-auto max-w-7xl px-6 py-10 flex gap-10 items-start">
