@@ -245,9 +245,9 @@ export default function AboutPage() {
                             {/* Collection */}
                             <motion.div variants={fadeUp}
                                 className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 overflow-hidden flex flex-col">
-                                <div className="overflow-hidden rounded-t-3xl flex justify-center bg-[#0D1F3E]/30 py-4">
-                                    <Image src="/A propos de moi/collection.jpg" alt="Ma collection" width={160} height={120}
-                                        className="object-contain rounded-xl" />
+                                <div className="overflow-hidden rounded-t-3xl h-48">
+                                    <Image src="/A propos de moi/collection.jpg" alt="Ma collection" width={600} height={192}
+                                        className="w-full h-full object-cover" />
                                 </div>
                                 <div className="p-7 flex flex-col gap-4">
                                     <div className="flex items-center gap-3">
