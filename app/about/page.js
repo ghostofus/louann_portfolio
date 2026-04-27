@@ -176,16 +176,16 @@ export default function AboutPage() {
                                     <h1 className="text-4xl font-semibold tracking-tight">Comment j'en suis arrivée là</h1>
                                 </motion.div>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Je suis Lou-Ann Barry, étudiante en dernière année de licence à l'ICAN Lyon, en train de me construire dans le monde du développement de jeux vidéo, avec une appétence naturelle pour la production. Si vous êtes arrivé sur cette page, c'est que vous voulez en savoir un peu plus sur moi.
+                                    Je suis Lou-Ann Barry, étudiante en dernière année de licence à l'ICAN Lyon, et je me spécialise vers la production de jeux vidéo. Si vous êtes arrivé sur cette page, c'est que vous voulez en savoir un peu plus sur moi.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    J'ai grandi en jouant en cachette à des jeux qui n'étaient pas vraiment de mon âge (<b><i>Destiny, Far Cry 4</i></b>) attirée par les univers riches et les histoires qui me laissaient bouche bée. C'est en posant les mains sur <b><i>The Last of Us</i></b> que tout a basculé. La façon dont ce jeu réussit à toucher les gens, à manier narration et gameplay avec une telle précision j'ai su à ce moment-là que je voulais comprendre et intégrer cet univers.
+                                    J'ai grandi en jouant en cachette à des jeux qui n'étaient pas vraiment de mon âge (<b><i>Destiny, Far Cry 4</i></b>). J'ai été attirée par leurs univers riches et les histoires qui me laissaient bouche bée. C'est en posant les mains sur <b><i>The Last of Us</i></b> que tout a basculé. C'est en posant les mains sur The Last of Us que tout a basculé. La façon dont il réussit à toucher les gens en mariant narration et gameplay m'a donné envie de comprendre et d'intégrer cet univers.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Ce qui m'a naturellement amenée vers la production, c'est mon besoin de voir un projet mené jusqu'au bout, avec une équipe soudée où chacun se sent à sa place. Pas de petit rôle, pas de personne mise de côté tout le monde compte et tout le monde avance ensemble.
+                                    Ce qui m'a amenée vers la production, c'est mon envie de voir un projet mené jusqu'au bout, avec une équipe soudée où chacun se sent à sa place. Pas de petit rôle, pas de personne mise de côté tout le monde compte et tout le monde avance ensemble.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    En équipe, on remarque souvent mon enthousiasme et ma façon de gérer les choses : j'écoute, je facilite, et je fais en sorte que les tensions se règlent avant de devenir des blocages. Pour moi, un bon producer c'est quelqu'un qui maintient la cohésion humaine du projet autant que sa cohésion technique.
+                                    En équipe, on remarque souvent mon enthousiasme et ma façon de coordoner les choses : j'écoute, je facilite, et je fais en sorte que les tensions se règlent avant de devenir des blocages. Selon moi, un bon producer c'est quelqu'un qui sait maintenir la cohésion humaine du projet autant que sa cohésion technique.
                                 </motion.p>
                             </div>
 
