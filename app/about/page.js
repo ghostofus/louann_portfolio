@@ -173,7 +173,7 @@ export default function AboutPage() {
                             <div className="flex flex-col gap-6">
                                 <motion.div variants={fadeUp}>
                                     <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">À propos de moi</p>
-                                    <h1 className="text-4xl font-semibold tracking-tight">Comment j'en suis arrivée là</h1>
+                                    <h1 className="text-4xl font-semibold tracking-tight">Qui je suis ?</h1>
                                 </motion.div>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
                                     Je suis Lou-Ann Barry, étudiante en dernière année de licence à l'ICAN Lyon, et je me spécialise vers la production de jeux vidéo. Si vous êtes arrivé sur cette page, c'est que vous voulez en savoir un peu plus sur moi.
@@ -213,7 +213,7 @@ export default function AboutPage() {
 
                             <motion.div variants={fadeUp} className="flex flex-col gap-6">
                                 <div>
-                                    <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Ma vision</p>
+                                    <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">À propos de moi</p>
                                     <h2 className="text-3xl font-semibold tracking-tight">Qu'est-ce qui me motive ?</h2>
                                 </div>
                                 <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
@@ -236,7 +236,6 @@ export default function AboutPage() {
                     {/* ——— SECTION 2 : Mes passions ——— */}
                     <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
                         <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-12">
-                            <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Ce qui me passionne</p>
                             <h2 className="text-3xl font-semibold tracking-tight">Mes passions</h2>
                         </motion.div>
 
@@ -257,7 +256,7 @@ export default function AboutPage() {
                                         <h3 className="text-lg font-semibold">La collection</h3>
                                     </div>
                                     <p className="text-[#C3D0F6] text-sm leading-relaxed">
-                                        Collectionner, c'est une façon de garder une trace de ce qu'on aime. J'adore chiner, dénicher des pièces rares et construire des collections qui ont du sens — chaque objet raconte une histoire et fait partie d'un ensemble plus grand.
+                                        Je suis également une collectionneuse : <b>figurines, objets collector, artbooks</b> principalement autour d'univers qui m'ont marquée comme Arcane, The Last of Us, God of War ou Star Wars etc.. Les artbooks en particulier m'ont toujours attirée pour ce qu'ils révèlent sur les coulisses de la création, les choix artistiques, le making-of. C'est d'ailleurs cette curiosité pour ce qui se passe derrière l'écran qui m'a, en partie, donné envie de travailler dans le jeu vidéo.
                                     </p>
                                 </div>
                             </motion.div>
@@ -276,7 +275,7 @@ export default function AboutPage() {
                                         <h3 className="text-lg font-semibold">La musique</h3>
                                     </div>
                                     <p className="text-[#C3D0F6] text-sm leading-relaxed">
-                                        La musique est omniprésente dans ma vie — elle accompagne mes créations, influence mes ambiances et nourrit mon sens artistique. Ce lien entre son et émotion me passionne autant que la façon dont une bande-son peut transformer une expérience de jeu.
+                                        La musique occupe aussi une grande place dans ma vie. J'ai toujours aimé en faire : des compositions personnelles, des mix etc.. même si par manque de temps aujourd'hui ça se traduit surtout par une collection de vinyles et de CDs. C'est une de mes façon de continuer à nourrir ma sensibilité artistique et d'enrichir ma vision sur les projets.
                                     </p>
                                 </div>
                             </motion.div>
