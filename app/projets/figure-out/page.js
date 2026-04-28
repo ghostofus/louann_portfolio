@@ -53,7 +53,11 @@ const PROJECT = {
         { title: "Art Style Guide", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
         { title: "Comptes rendus hebdomadaires", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
     ],
-    screenshots: [],
+    screenshots: [
+        "/Figureout/FO.png",
+        "/Figureout/ND1.png",
+        "/Figureout/ND2.png",
+    ],
 };
 
 const LINKS = { github: "https://github.com/", linkedin: "https://linkedin.com/in/", email: "louann.barry05@gmail.com" };
