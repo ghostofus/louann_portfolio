@@ -185,15 +185,28 @@ export default function ProjetGeckoPulco() {
 
                         <section id="roles" className="scroll-mt-24">
                             <SectionTitle label="Ma contribution" title="Rôle & Responsabilités" />
-                            <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-                                <div className="flex items-center gap-3 mb-5">
-                                    <div className="rounded-xl bg-[#4782E4]/15 p-2.5"><Users className="h-5 w-5 text-[#4782E4]" /></div>
-                                    <div><p className="text-xs text-[#8BA8EE] uppercase tracking-widest">Rôle principal</p><h3 className="font-semibold text-[#EDF0FC]">{PROJECT.mainRole.title}</h3></div>
-                                </div>
-                                <ul className="space-y-2.5 text-[#C3D0F6] text-sm list-disc pl-5">
-                                    {PROJECT.mainRole.items.map((item, i) => <li key={i}>{item}</li>)}
-                                </ul>
-                            </motion.div>
+                            <div className="flex flex-col gap-6">
+                                <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
+                                    <div className="flex items-center gap-3 mb-5">
+                                        <div className="rounded-xl bg-[#4782E4]/15 p-2.5"><Users className="h-5 w-5 text-[#4782E4]" /></div>
+                                        <div><p className="text-xs text-[#8BA8EE] uppercase tracking-widest">Rôle principal</p><h3 className="font-semibold text-[#EDF0FC]">{PROJECT.mainRole.title}</h3></div>
+                                    </div>
+                                    <ul className="space-y-2.5 text-[#C3D0F6] text-sm list-disc pl-5">
+                                        {PROJECT.mainRole.items.map((item, i) => <li key={i}>{item}</li>)}
+                                    </ul>
+                                </motion.div>
+                                {PROJECT.secondaryRole && (
+                                    <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
+                                        <div className="flex items-center gap-3 mb-5">
+                                            <div className="rounded-xl bg-[#4782E4]/15 p-2.5"><Users className="h-5 w-5 text-[#4782E4]" /></div>
+                                            <div><p className="text-xs text-[#8BA8EE] uppercase tracking-widest">Rôle secondaire</p><h3 className="font-semibold text-[#EDF0FC]">{PROJECT.secondaryRole.title}</h3></div>
+                                        </div>
+                                        <ul className="space-y-2.5 text-[#C3D0F6] text-sm list-disc pl-5">
+                                            {PROJECT.secondaryRole.items.map((item, i) => <li key={i}>{item}</li>)}
+                                        </ul>
+                                    </motion.div>
+                                )}
+                            </div>
                         </section>
 
                         <div className="h-px bg-gradient-to-r from-transparent via-[#C3D0F6]/20 to-transparent" />
