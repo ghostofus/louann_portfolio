@@ -292,7 +292,7 @@ export default function AboutPage() {
                         <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
                             className="rounded-3xl border border-[#C3D0F6]/10 bg-gradient-to-br from-[#1F3E71]/30 to-[#0D1F3E]/20 p-12 text-center">
                             <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Me contacter</p>
-                            <h2 className="text-3xl font-semibold tracking-tight mb-3">On se parle ?</h2>
+                            <h2 className="text-3xl font-semibold tracking-tight mb-3">Discutons!</h2>
                             <p className="text-[#C3D0F6] mb-8">
                                 N'hésitez pas à me contacter à tout moment, je répondrai le plus vite possible.
                             </p>
