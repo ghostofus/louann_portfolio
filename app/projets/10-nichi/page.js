@@ -46,6 +46,7 @@ const PROJECT = {
         { title: "Rapport de playtesting", description: "À remplir — décris les résultats et observations des sessions de test.", url: "#" },
     ],
     screenshots: [
+        "/10nichi/samourai.png",
         "/10nichi/plateau.jpg",
     ],
 };
