@@ -269,16 +269,6 @@ export default function ProjetIRA() {
                                 ))}
                             </motion.div>
 
-                            {/* Screenshots */}
-                            {PROJECT.screenshots.length > 0 && (
-                                <div className="grid md:grid-cols-2 gap-4 mt-6">
-                                    {PROJECT.screenshots.map((src, i) => (
-                                        <div key={i} className="rounded-2xl overflow-hidden border border-[#C3D0F6]/10">
-                                            <Image src={src} alt={`Screenshot ${i + 1}`} width={700} height={400} className="w-full object-cover" />
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
                         </section>
 
                         <div className="h-px bg-gradient-to-r from-transparent via-[#C3D0F6]/20 to-transparent" />
