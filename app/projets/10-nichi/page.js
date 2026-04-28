@@ -20,11 +20,11 @@ const PROJECT = {
     teamSize: "4",
     duration: "4 mois",
     src: "/10nichi.png",
-    summary: `À remplir — résumé du jeu. De quoi s'agit-il ? Quel est le concept, l'univers, les règles principales ?`,
+    summary: `10-Nichi ! est un jeu de plateau coopératif pour 3 à 5 joueurs, dans lequel les joueurs incarnent des Samouraïs chargés de protéger un village menacé dans le Japon féodal. Leur objectif est de faire survivre la population pendant 10 jours, en attendant l’arrivée des renforts du Shogun.`,
     keyFeatures: [
-        { title: "Fonctionnalité clé 1", description: "À remplir — décris ici la première mécanique marquante du jeu." },
-        { title: "Fonctionnalité clé 2", description: "À remplir — décris ici la deuxième mécanique marquante du jeu." },
-        { title: "Fonctionnalité clé 3", description: "À remplir — décris ici la troisième mécanique marquante du jeu." },
+        { title: "Gestion stratégique du village sous pression temporelle", description: "Les joueurs doivent coopérer pour faire survivre un village pendant 10 jours, en gérant simultanément ressources, population et défense. Chaque décision impacte directement la survie collective : mal nourrir les villageois ou mal anticiper les besoins peut entraîner des pertes irréversibles et compromettre la victoire." },
+        { title: "Système d’événements et de bénédictions dynamiques", description: "Le jeu repose sur un système d’aléas (événements, climat, bénédictions ou malédictions des Kami) qui viennent perturber la stratégie des joueurs. Chaque journée apporte son lot d’imprévus, obligeant les joueurs à s’adapter constamment et à coopérer pour limiter les conséquences négatives." },
+        { title: "Placement tactique des unités et optimisation des actions", description: "Chaque jour, les joueurs placent leurs Samouraïs et villageois sur différents emplacements (récolte, défense, production), créant une couche stratégique forte. Il faut optimiser les placements pour produire des ressources tout en protégeant le village des menaces, avec des choix parfois risqués entre sécurité et rendement." },
     ],
     mainRole: {
         title: "Conceptrice de jeu",
@@ -37,15 +37,17 @@ const PROJECT = {
     },
     secondaryRole: null,
     analysis: [
-        { heading: "Conception du jeu", text: `À remplir — décris le processus de conception. Comment les règles ont-elles évolué ? Quelles mécaniques ont été ajoutées ou supprimées suite aux tests ?`, image: null },
-        { heading: "Sessions de playtesting", text: `À remplir — raconte comment tu as organisé et animé les sessions de playtesting. Qu'as-tu observé ? Quels retours t'ont le plus surpris ou aidé ?`, image: null },
-        { heading: "Défis et apprentissages", text: `À remplir — quels ont été les principaux défis de ce projet ? Qu'as-tu appris sur la conception de jeux de société et sur le travail en équipe ?`, image: null },
+        { heading: "Conception du jeu", text: `Le développement de 10-Nichi ! s’est construit autour d’un concept central : proposer une expérience coopérative où les joueurs doivent gérer un village sous pression sur une durée limitée de 10 jours. Dès les premières phases de conception, l’objectif était de créer une tension constante entre gestion de ressources, défense et prise de décision collective.Les premières versions du jeu étaient plus simples dans leur structure, mais rapidement, des mécaniques ont été ajoutées pour enrichir la profondeur stratégique, comme le système de phases journalières (matin, journée, soir) et l’introduction d’événements aléatoires.Au fil des itérations, certaines mécaniques ont été ajustées ou simplifiées pour améliorer la lisibilité du jeu. Par exemple, la gestion des ressources et du Grenier a été clarifiée afin de rendre les choix plus compréhensibles pour les joueurs. L’ajout des bénédictions et malédictions des Kami a également permis de renforcer l’aspect imprévisible et la rejouabilité.L’équilibrage a été un point central du processus, notamment pour trouver un bon compromis entre difficulté et accessibilité. L’objectif n’était pas de créer un jeu punitif, mais un jeu exigeant où la coopération et la communication sont essentielles.`, image: null },
+        { heading: "Sessions de playtesting", text: `Les sessions de playtesting ont été essentielles pour affiner les mécaniques et valider les choix de design. Elles ont été organisées de manière régulière, en impliquant à la fois des membres de l’équipe et des joueurs extérieurs afin d’obtenir des retours variés.Lors de ces sessions, plusieurs observations ont été faites. Tout d’abord, les joueurs avaient tendance à sous-estimer l’importance de la gestion de la nourriture, ce qui entraînait rapidement des situations critiques. Cela a permis de rééquilibrer certains aspects pour mieux guider les joueurs dans leurs priorités.Les retours ont également mis en évidence une forte appréciation du côté coopératif du jeu, notamment dans les phases de discussion et de prise de décision collective. En revanche, certains joueurs pouvaient se sentir perdus face à la quantité d’informations et de règles au début de la partie, ce qui a conduit à simplifier certaines explications et à améliorer la clarté du livret.Un point particulièrement intéressant a été de constater que les moments les plus marquants pour les joueurs étaient liés aux imprévus (événements, malédictions), confirmant l’intérêt de conserver une part d’aléatoire forte dans l’expérience.`, image: null },
+        { heading: "Défis et apprentissages", text: `Le principal défi du projet a été l’équilibrage du jeu. Concevoir un système à la fois stratégique, coopératif et dépendant d’aléas nécessite de nombreux ajustements pour éviter qu’une partie soit trop facile ou, au contraire, frustrante.Un autre défi important a été la complexité des règles. Il a fallu trouver un équilibre entre richesse mécanique et accessibilité, afin de ne pas décourager les joueurs dès les premières parties.Ce projet a également permis de mieux comprendre l’importance du playtesting dans la conception d’un jeu de société. Les retours des joueurs ont été essentiels pour identifier des problèmes qui n’étaient pas visibles en interne, notamment sur la compréhension des règles et le ressenti global.Enfin, ce travail a renforcé des compétences en conception systémique, en équilibrage et en travail d’équipe. Il a mis en évidence l’importance de l’itération, de l’écoute des retours et de la capacité à remettre en question ses idées initiales pour améliorer l’expérience finale.`, image: null },
     ],
     documents: [
         { title: "Rulebook", description: "À remplir — décris le document de règles du jeu et ce qu'il contient.", url: "#" },
         { title: "Rapport de playtesting", description: "À remplir — décris les résultats et observations des sessions de test.", url: "#" },
     ],
-    screenshots: [],
+    screenshots: [
+        "/10nichi/plateau.png",
+    ],
 };
 
 const LINKS = { github: "https://github.com/", linkedin: "https://linkedin.com/in/", email: "louann.barry05@gmail.com" };
