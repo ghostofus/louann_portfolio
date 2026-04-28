@@ -52,7 +52,11 @@ const PROJECT = {
         { title: "Document de cadrage", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
         { title: "Planning de production", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
     ],
-    screenshots: [],
+    screenshots: [
+        "/GeckoPulco/GP1.png",
+        "/GeckoPulco/GP2.png",
+        "/GeckoPulco/GP3.png",
+    ],
 };
 
 const LINKS = { github: "https://github.com/", linkedin: "https://linkedin.com/in/", email: "louann.barry05@gmail.com" };
