@@ -1,79 +1,139 @@
 "use client";
+/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, Clock, Trophy, ChevronLeft, Github, Linkedin, Mail } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText } from "lucide-react";
 
 const fadeUp = {
     initial: { opacity: 0, y: 24 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
-const stagger = { animate: { transition: { staggerChildren: 0.12 } } };
+const stagger = { animate: { transition: { staggerChildren: 0.14 } } };
 
-// ——— Données à remplir ———
 const PROJECT = {
     title: "Figure Out",
     period: "2023/2024",
-    role: "Directrice Artistique",
-    summary: "Click & Point 3D développé sous Unreal Engine.",
+    engine: "Unreal Engine",
+    platform: "PC",
+    teamSize: "13",
+    duration: "1 an",
     src: "/figureout.jpg",
-    teamSize: "À remplir",
-    duration: "À remplir",
-    awards: "À remplir",
-    description: `À remplir — décris ici ton projet en quelques phrases. De quoi s'agit-il ? Quel était le contexte ? Quelle était ta mission principale ?`,
+    summary: `Figure Out est un jeu vidéo en visual novel et point’n click, s’inscrivant dans le genre du drame policier, et prenant place dans un Paris moderne et fictif. Le joueur y incarne un détective privé jouissant d’une certaine renommée à travers la capitale française et une assez longue carrière d’une quinzaine d’année. Un détail le concernant, il est prosopagnosique, soit qu’il est incapable de reconnaître les visages qui lui font face, pas même son propre portrait. Une tare qui l’a conduit à se concentrer sur les moindres détails découvre la vérité qui s’y dissimule.`,
+    keyFeatures: [
+        { title: "Enquête basée sur la prosopagnosie", description: "Le joueur incarne un détective incapable de reconnaître les visages, ce qui transforme profondément la manière d’enquêter. Il doit s’appuyer sur des indices alternatifs (voix, vêtements, habitudes, détails environnementaux) pour identifier les suspects et reconstituer les événements." },
+        { title: "Système de déduction et d’embranchements narratifs", description: "Les informations collectées s’organisent sous forme de “fils d’enquête” que le joueur relie pour faire émerger des conclusions. Chaque choix d’interprétation influence la suite de l’histoire, débloquant différents chemins narratifs et révélations." },
+        { title: "Exploration interactive en Point’n Click", description: "Le joueur explore des scènes détaillées (appartement, lieux d’enquête…) en interagissant avec des objets, documents et souvenirs. Chaque élément peut révéler des indices cachés ou déclencher des dialogues, renforçant l’immersion et la progression dans l’enquête." },
+    ],
     mainRole: {
-        title: "À remplir — Titre de ton rôle principal",
+        title: "Directrice Artistique",
         items: [
-            "À remplir — première responsabilité",
-            "À remplir — deuxième responsabilité",
-            "À remplir — troisième responsabilité",
-            "À remplir — quatrième responsabilité",
+            "Définir l'ambiance générale et la direction visuelle du jeu, en se concentrant sur la direction des environnements.",
+            "Rédiger et maintenir l'Art Style Guide en s'appuyant sur une veille de jeux et techniques de référence.",
+            "Collaborer avec les artistes en fournissant un feedback créatif itératif pour guider la production visuelle.",
         ],
     },
-    secondaryRole: null, // Mets un objet { title, items } si tu avais un rôle secondaire, sinon laisse null
-    screenshots: [], // Ajoute ici les chemins vers tes screenshots ex: ["/ira-screen1.png", "/ira-screen2.png"]
-    videoUrl: "", // Lien YouTube si tu en as un
+    secondaryRole: {
+        title: "Producer / Support de Production",
+        items: [
+            "Gérer le backlog et les tâches de l'ensemble de l'équipe artistique via Jira.",
+            "Assurer l'intégration et la documentation de la production sur Nuclino.",
+            "Former et accompagner l'équipe à l'utilisation de Jira et Nuclino tout au long du projet.",
+            "Produire des comptes rendus hebdomadaires à destination du chef de projet suite aux réunions d'équipe.",
+        ],
+    },
+    analysis: [
+        { heading: "Mise en place du projet", text: `Figure Out est un projet de Visual Novel / Point’n Click développé en équipe de 13 personnes.Le jeu propose une enquête narrative dans un univers polar, centrée sur un détective atteint de prosopagnosie.J’occupais principalement un rôle de direction artistique, tout en prenant une place importante en producing. Je gérais notamment le suivi des tâches sur Jira, la mise à jour du Game Design Document sur Notion, ainsi que la communication entre les différents pôles et le chef de projet.Dès le début, nous avons mis en place une organisation basée sur plusieurs outils (Notion, Figma, Discord, Git, Unity) avec un fonctionnement en sprints hebdomadaires. Des réunions régulières étaient organisées, notamment au sein de l’équipe artistique que j’ai progressivement été amené à encadrer.`, image: null },
+        { heading: "Déroulement du développement", text: `La phase de pré-production s’est globalement bien déroulée, avec une bonne définition des intentions artistiques et narratives. Cependant, elle s’est révélée plus longue que prévu, notamment à cause de retards sur certains rendus et de nombreux changements de direction.Un tournant majeur du projet a été le passage d’un jeu initialement pensé en 3D vers un format Visual Novel / Point’n Click. Ce changement a eu un impact important sur l’ensemble de l’équipe, autant pour les programmeurs que pour les artistes, en remettant en question la direction artistique et les besoins techniques.Malgré cela, l’équipe artistique est restée structurée et productive. Avec la Lead Artist, nous avons mis en place des points réguliers, donné des retours fréquents, et assuré une cohérence visuelle tout au long du projet.`, image: null },
+        { heading: "Défis rencontrés", text: `Le projet a été marqué par plusieurs défis importants, à la fois humains et organisationnels.Des tensions sont apparues au sein de l’équipe, en partie dues à l’ambition du projet et au manque d’expérience globale face à un sujet aussi exigeant. L’absence de lead clair côté programmation a également entraîné un certain déséquilibre dans l’avancement, laissant certains membres sans direction précise.Les nombreux changements de scope ont été un facteur de démotivation pour une partie de l’équipe. Certains membres ont progressivement décroché, rendant la coordination plus complexe.Face à cela, j’ai pris l’initiative d’organiser des réunions plus ciblées, notamment avec l’équipe artistique, afin de maintenir la motivation et recréer une dynamique de groupe. Des échanges plus personnels ont également permis d’identifier certains problèmes internes et d’y répondre de manière plus adaptée.`, image: null },
+        { heading: "Bilan et apprentissages", text: 'Le projet n’a finalement pas pu être mené à terme, notamment suite au départ du chef de projet, qui a entraîné une perte de repères et de motivation au sein de l’équipe. Malgré plusieurs tentatives pour relancer la dynamique, le manque de leadership global a empêché la finalisation du jeu.Cependant, cette expérience reste très formatrice. La gestion d’une équipe de plus de 7 personnes sur le pôle artistique a été un véritable défi, qui m’a permis de développer des compétences en organisation, communication et encadrement.Ce projet a surtout confirmé mon intérêt pour la production et la gestion d’équipe. Avec du recul, je serais plus attentive à la définition du scope dès le départ, à la stabilité des décisions, et à la mise en place de leads clairs dans chaque pôle afin d’assurer un meilleur équilibre de production.Malgré les difficultés rencontrées, cette expérience m’a donné envie de m’investir davantage dans des rôles à responsabilité, avec pour objectif de mener des projets à leur aboutissement de manière plus structurée et efficace.'}
+    ],
+    documents: [
+        { title: "Art Style Guide", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
+        { title: "Comptes rendus hebdomadaires", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
+    ],
+    screenshots: [
+        "/Figureout/FO.png",
+        "/Figureout/ND1.png",
+        "/Figureout/ND2.png",
+    ],
 };
+
+const LINKS = { github: "https://github.com/", linkedin: "https://linkedin.com/in/", email: "louann.barry05@gmail.com" };
+const NAV_ITEMS = [
+    { label: "Infos générales", href: "#general" },
+    { label: "Rôle & Responsabilités", href: "#roles" },
+    { label: "Analyse", href: "#analyse" },
+    { label: "Documents", href: "#documents" },
+];
 
 function StarField() {
     const canvasRef = React.useRef(null);
     React.useEffect(() => {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext("2d");
-        let animationId;
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const stars = Array.from({ length: 140 }, () => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 1.2 + 0.2,
-            alpha: Math.random() * 0.5 + 0.15,
-            offset: Math.random() * Math.PI * 2,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-        }));
+        const canvas = canvasRef.current; const ctx = canvas.getContext("2d"); let animationId;
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        const stars = Array.from({ length: 140 }, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.2 + 0.2, alpha: Math.random() * 0.5 + 0.15, offset: Math.random() * Math.PI * 2, vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25 }));
         let t = 0;
-        const draw = () => {
-            t += 0.02;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            stars.forEach((s) => {
-                s.x += s.vx; s.y += s.vy;
-                if (s.x < 0) s.x = canvas.width;
-                if (s.x > canvas.width) s.x = 0;
-                if (s.y < 0) s.y = canvas.height;
-                if (s.y > canvas.height) s.y = 0;
-                const pulse = s.alpha + Math.sin(t + s.offset) * 0.3;
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(195, 215, 255, ${Math.max(0.05, pulse)})`;
-                ctx.fill();
-            });
-            animationId = requestAnimationFrame(draw);
-        };
+        const draw = () => { t += 0.02; ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach((s) => { s.x += s.vx; s.y += s.vy; if (s.x < 0) s.x = canvas.width; if (s.x > canvas.width) s.x = 0; if (s.y < 0) s.y = canvas.height; if (s.y > canvas.height) s.y = 0; const pulse = s.alpha + Math.sin(t + s.offset) * 0.3; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(195, 215, 255, ${Math.max(0.05, pulse)})`; ctx.fill(); }); animationId = requestAnimationFrame(draw); };
         draw();
-        return () => cancelAnimationFrame(animationId);
+        const onResize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+        window.addEventListener("resize", onResize);
+        return () => { cancelAnimationFrame(animationId); window.removeEventListener("resize", onResize); };
     }, []);
     return <canvas ref={canvasRef} style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />;
+}
+
+function ScreenshotCarousel() {
+    const [current, setCurrent] = React.useState(0);
+    const screens = PROJECT.screenshots;
+    const prev = () => setCurrent((c) => (c - 1 + Math.max(screens.length, 1)) % Math.max(screens.length, 1));
+    const next = () => setCurrent((c) => (c + 1) % Math.max(screens.length, 1));
+    if (screens.length === 0) {
+        return (
+            <div className="rounded-3xl border border-dashed border-[#C3D0F6]/20 bg-[#0D1F3E]/40 h-80 flex flex-col items-center justify-center gap-2">
+                <p className="text-[#8BA8EE] text-sm">Screenshots à ajouter</p>
+                <p className="text-xs text-[#8BA8EE]/50">Remplis le tableau screenshots[] dans PROJECT</p>
+            </div>
+        );
+    }
+    return (
+        <div className="rounded-3xl overflow-hidden border border-[#C3D0F6]/10 h-80 relative">
+            <Image src={screens[current]} alt={`Screenshot ${current + 1}`} width={700} height={400} className="w-full h-full object-cover" />
+            {screens.length > 1 && (
+                <>
+                    <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/70 backdrop-blur p-2 hover:bg-[#1F3E71] transition"><ChevronLeft className="h-5 w-5 text-[#EDF0FC]" /></button>
+                    <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/70 backdrop-blur p-2 hover:bg-[#1F3E71] transition"><ChevronRight className="h-5 w-5 text-[#EDF0FC]" /></button>
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        {screens.map((_, i) => <button key={i} onClick={() => setCurrent(i)} className={`w-2 h-2 rounded-full transition ${i === current ? "bg-[#EDF0FC]" : "bg-[#EDF0FC]/30"}`} />)}
+                    </div>
+                </>
+            )}
+        </div>
+    );
+}
+
+function SectionTitle({ label, title }) {
+    return <div className="mb-8"><p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">{label}</p><h2 className="text-2xl font-semibold tracking-tight">{title}</h2></div>;
+}
+
+function Sidebar() {
+    return (
+        <aside className="hidden lg:flex flex-col gap-1 w-52 flex-shrink-0 sticky top-24">
+            <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-3 px-3">{PROJECT.title}</p>
+            {NAV_ITEMS.map((item) => (
+                <a key={item.href} href={item.href} className="px-3 py-2 rounded-xl text-sm text-[#C3D0F6] hover:text-[#EDF0FC] hover:bg-[#1F3E71]/30 transition">{item.label}</a>
+            ))}
+            <div className="mt-6 px-3">
+                <div className="h-px bg-[#C3D0F6]/10 mb-4" />
+                <div className="flex flex-col gap-2 text-xs text-[#8BA8EE]">
+                    <div className="flex items-center gap-2"><Users className="h-3.5 w-3.5" /> {PROJECT.teamSize} personnes</div>
+                    <div className="flex items-center gap-2"><Clock className="h-3.5 w-3.5" /> {PROJECT.duration}</div>
+                    <div className="flex items-center gap-2"><Monitor className="h-3.5 w-3.5" /> {PROJECT.engine}</div>
+                </div>
+            </div>
+        </aside>
+    );
 }
 
 export default function ProjetFigureOut() {
@@ -81,121 +141,126 @@ export default function ProjetFigureOut() {
         <div className="min-h-screen bg-[#080f1e] text-[#EDF0FC]" style={{ position: "relative" }}>
             <StarField />
             <div style={{ position: "relative", zIndex: 1 }}>
-                {/* Header */}
                 <div className="sticky top-0 z-50 backdrop-blur bg-[#080f1e]/70 border-b border-[#C3D0F6]/10">
-                    <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-                        <a href="/" className="inline-flex items-center gap-2 text-[#8BA8EE] hover:text-[#EDF0FC] transition text-sm">
-                            <ChevronLeft className="h-4 w-4" /> Retour au portfolio
-                        </a>
-                        <span className="font-semibold text-[#EDF0FC] hidden md:block">Lou-Ann Barry</span>
+                    <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+                        <Link href="/" className="inline-flex items-center gap-2 text-[#8BA8EE] hover:text-[#EDF0FC] transition text-sm"><ChevronLeft className="h-4 w-4" /> Retour au portfolio</Link>
+                        <span className="font-semibold text-[#EDF0FC] hidden md:block">{PROJECT.title}</span>
                     </div>
                 </div>
-
-                <main className="mx-auto max-w-6xl px-6 py-16">
-                    {/* Titre + résumé */}
-                    <motion.div variants={stagger} initial="initial" animate="animate" className="mb-14">
-                        <motion.p variants={fadeUp} className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">
-                            {PROJECT.period}
-                        </motion.p>
-                        <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
-                            {PROJECT.title}
-                        </motion.h1>
-                        <motion.p variants={fadeUp} className="text-[#C3D0F6] text-lg max-w-2xl">
-                            {PROJECT.summary}
-                        </motion.p>
+                <div className="mx-auto max-w-7xl px-6 pt-10 pb-0">
+                    <motion.div variants={fadeUp} initial="initial" animate="animate" className="grid md:grid-cols-2 gap-4">
+                        <div className="rounded-3xl overflow-hidden border border-[#C3D0F6]/10 h-80">
+                            <Image src={PROJECT.src} alt={PROJECT.title} width={700} height={400} className="w-full h-full object-cover" priority />
+                        </div>
+                        <ScreenshotCarousel />
                     </motion.div>
+                </div>
+                <div className="mx-auto max-w-7xl px-6 py-10 flex gap-10 items-start">
+                    <Sidebar />
+                    <main className="flex-1 min-w-0 flex flex-col gap-16">
 
-                    {/* Image principale */}
-                    <motion.div variants={fadeUp} initial="initial" animate="animate"
-                        className="rounded-3xl overflow-hidden border border-[#C3D0F6]/10 mb-14">
-                        <Image src={PROJECT.src} alt={PROJECT.title} width={1200} height={600} className="w-full object-cover" />
-                    </motion.div>
-
-                    {/* Stats */}
-                    <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
-                        className="grid grid-cols-3 gap-4 mb-14">
-                        {[
-                            { icon: <Users className="h-6 w-6" />, label: "Taille d'équipe", value: PROJECT.teamSize },
-                            { icon: <Clock className="h-6 w-6" />, label: "Durée du projet", value: PROJECT.duration },
-                            { icon: <Trophy className="h-6 w-6" />, label: "Récompenses", value: PROJECT.awards },
-                        ].map((stat, i) => (
-                            <motion.div key={i} variants={fadeUp}
-                                className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-5 text-center">
-                                <div className="text-[#8BA8EE] flex justify-center mb-2">{stat.icon}</div>
-                                <p className="text-xs text-[#8BA8EE] mb-1">{stat.label}</p>
-                                <p className="font-medium text-[#EDF0FC]">{stat.value}</p>
+                        <section id="general" className="scroll-mt-24">
+                            <SectionTitle label="Le projet" title="Informations générales" />
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-3">
+                                    <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">Résumé du jeu</h3>
+                                    <p className="text-[#C3D0F6] text-sm leading-relaxed">{PROJECT.summary}</p>
+                                </motion.div>
+                                <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
+                                    <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">Infos de développement</h3>
+                                    {[{ label: "Taille de l'équipe", value: `${PROJECT.teamSize} personnes` }, { label: "Durée du projet", value: PROJECT.duration }, { label: "Moteur", value: PROJECT.engine }, { label: "Plateforme", value: PROJECT.platform }].map((info, i) => (
+                                        <div key={i} className="flex justify-between items-center border-b border-[#C3D0F6]/10 pb-2 last:border-0 last:pb-0">
+                                            <span className="text-xs text-[#8BA8EE]">{info.label}</span>
+                                            <span className="text-sm font-medium text-[#EDF0FC]">{info.value}</span>
+                                        </div>
+                                    ))}
+                                </motion.div>
+                            </div>
+                            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }} className="grid md:grid-cols-3 gap-6 mt-6">
+                                {PROJECT.keyFeatures.map((f, i) => (
+                                    <motion.div key={i} variants={fadeUp} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-6 flex flex-col gap-3">
+                                        <h3 className="text-sm font-semibold text-[#EDF0FC]">{f.title}</h3>
+                                        <p className="text-[#C3D0F6] text-sm leading-relaxed">{f.description}</p>
+                                    </motion.div>
+                                ))}
                             </motion.div>
-                        ))}
-                    </motion.div>
+                        </section>
 
-                    <div className="grid md:grid-cols-2 gap-8 mb-14">
-                        {/* Description */}
-                        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
-                            className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-                            <h2 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-4">À propos du projet</h2>
-                            <p className="text-[#C3D0F6] leading-relaxed text-sm">{PROJECT.description}</p>
-                        </motion.div>
+                        <div className="h-px bg-gradient-to-r from-transparent via-[#C3D0F6]/20 to-transparent" />
 
-                        {/* Rôle principal */}
-                        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
-                            className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-                            <h2 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-2">Responsabilités</h2>
-                            <p className="text-[#C3D0F6] text-sm italic mb-4">Rôle : {PROJECT.role}</p>
-                            <ul className="space-y-2 text-[#C3D0F6] text-sm list-disc pl-5">
-                                {PROJECT.mainRole.items.map((item, i) => <li key={i}>{item}</li>)}
-                            </ul>
-                        </motion.div>
-                    </div>
-
-                    {/* Rôle secondaire (si applicable) */}
-                    {PROJECT.secondaryRole && (
-                        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
-                            className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 mb-14">
-                            <h2 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-2">Rôle secondaire</h2>
-                            <p className="text-[#C3D0F6] text-sm italic mb-4">{PROJECT.secondaryRole.title}</p>
-                            <ul className="space-y-2 text-[#C3D0F6] text-sm list-disc pl-5">
-                                {PROJECT.secondaryRole.items.map((item, i) => <li key={i}>{item}</li>)}
-                            </ul>
-                        </motion.div>
-                    )}
-
-                    {/* Screenshots */}
-                    <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
-                        className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 mb-14">
-                        <h2 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-5">Screenshots</h2>
-                        {PROJECT.screenshots.length > 0 ? (
-                            <div className="grid grid-cols-2 gap-4">
-                                {PROJECT.screenshots.map((src, i) => (
-                                    <div key={i} className="rounded-2xl overflow-hidden border border-[#C3D0F6]/10">
-                                        <Image src={src} alt={`Screenshot ${i + 1}`} width={600} height={340} className="w-full object-cover" />
+                        <section id="roles" className="scroll-mt-24">
+                            <SectionTitle label="Ma contribution" title="Rôle & Responsabilités" />
+                            <div className="flex flex-col gap-6">
+                                <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
+                                    <div className="flex items-center gap-3 mb-5">
+                                        <div className="rounded-xl bg-[#4782E4]/15 p-2.5"><Users className="h-5 w-5 text-[#4782E4]" /></div>
+                                        <div><p className="text-xs text-[#8BA8EE] uppercase tracking-widest">Rôle principal</p><h3 className="font-semibold text-[#EDF0FC]">{PROJECT.mainRole.title}</h3></div>
                                     </div>
+                                    <ul className="space-y-2.5 text-[#C3D0F6] text-sm list-disc pl-5">
+                                        {PROJECT.mainRole.items.map((item, i) => <li key={i}>{item}</li>)}
+                                    </ul>
+                                </motion.div>
+                                {PROJECT.secondaryRole && (
+                                    <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
+                                        <div className="flex items-center gap-3 mb-5">
+                                            <div className="rounded-xl bg-[#4782E4]/15 p-2.5"><Users className="h-5 w-5 text-[#4782E4]" /></div>
+                                            <div><p className="text-xs text-[#8BA8EE] uppercase tracking-widest">Rôle secondaire</p><h3 className="font-semibold text-[#EDF0FC]">{PROJECT.secondaryRole.title}</h3></div>
+                                        </div>
+                                        <ul className="space-y-2.5 text-[#C3D0F6] text-sm list-disc pl-5">
+                                            {PROJECT.secondaryRole.items.map((item, i) => <li key={i}>{item}</li>)}
+                                        </ul>
+                                    </motion.div>
+                                )}
+                            </div>
+                        </section>
+
+                        <div className="h-px bg-gradient-to-r from-transparent via-[#C3D0F6]/20 to-transparent" />
+
+                        <section id="analyse" className="scroll-mt-24">
+                            <SectionTitle label="Retour d'expérience" title="Analyse & Processus" />
+                            <div className="flex flex-col gap-10">
+                                {PROJECT.analysis.map((block, i) => (
+                                    <motion.div key={i} variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.15 }} className={`grid ${block.image ? "md:grid-cols-2" : "grid-cols-1"} gap-8 items-start`}>
+                                        <motion.div variants={fadeUp} className="flex flex-col gap-4">
+                                            <h3 className="text-lg font-semibold text-[#EDF0FC]">{block.heading}</h3>
+                                            <p className="text-[#C3D0F6] leading-relaxed text-sm">{block.text}</p>
+                                        </motion.div>
+                                        {block.image && <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden border border-[#C3D0F6]/10"><Image src={block.image} alt={block.heading} width={600} height={380} className="w-full object-cover" /></motion.div>}
+                                    </motion.div>
                                 ))}
                             </div>
-                        ) : (
-                            <div className="aspect-video rounded-2xl bg-[#0D1F3E]/60 border border-[#C3D0F6]/10 flex items-center justify-center">
-                                <p className="text-[#8BA8EE] text-sm text-center px-6">
-                                    Ajoute tes screenshots en remplissant le tableau <code className="bg-[#0D1F3E] px-1 rounded">screenshots</code> en haut du fichier
-                                </p>
-                            </div>
-                        )}
-                    </motion.div>
+                        </section>
 
-                    {/* Retour */}
-                    <div className="text-center">
-                        <a href="/#projets" className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-5 py-2.5 text-sm hover:bg-[#1F3E71]/35 transition">
-                            <ChevronLeft className="h-4 w-4" /> Voir tous les projets
-                        </a>
-                    </div>
-                </main>
+                        <div className="h-px bg-gradient-to-r from-transparent via-[#C3D0F6]/20 to-transparent" />
 
-                {/* Footer */}
-                <footer className="border-t border-[#C3D0F6]/10 mt-16">
-                    <div className="mx-auto max-w-6xl px-6 py-8 flex flex-wrap items-center justify-between gap-4 text-sm text-[#8BA8EE]">
+                        <section id="documents" className="scroll-mt-24">
+                            <SectionTitle label="Livrables" title="Documents de production" />
+                            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }} className="grid md:grid-cols-2 gap-6">
+                                {PROJECT.documents.map((doc, i) => (
+                                    <motion.div key={i} variants={fadeUp} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
+                                        <div className="flex items-start gap-3">
+                                            <div className="rounded-xl bg-[#4782E4]/15 p-2.5 flex-shrink-0"><FileText className="h-5 w-5 text-[#4782E4]" /></div>
+                                            <div><h3 className="font-semibold text-[#EDF0FC] mb-1">{doc.title}</h3><p className="text-[#C3D0F6] text-sm leading-relaxed">{doc.description}</p></div>
+                                        </div>
+                                        {doc.url !== "#" && <a href={doc.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-4 py-2 text-sm font-medium hover:bg-[#EDF0FC] transition self-start">Télécharger</a>}
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        </section>
+
+                        <div className="flex flex-wrap justify-between items-center gap-4 pt-4">
+                            <Link href="/projets/gecko-pulco" className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-5 py-2.5 text-sm hover:bg-[#1F3E71]/35 transition"><ChevronLeft className="h-4 w-4" /> Projet précédent : Gecko Pulco</Link>
+                            <Link href="/projets/10-nichi" className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-2.5 font-medium hover:bg-[#EDF0FC] transition text-sm">Projet suivant : 10 Nichi! →</Link>
+                        </div>
+                    </main>
+                </div>
+                <footer className="border-t border-[#C3D0F6]/10 mt-8">
+                    <div className="mx-auto max-w-7xl px-6 py-8 flex flex-wrap items-center justify-between gap-4 text-sm text-[#8BA8EE]">
                         <span>© {new Date().getFullYear()} Lou-Ann Barry.</span>
                         <div className="flex items-center gap-4">
-                            <a href="https://github.com/" className="hover:text-[#EDF0FC] transition"><Github className="h-4 w-4" /></a>
-                            <a href="https://linkedin.com/in/" className="hover:text-[#EDF0FC] transition"><Linkedin className="h-4 w-4" /></a>
-                            <a href="mailto:louann.barry05@gmail.com" className="hover:text-[#EDF0FC] transition"><Mail className="h-4 w-4" /></a>
+                            <a href={LINKS.github} className="hover:text-[#EDF0FC] transition"><Github className="h-4 w-4" /></a>
+                            <a href={LINKS.linkedin} className="hover:text-[#EDF0FC] transition"><Linkedin className="h-4 w-4" /></a>
+                            <a href={`mailto:${LINKS.email}`} className="hover:text-[#EDF0FC] transition"><Mail className="h-4 w-4" /></a>
                         </div>
                     </div>
                 </footer>

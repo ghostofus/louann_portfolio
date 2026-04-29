@@ -5,94 +5,167 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, Users, Clock, Trophy, ChevronRight } from "lucide-react";
+import { Mail, Github, Linkedin, Download, Users, Clock, ChevronRight, Lightbulb, Globe } from "lucide-react";
 
 // ——— Données ———
 const PROJECTS = [
     {
         title: "IRA",
         period: "2025/2026 : 10 mois",
-        role: "Cheffe de projet",
+        role: "Producer / Cheffe de Projet",
         summary: "Souls like narratif 3D réaliste - Unreal Engine 5",
-        tags: ["Agile", "JIRA", "Roadmapping", "Risk mgmt"],
+        tags: ["Agile", "Notion", "Roadmapping", "Playtesting", "GDD"],
         src: "/ira.png",
         slug: "ira",
-        teamSize: "À remplir",
-        duration: "10 mois",
-        awards: "À remplir",
+        teamSize: "8",
+        duration: "10 mois" ,
+        responsibilities: [
+            "Organiser des entretiens individuels réguliers avec l'ensemble de l'équipe tout au long du projet.",
+            "Fournir aux départements Art et Audio des listes de ressources afin de prioriser les tâches et d'éviter les dépendances.",
+            "Animer les réunions de planification de sprint et les rétrospectives conformément à notre approche agile.",
+            "Organisation et coordination des sessions de playtesting.",
+            "Gestion de la documentation de production et du GDD.",
+        ],
     },
     {
         title: "Gecko Pulco",
         period: "2025 : 4 mois",
-        role: "Cheffe de projet",
+        role: "Producer / Cheffe de Projet",
         summary: "Plateformer 3D cartoon - Unity 6",
-        tags: ["Scrum", "Stakeholders", "KPIs"],
+        tags: ["Agile", "Notion", "Roadmapping"],
         src: "/gecko.jpg",
         slug: "gecko-pulco",
-        teamSize: "À remplir",
+        teamSize: "4",
         duration: "4 mois",
-        awards: "À remplir",
+        responsibilities: [
+            "Rédiger le document de cadrage initial du projet (scope, organisation, livrables) via le GDD.",
+            "Créer un planning haut niveau et l'utiliser comme base pour structurer les plannings hebdomadaires.",
+            "Suivre la vélocité et l'avancement en fournissant des rapports de progression à l'équipe.",
+            "Définir les deadlines et les livrables clés et assurer leur suivi tout au long du projet.",
+            "Gérer le scope et prendre des décisions de coupure de contenu en fonction des contraintes.",
+            "Gérer le backlog et résoudre les conflits au sein de l'équipe.",
+        ],
     },
     {
         title: "Figure Out",
         period: "2023/2024",
-        role: "Directrice Artistique",
+        role: "Directrice Artistique / Producer",
         summary: "Click & Point 3D - Unreal",
-        tags: ["Planning", "Delivery", "QA"],
+        tags: ["Jira", "Nuclino", "Figma"],
         src: "/figureout.jpg",
         slug: "figure-out",
-        teamSize: "À remplir",
-        duration: "À remplir",
-        awards: "À remplir",
+        teamSize: "13",
+        duration: "1 ans",
+        responsibilities: [
+            {
+                category: "DIRECTION ARTISTIQUE",
+                items: [
+                    "Définir l'ambiance générale et la direction visuelle du jeu, en se concentrant sur la direction des environnements.",
+                    "Rédiger et maintenir l'Art Style Guide en s'appuyant sur une veille de jeux et techniques de référence.",
+                    "Collaborer avec les artistes en fournissant un feedback créatif itératif pour guider la production visuelle.",
+                ],
+            },
+            {
+                category: "PRODUCTION",
+                items: [
+                    "Gérer le backlog et les tâches de l'ensemble de l'équipe artistique via Jira.",
+                    "Assurer l'intégration et la documentation de la production sur Nuclino.",
+                    "Former et accompagner l'équipe à l'utilisation de Jira et Nuclino tout au long du projet.",
+                    "Produire des comptes rendus hebdomadaires à destination du chef de projet suite aux réunions d'équipe."
+                ],
+            },
+        ],
     },
     {
         title: "10 Nichi!",
         period: "2023 : 4 mois",
-        role: "Conceptrice",
+        role: "Conceptrice de jeu",
         summary: "Jeu de société coopératif stratégique - Univers Japon féodal/Samouraïs",
-        tags: ["Planning", "Delivery", "QA"],
+        tags: ["Playtesting", "QA"],
         src: "/10nichi.png",
         slug: "10-nichi",
-        teamSize: "À remplir",
+        teamSize: "4",
         duration: "4 mois",
-        awards: "À remplir",
+        responsibilities: [
+            "Participer à la conception des mécaniques et des règles du jeu, avec itérations successives basées sur les retours des sessions de test.",
+            "Créer les illustrations et icônes des éléments de jeu (gourde, feu, etc.) sur Illustrator.",
+            "Animer les sessions de playtesting : présentation des règles, observation des joueurs et collecte de feedback structuré.",
+            "Présenter le jeu devant un jury et auprès de testeurs externes.",
+        ],
+    },
+];
+
+const SKILLS_TOP = [
+    {
+        icon: Users,
+        title: "Leadership & Ambition",
+        description: "Je cherche à m'améliorer chaque jour et à appliquer cette progression constante aux équipes dont je fais partie. Je crois fermement en la facilitation et le soutien de l'équipe pour qu'elle grandisse tout au long d'un projet, que ce soit via des entretiens individuels, des rétrospectives ou des post-mortems. Cela favorise une réflexion individuelle qui bénéficie à l'ensemble du groupe.",
+    },
+    {
+        icon: Lightbulb,
+        title: "Créativité",
+        description: "Autant que je suis productrice, je suis aussi game designer et je comprends les aspects créatifs de la conception de jeux. J'essaie d'apporter cette créativité dans mon rôle de productrice , non pas en étant limitée à une boîte à outils ou une méthode éprouvée, mais en proposant des solutions créatives et adaptées aux défis d'un projet. C'est pourquoi je cherche continuellement à apprendre et à trouver le bon équilibre entre méthode et touche personnelle.",
     },
 ];
 
 const SKILLS_PRODUCTION = [
-    "Gestion de projet Agile, Waterfall, Kanban",
-    "JIRA, Confluence, Notion",
-    "Roadmapping & Risk Management",
+    "Identification et gestion des risques",
+    "JIRA · Notion",
+    "Scrum et méthodologies Agile",
+    "Kanban · Waterfall",
     "Sprint Planning & Rétrospectives",
-    "Suivi KPIs & vélocité",
+    "Décomposition du scope et du budget",
     "Gestion des ressources",
-    "Communication équipe & stakeholders",
+    "Définition des jalons et deadlines",
+    "Suivi de la progression individuelle",
+    "Représentation d'un projet ou d'une équipe",
+    "Réalisation de présentations",
+    "Gestion de la sous-traitance",
+    "Planification haut niveau & dépendances",
+    "Surveillance du scope projet",
 ];
 
 const SKILLS_DESIGN = [
-    "Game Design & Level Design",
+    "Intégration design, programmation et art",
+    "Analyse concurrentielle",
+    "Game Design",
     "Direction Artistique",
-    "Unreal Engine 5",
-    "Unity 6",
-    "Ecriture narrative",
     "Conception de jeux de société",
+    "Veille créative & références",
 ];
 
-const SKILLS_SOFT = [
-    "Leadership",
-    "Facilitation d'équipe",
-    "Gestion des conflits",
-    "Feedback constructif",
-    "Travail en équipe cross-disciplinaire",
+const SKILLS_SOFTWARE = [
+    "Unreal Engine 5",
+    "Unity 6",
+    "JIRA",
+    "Notion · Nuclino",
+    "Figma",
+    "Adobe Illustrator",
+    "Photoshop",
+    "Microsoft Office Suite",
+    "GitHub",
+];
+
+const LANGUAGES = [
+    { name: "Français", level: "Natif" },
+    { name: "Anglais", level: "Courant" },
 ];
 
 const EXPERIENCE = [
     {
-        period: "2026 - 90 jours",
+        period: "90 jours - En cours",
         title: "Stage - Gestion de projets Data",
         place: "Orange",
-        items: ["À remplir", "À remplir"],
+        items: ["Suivi et coordination de projets data en environnement DSI","Pilotage des livrables et reporting aux parties prenantes","Gestion du backlog et animation des réunions de suivi"],
     },
+
+    {
+        period: "2026 - En cours",
+        title: "Mission Freelance - Producer",
+        place: "StellarPunk",
+        items: ["Formalisation et pilotage du backlog de l'équipe","Structuration de la production en vue d'une Vertical Slice","Coordination des équipes pour la livraison des livrables clés"],
+    },
+
     {
         period: "2025 - 44 jours",
         title: "Stage - Game / Narrative Designer",
@@ -304,77 +377,76 @@ function ProjectShowcase() {
 function ProjectRow({ project, reverse }) {
     return (
         <motion.div
-            variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}
-            className={`grid md:grid-cols-2 gap-10 md:gap-16 items-start ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}
+            variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.15 }}
+            className="flex flex-col gap-8"
         >
-            {/* Colonne gauche : infos projet */}
-            <motion.div variants={fadeLeft} className="flex flex-col gap-6">
-                <div>
-                    <div className="overflow-hidden rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20">
-                        <Image src={project.src} alt={project.title} width={600} height={340}
-                            className="w-full object-cover" />
-                    </div>
-                </div>
+            {/* ——— Haut : image + infos (2 colonnes alternées) ——— */}
+            <div className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
 
-                <div>
-                    <h3 className="text-2xl font-semibold">{project.title}</h3>
-                    <p className="mt-1 text-[#8BA8EE] text-sm">{project.period}</p>
-                    <p className="mt-2 text-[#C3D0F6]">{project.summary}</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                        {project.tags.map((t, idx) => (
-                            <span key={idx} className="rounded-full border border-[#C3D0F6]/15 bg-[#0D1F3E]/40 px-3 py-1 text-xs text-[#EDF0FC]">
-                                {t}
-                            </span>
+                {/* Image */}
+                <motion.div variants={fadeLeft} className="overflow-hidden rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20">
+                    <Image src={project.src} alt={project.title} width={600} height={340}
+                        className="w-full object-cover" />
+                </motion.div>
+
+                {/* Infos : titre + tags + stats + bouton */}
+                <motion.div variants={fadeUp} className="flex flex-col gap-5">
+                    <div>
+                        <h3 className="text-2xl font-semibold">{project.title}</h3>
+                        <p className="mt-1 text-[#8BA8EE] text-sm">{project.period}</p>
+                        <p className="mt-2 text-[#C3D0F6]">{project.summary}</p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                            {project.tags.map((t, idx) => (
+                                <span key={idx} className="rounded-full border border-[#C3D0F6]/15 bg-[#0D1F3E]/40 px-3 py-1 text-xs text-[#EDF0FC]">
+                                    {t}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3">
+                        <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
+                            <Users className="h-5 w-5 mx-auto mb-1.5 text-[#8BA8EE]" />
+                            <p className="text-xs text-[#8BA8EE] mb-1">Équipe</p>
+                            <p className="text-sm font-medium text-[#EDF0FC]">{project.teamSize}</p>
+                        </div>
+                        <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
+                            <Clock className="h-5 w-5 mx-auto mb-1.5 text-[#8BA8EE]" />
+                            <p className="text-xs text-[#8BA8EE] mb-1">Durée</p>
+                            <p className="text-sm font-medium text-[#EDF0FC]">{project.duration}</p>
+                        </div>
+                    </div>
+
+                    <a href={`/projets/${project.slug}`}
+                        className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-2.5 font-medium hover:bg-[#EDF0FC] transition text-sm self-start">
+                        En savoir plus <ChevronRight className="h-4 w-4" />
+                    </a>
+                </motion.div>
+            </div>
+
+            {/* ——— Bas : responsabilités (pleine largeur) ——— */}
+            <motion.div variants={fadeUp} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
+                <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-2">Responsabilités</h4>
+                <p className="text-[#C3D0F6] text-sm italic mb-4">Rôle : {project.role}</p>
+
+                {typeof project.responsibilities[0] === "string" ? (
+                    <ul className="grid md:grid-cols-2 gap-x-10 gap-y-2 text-[#C3D0F6] text-sm list-disc pl-5">
+                        {project.responsibilities.map((r, idx) => (
+                            <li key={idx}>{r}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {project.responsibilities.map((group, idx) => (
+                            <div key={idx}>
+                                <p className="text-xs font-semibold text-[#4782E4] uppercase tracking-widest mb-3">{group.category}</p>
+                                <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
+                                    {group.items.map((r, i) => <li key={i}>{r}</li>)}
+                                </ul>
+                            </div>
                         ))}
                     </div>
-                </div>
-
-                {/* Stats : taille équipe / durée / récompenses */}
-                <div className="grid grid-cols-3 gap-3">
-                    <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
-                        <Users className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
-                        <p className="text-xs text-[#8BA8EE] mb-1">Équipe</p>
-                        <p className="text-sm font-medium text-[#EDF0FC]">{project.teamSize}</p>
-                    </div>
-                    <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
-                        <Clock className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
-                        <p className="text-xs text-[#8BA8EE] mb-1">Durée</p>
-                        <p className="text-sm font-medium text-[#EDF0FC]">{project.duration}</p>
-                    </div>
-                    <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
-                        <Trophy className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
-                        <p className="text-xs text-[#8BA8EE] mb-1">Récompenses</p>
-                        <p className="text-sm font-medium text-[#EDF0FC]">{project.awards}</p>
-                    </div>
-                </div>
-            </motion.div>
-
-            {/* Colonne droite : responsabilités + lien */}
-            <motion.div variants={fadeUp} className="flex flex-col gap-6">
-                <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-                    <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-4">Responsabilités</h4>
-                    <p className="text-[#C3D0F6] text-sm italic mb-3">Rôle : {project.role}</p>
-                    <ul className="text-[#C3D0F6] text-sm space-y-2 list-disc pl-5">
-                        <li>À remplir — décris ici ta première responsabilité principale</li>
-                        <li>À remplir — décris ici ta deuxième responsabilité</li>
-                        <li>À remplir — décris ici une troisième responsabilité</li>
-                        <li>À remplir — ajoute autant de points que nécessaire</li>
-                    </ul>
-                </div>
-
-                <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-                    <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-4">Screenshots / Vidéo</h4>
-                    <div className="aspect-video rounded-2xl bg-[#0D1F3E]/60 border border-[#C3D0F6]/10 flex items-center justify-center">
-                        <p className="text-[#8BA8EE] text-sm text-center px-4">
-                            Ajoute ici une vidéo YouTube ou des screenshots du projet
-                        </p>
-                    </div>
-                </div>
-
-                <a href={`/projets/${project.slug}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-3 font-medium hover:bg-[#EDF0FC] transition text-sm self-start">
-                    En savoir plus <ChevronRight className="h-4 w-4" />
-                </a>
+                )}
             </motion.div>
         </motion.div>
     );
@@ -385,33 +457,62 @@ function Skills() {
     return (
         <section id="competences" className="mx-auto max-w-6xl px-6 py-20">
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-14">
+                <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Ce que je sais faire</p>
                 <h2 className="text-3xl font-semibold tracking-tight">Compétences</h2>
             </motion.div>
 
+            {/* ——— Bloc 1 : Leadership & Créativité (2 colonnes, icône + texte long) ——— */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
-                className="grid md:grid-cols-3 gap-6">
-                <SkillBlock title="Production & Gestion" items={SKILLS_PRODUCTION} />
-                <SkillBlock title="Design & Technique" items={SKILLS_DESIGN} />
-                <SkillBlock title="Soft Skills" items={SKILLS_SOFT} />
+                className="grid md:grid-cols-2 gap-8 mb-16">
+                {SKILLS_TOP.map((s, i) => (
+                    <motion.div key={i} variants={fadeUp}
+                        className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-8 flex flex-col items-center text-center gap-4">
+                        <s.icon className="h-10 w-10 text-[#8BA8EE]" strokeWidth={1.5} />
+                        <h3 className="text-base font-semibold text-[#8BA8EE] uppercase tracking-wider">{s.title}</h3>
+                        <p className="text-[#C3D0F6] text-sm leading-relaxed">{s.description}</p>
+                    </motion.div>
+                ))}
+            </motion.div>
+
+            {/* ——— Bloc 2 : 3 colonnes de listes (Production / Design / Logiciels) ——— */}
+            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
+                className="grid md:grid-cols-3 gap-8 mb-16">
+                {[
+                    { title: "Compétences de Production", items: SKILLS_PRODUCTION },
+                    { title: "Compétences Design", items: SKILLS_DESIGN },
+                    { title: "Logiciels & Outils", items: SKILLS_SOFTWARE },
+                ].map((col, i) => (
+                    <motion.div key={i} variants={fadeUp} className="flex flex-col gap-4">
+                        <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest text-center pb-2 border-b border-[#C3D0F6]/10">
+                            {col.title}
+                        </h3>
+                        <ul className="space-y-2">
+                            {col.items.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-[#C3D0F6] text-sm">
+                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4782E4] flex-shrink-0" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                ))}
+            </motion.div>
+
+            {/* ——— Bloc 3 : Langues (drapeaux centrés) ——— */}
+            <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
+                className="flex flex-col items-center gap-6">
+                <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">Langues</h3>
+                <div className="flex gap-12">
+                    {LANGUAGES.map((l, i) => (
+                        <div key={i} className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center w-32">
+                            <Globe className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
+                            <p className="text-xs text-[#8BA8EE] mb-1">{l.name}</p>
+                            <p className="text-sm font-medium text-[#EDF0FC]">{l.level}</p>
+                        </div>
+                    ))}
+                </div>
             </motion.div>
         </section>
-    );
-}
-
-function SkillBlock({ title, items }) {
-    return (
-        <motion.div variants={fadeUp}
-            className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-            <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-5">{title}</h3>
-            <ul className="space-y-2">
-                {items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[#C3D0F6] text-sm">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4782E4] flex-shrink-0" />
-                        {item}
-                    </li>
-                ))}
-            </ul>
-        </motion.div>
     );
 }
 

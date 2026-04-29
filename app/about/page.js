@@ -173,19 +173,19 @@ export default function AboutPage() {
                             <div className="flex flex-col gap-6">
                                 <motion.div variants={fadeUp}>
                                     <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">À propos de moi</p>
-                                    <h1 className="text-4xl font-semibold tracking-tight">Comment j'en suis arrivée là</h1>
+                                    <h1 className="text-4xl font-semibold tracking-tight">Qui je suis ?</h1>
                                 </motion.div>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Je m'appelle Lou-Ann Barry, j'ai 20 ans et je suis étudiante en Game Design à l'ICAN Lyon. Mais puisque vous êtes sur cette page, vous voulez en savoir un peu plus.
+                                    Je suis Lou-Ann Barry, étudiante en dernière année de licence à l'ICAN Lyon, et je me spécialise vers la production de jeux vidéo. Si vous êtes arrivé sur cette page, c'est que vous voulez en savoir un peu plus sur moi.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Tout a commencé avec les jeux vidéo. En grandissant, j'ai réalisé que les histoires les plus fortes se racontent à travers l'interactivité — et cette conviction m'a naturellement poussée vers le <strong className="text-[#EDF0FC]">Game Design</strong>, puis vers la <strong className="text-[#EDF0FC]">production</strong>.
+                                    J'ai grandi en jouant en cachette à des jeux qui n'étaient pas vraiment de mon âge (<b><i>Destiny, Far Cry 4</i></b>). J'ai été attirée par leurs univers riches et les histoires qui me laissaient bouche bée. C'est en posant les mains sur <b><i>The Last of Us</i></b> que tout a basculé. C'est en posant les mains sur The Last of Us que tout a basculé. La façon dont il réussit à toucher les gens en mariant narration et gameplay m'a donné envie de comprendre et d'intégrer cet univers.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Au fil de mes projets — d'un souls-like en Unreal Engine 5 à un jeu de société coopératif — j'ai compris que mon vrai point fort est la <strong className="text-[#EDF0FC]">coordination des équipes</strong> et la <strong className="text-[#EDF0FC]">vision globale du projet</strong>.
+                                    Ce qui m'a amenée vers la production, c'est mon envie de voir un projet mené jusqu'au bout, avec une équipe soudée où chacun se sent à sa place. Pas de petit rôle, pas de personne mise de côté tout le monde compte et tout le monde avance ensemble.
                                 </motion.p>
                                 <motion.p variants={fadeUp} className="text-[#C3D0F6] leading-relaxed">
-                                    Mon stage chez StellarPunk a confirmé cette direction : j'aime être à la croisée entre vision artistique et contraintes de production, au service du jeu et de l'équipe. C'est ce qui me drive — créer l'expérience la plus aboutie possible en soutenant les personnes autour de moi.
+                                    En équipe, on remarque souvent mon enthousiasme et ma façon de coordoner les choses : j'écoute, je facilite, et je fais en sorte que les tensions se règlent avant de devenir des blocages. Selon moi, un bon producer c'est quelqu'un qui sait maintenir la cohésion humaine du projet autant que sa cohésion technique.
                                 </motion.p>
                             </div>
 
@@ -201,10 +201,41 @@ export default function AboutPage() {
 
                     <Divider />
 
+                    {/* ——— SECTION : Qu'est-ce qui me motive ? ——— */}
+                    <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+                        <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}
+                            className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+                            <motion.div variants={fadeLeft} className="flex justify-center md:justify-start">
+                                <Image src="/A propos de moi/equipe.jpg" alt="Mon équipe" width={580} height={720}
+                                    className="rounded-3xl object-cover shadow-2xl border border-[#C3D0F6]/10" />
+                            </motion.div>
+
+                            <motion.div variants={fadeUp} className="flex flex-col gap-6">
+                                <div>
+                                    <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">À propos de moi</p>
+                                    <h2 className="text-3xl font-semibold tracking-tight">Qu'est-ce qui me motive ?</h2>
+                                </div>
+                                <div className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
+                                    <p className="text-[#C3D0F6] leading-relaxed">
+                                        Ce qui me motive est de créer le jeu le plus abouti possible , en sachant que la perfection n'existe pas, mais qu'on peut toujours s'en approcher.
+                                    </p>
+                                    <p className="text-[#C3D0F6] leading-relaxed">
+                                        Pour y arriver, je me concentre sur l'amélioration et le soutien des personnes autour de moi. Créer un jeu est un effort d'équipe, et faciliter la progression de chacun tout au long du développement est l'un de mes moteurs principaux.
+                                    </p>
+                                    <p className="text-[#C3D0F6] leading-relaxed">
+                                        C'est, selon moi, la base du succès et ce que je cherche à atteindre dans chaque équipe dont je fais partie.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    </section>
+
+                    <Divider />
+
                     {/* ——— SECTION 2 : Mes passions ——— */}
                     <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
                         <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-12">
-                            <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Ce qui me passionne</p>
                             <h2 className="text-3xl font-semibold tracking-tight">Mes passions</h2>
                         </motion.div>
 
@@ -215,7 +246,10 @@ export default function AboutPage() {
                             <motion.div variants={fadeUp}
                                 className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 overflow-hidden flex flex-col">
                                 <div className="p-6 pb-0">
-                                    <PhotoPlaceholder label="Ajouter une photo de collection" />
+                                    <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                                        <Image src="/A propos de moi/collection.jpg" alt="Ma collection" width={600} height={450}
+                                            className="w-full h-full object-cover" />
+                                    </div>
                                 </div>
                                 <div className="p-7 flex flex-col gap-4">
                                     <div className="flex items-center gap-3">
@@ -225,7 +259,7 @@ export default function AboutPage() {
                                         <h3 className="text-lg font-semibold">La collection</h3>
                                     </div>
                                     <p className="text-[#C3D0F6] text-sm leading-relaxed">
-                                        Collectionner, c'est une façon de garder une trace de ce qu'on aime. J'adore chiner, dénicher des pièces rares et construire des collections qui ont du sens — chaque objet raconte une histoire et fait partie d'un ensemble plus grand.
+                                        Je suis également une collectionneuse : <b>figurines, objets collector, artbooks</b> principalement autour d'univers qui m'ont marquée comme Arcane, The Last of Us, God of War ou Star Wars etc.. Les artbooks en particulier m'ont toujours attirée pour ce qu'ils révèlent sur les coulisses de la création, les choix artistiques, le making-of. C'est d'ailleurs cette curiosité pour ce qui se passe derrière l'écran qui m'a, en partie, donné envie de travailler dans le jeu vidéo.
                                     </p>
                                 </div>
                             </motion.div>
@@ -244,36 +278,10 @@ export default function AboutPage() {
                                         <h3 className="text-lg font-semibold">La musique</h3>
                                     </div>
                                     <p className="text-[#C3D0F6] text-sm leading-relaxed">
-                                        La musique est omniprésente dans ma vie — elle accompagne mes créations, influence mes ambiances et nourrit mon sens artistique. Ce lien entre son et émotion me passionne autant que la façon dont une bande-son peut transformer une expérience de jeu.
+                                        La musique occupe aussi une grande place dans ma vie. J'ai toujours aimé en faire : des compositions personnelles, des mix etc.. même si par manque de temps aujourd'hui ça se traduit surtout par une collection de vinyles et de CDs. C'est une de mes façon de continuer à nourrir ma sensibilité artistique et d'enrichir ma vision sur les projets.
                                     </p>
                                 </div>
                             </motion.div>
-                        </motion.div>
-                    </section>
-
-                    <Divider />
-
-                    {/* ——— SECTION 3 : Mes domaines ——— */}
-                    <section className="mx-auto max-w-6xl px-6 py-20">
-                        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-12">
-                            <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Mes domaines</p>
-                            <h2 className="text-3xl font-semibold tracking-tight">Ce que je fais</h2>
-                        </motion.div>
-
-                        <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
-                            className="grid md:grid-cols-3 gap-6">
-                            {[
-                                { icon: Settings2, title: "Production & Gestion", desc: "Agile, Waterfall, Kanban, Scrum · JIRA, Notion · Roadmapping, Risk Management, Sprint Planning" },
-                                { icon: Gamepad2, title: "Game Design & Level Design", desc: "Conception de mécaniques · Écriture narrative · Unreal Engine 5 · Unity 6 · Jeux de société" },
-                                { icon: Palette, title: "Direction Artistique & TechArt", desc: "Identité visuelle · Cohérence artistique · Coordination Art & Technique · Charte graphique" },
-                            ].map((item, i) => (
-                                <motion.div key={i} variants={fadeUp}
-                                    className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col items-center text-center gap-4">
-                                    <item.icon className="h-10 w-10 text-[#EDF0FC]" strokeWidth={1.5} />
-                                    <h3 className="text-sm font-semibold text-[#EDF0FC] uppercase tracking-wider">{item.title}</h3>
-                                    <p className="text-[#8BA8EE] text-sm italic leading-relaxed">{item.desc}</p>
-                                </motion.div>
-                            ))}
                         </motion.div>
                     </section>
 
@@ -284,7 +292,7 @@ export default function AboutPage() {
                         <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
                             className="rounded-3xl border border-[#C3D0F6]/10 bg-gradient-to-br from-[#1F3E71]/30 to-[#0D1F3E]/20 p-12 text-center">
                             <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Me contacter</p>
-                            <h2 className="text-3xl font-semibold tracking-tight mb-3">On se parle ?</h2>
+                            <h2 className="text-3xl font-semibold tracking-tight mb-3">Discutons!</h2>
                             <p className="text-[#C3D0F6] mb-8">
                                 N'hésitez pas à me contacter à tout moment, je répondrai le plus vite possible.
                             </p>
