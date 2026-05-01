@@ -110,10 +110,12 @@ function DocumentCard({ doc, onClick }) {
             <div className="h-44 bg-[#0D1F3E]/60 overflow-hidden flex items-center justify-center">
                 {doc.cover ? (
                     <img src={doc.cover} alt={doc.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                ) : doc.type === "pdf" ? (
+                    <iframe src={`${doc.file}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`} className="w-full h-full border-0 pointer-events-none" title={doc.title} />
                 ) : (
                     <div className="flex flex-col items-center gap-2">
                         <FileText className="h-12 w-12 text-[#4782E4]/50" />
-                        <span className="text-xs text-[#8BA8EE]/60 uppercase tracking-wider">PDF</span>
+                        <span className="text-xs text-[#8BA8EE]/60 uppercase tracking-wider">Image</span>
                     </div>
                 )}
             </div>
