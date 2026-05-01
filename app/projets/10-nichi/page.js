@@ -263,14 +263,9 @@ export default function Projet10Nichi() {
                             <SectionTitle label="Retour d'expérience" title="Analyse & Processus" />
                             <div className="flex flex-col gap-10">
                                 {PROJECT.analysis.map((block, i) => (
-                                    <motion.div key={i} variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.15 }} className={`grid ${(block.image || block.images) ? "md:grid-cols-[3fr_2fr]" : "grid-cols-1"} gap-8 items-start`}>
-                                        <motion.div variants={fadeUp} className="flex flex-col gap-4">
-                                            <h3 className="text-lg font-semibold text-[#EDF0FC]">{block.heading}</h3>
-                                            <p className="text-[#C3D0F6] leading-relaxed text-sm">{block.text}</p>
-                                        </motion.div>
-                                        {block.image && <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden border border-[#C3D0F6]/10"><Image src={block.image} alt={block.heading} width={600} height={380} className="w-full object-cover" /></motion.div>}
+                                    <motion.div key={i} variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.15 }} className="overflow-hidden">
                                         {block.images && (
-                                            <motion.div variants={fadeUp} className="flex flex-col gap-5">
+                                            <motion.div variants={fadeUp} className="float-right ml-8 mb-4 flex flex-col gap-5 w-[38%]">
                                                 {block.images.map((img, j) => (
                                                     <div key={j} className="flex flex-col gap-2">
                                                         <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10">
@@ -281,6 +276,15 @@ export default function Projet10Nichi() {
                                                 ))}
                                             </motion.div>
                                         )}
+                                        {block.image && (
+                                            <motion.div variants={fadeUp} className="float-right ml-8 mb-4 w-[38%] rounded-2xl overflow-hidden border border-[#C3D0F6]/10">
+                                                <Image src={block.image} alt={block.heading} width={600} height={380} className="w-full object-cover" />
+                                            </motion.div>
+                                        )}
+                                        <motion.div variants={fadeUp} className="flex flex-col gap-4">
+                                            <h3 className="text-lg font-semibold text-[#EDF0FC]">{block.heading}</h3>
+                                            <p className="text-[#C3D0F6] leading-relaxed text-sm">{block.text}</p>
+                                        </motion.div>
                                     </motion.div>
                                 ))}
                             </div>
