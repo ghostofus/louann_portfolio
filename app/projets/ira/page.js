@@ -66,11 +66,11 @@ const PROJECT = {
     ],
 
     documents: [
-        { title: "Gestion de document", description: "À remplir — décris ce document.", cover: null, file: "/IRA/Documents/Gestion document.pdf", type: "pdf" },
-        { title: "Organisation PFE", description: "À remplir — décris ce document.", cover: null, file: "/IRA/Documents/OrganisationPFE.pdf", type: "pdf" },
-        { title: "Plan de production", description: "À remplir — décris ce document.", cover: null, file: "/IRA/Documents/Plandeproduction.pdf", type: "pdf" },
-        { title: "Rétro Planning", description: "À remplir — décris ce document.", cover: null, file: "/IRA/Documents/RetroPlanning.pdf", type: "pdf" },
-        { title: "Réunion", description: "À remplir — décris ce document.", cover: null, file: "/IRA/Documents/Reunion.pdf", type: "pdf" },
+        { title: "Production documentation", description: "Ce document a permis a l'equipe de centraliser tous nos fichiers , éviter de chercher partout et structurer le savoir du projet", cover: null, file: "/IRA/Documents/Gestion document.pdf", type: "pdf" },
+        { title: "Structure d’équipe", description: "Répartition par personne avec leurs rôles et responsabilités (prog, sound, DA, etc.)", cover: null, file: "/IRA/Documents/OrganisationPFE.pdf", type: "pdf" },
+        { title: "Production Roadmap", description: "J'ai structuré le projet via un planning de production par milestones, détaillant les tâches assignées à chaque membre de l’équipe.", cover: null, file: "/IRA/Documents/Plandeproduction.pdf", type: "pdf" },
+        { title: "Rétro Planning", description: "J'ai concu 2 retroplanning à partir de dexu deadlines (nos deux rendu de projet fin d'année) et remonter pour définir toutes les étapes", cover: null, file: "/IRA/Documents/RetroPlanning.pdf", type: "pdf" },
+        { title: "Meeting reports", description: "Ce document à permis a l'équipe de suivre l’avancement en gardant une trace des décisions et synchroniser l’équipe", cover: null, file: "/IRA/Documents/Reunion.pdf", type: "pdf" },
     ],
 
     screenshots: [

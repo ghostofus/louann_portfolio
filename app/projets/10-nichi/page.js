@@ -42,7 +42,7 @@ const PROJECT = {
         { heading: "Défis et apprentissages", text: `Le principal défi du projet a été l’équilibrage du jeu. Concevoir un système à la fois stratégique, coopératif et dépendant d’aléas nécessite de nombreux ajustements pour éviter qu’une partie soit trop facile ou, au contraire, frustrante.Un autre défi important a été la complexité des règles. Il a fallu trouver un équilibre entre richesse mécanique et accessibilité, afin de ne pas décourager les joueurs dès les premières parties.Ce projet a également permis de mieux comprendre l’importance du playtesting dans la conception d’un jeu de société. Les retours des joueurs ont été essentiels pour identifier des problèmes qui n’étaient pas visibles en interne, notamment sur la compréhension des règles et le ressenti global.Enfin, ce travail a renforcé des compétences en conception systémique, en équilibrage et en travail d’équipe. Il a mis en évidence l’importance de l’itération, de l’écoute des retours et de la capacité à remettre en question ses idées initiales pour améliorer l’expérience finale.`, image: null },
     ],
     documents: [
-        { title: "10 Nichi!", description: "À remplir — décris ce document.", cover: null, file: "/10nichi/Documents/10-Nichi !.pdf", type: "pdf" },
+        { title: "Livret de Règles", description: " Il contient tout les éléments suivants : Un cadre général sur l'univers et l'ambiance de notre JdS", cover: null, file: "/10nichi/Documents/10-Nichi !.pdf", type: "pdf" },
     ],
     screenshots: [
         "/10nichi/samourai.png",

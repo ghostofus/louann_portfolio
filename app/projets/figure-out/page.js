@@ -50,9 +50,9 @@ const PROJECT = {
         { heading: "Bilan et apprentissages", text: 'Le projet n’a finalement pas pu être mené à terme, notamment suite au départ du chef de projet, qui a entraîné une perte de repères et de motivation au sein de l’équipe. Malgré plusieurs tentatives pour relancer la dynamique, le manque de leadership global a empêché la finalisation du jeu.Cependant, cette expérience reste très formatrice. La gestion d’une équipe de plus de 7 personnes sur le pôle artistique a été un véritable défi, qui m’a permis de développer des compétences en organisation, communication et encadrement.Ce projet a surtout confirmé mon intérêt pour la production et la gestion d’équipe. Avec du recul, je serais plus attentive à la définition du scope dès le départ, à la stabilité des décisions, et à la mise en place de leads clairs dans chaque pôle afin d’assurer un meilleur équilibre de production.Malgré les difficultés rencontrées, cette expérience m’a donné envie de m’investir davantage dans des rôles à responsabilité, avec pour objectif de mener des projets à leur aboutissement de manière plus structurée et efficace.'}
     ],
     documents: [
-        { title: "Concept Environnement", description: "À remplir — décris ce document.", cover: null, file: "/Figureout/Document/Concept_Environnement.pdf", type: "pdf" },
-        { title: "FO-RM", description: "À remplir — décris ce document.", cover: null, file: "/Figureout/Document/FO-RM.pdf", type: "pdf" },
-        { title: "Rôles", description: "À remplir — décris ce document.", cover: null, file: "/Figureout/Document/Roles.pdf", type: "pdf" },
+        { title: "Art Development Log", description: "Ce document regroupe les différentes itérations de direction artistique de l’environnement, en intégrant notre avancement au chef de projet en détaillant l’évolution de la production.", cover: null, file: "/Figureout/Document/Concept_Environnement.pdf", type: "pdf" },
+        { title: "Project Charter", description: "Nous avons réalisé un Project Charter, servant de document de cadrage en début de conception du jeu", cover: null, file: "/Figureout/Document/FO-RM.pdf", type: "pdf" },
+        { title: "Structure d’équipe", description: "Répartition par personne avec leurs rôles et responsabilités (prog, sound, DA, etc.)", cover: null, file: "/Figureout/Document/Roles.pdf", type: "pdf" },
     ],
     screenshots: [
         "/Figureout/FO.png",

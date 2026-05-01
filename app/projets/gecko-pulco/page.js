@@ -51,8 +51,8 @@ const PROJECT = {
     playUrl: "https://fauwly.itch.io/gecko-pulco",
     playIcon: "/GeckoPulco/icone.png",
     documents: [
-        { title: "GDD - Gecko Pulco", description: "À remplir — décris le contenu de ce Game Design Document.", cover: null, file: "/GeckoPulco/Documents/GeckoPulcoGDD.pdf", type: "pdf" },
-        { title: "Diagramme de Gantt", description: "À remplir — planning de production sous forme de diagramme.", cover: "/GeckoPulco/Documents/DiagrammeGantt.png", file: "/GeckoPulco/Documents/DiagrammeGantt.png", type: "image" },
+        { title: "Game Design Document", cover: null, file: "/GeckoPulco/Documents/GeckoPulcoGDD.pdf", type: "pdf" },
+        { title: "Diagramme de Gantt", description: "Diagramme fais avant conception nous permettant de planifier et coordonner les tâches dans un délai donné", cover: "/GeckoPulco/Documents/DiagrammeGantt.png", file: "/GeckoPulco/Documents/DiagrammeGantt.png", type: "image" },
     ],
     screenshots: [
         "/GeckoPulco/GP1.png",
