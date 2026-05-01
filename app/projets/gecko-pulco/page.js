@@ -47,8 +47,8 @@ const PROJECT = {
         { heading: "Mise en place du projet", text: `Gecko Pulco est un projet réalisé du 21 février au 5 juin 2025, dans le cadre de ma formation à l'ICAN Lyon. Un jeu d'aventure/plateforme 3D où l'on incarne Pulco, un petit gecko évoluant dans un monde coloré fait d'îles flottantes. Dès le départ, j'ai mis en place la structure de production sur Notion et Figma, établi un contrat de communication définissant les règles de fonctionnement de l'équipe, et organisé des réunions hebdomadaires chaque mercredi en présentiel.`, image: "/A propos de moi/equipe.jpg", imageCaption: "L'équipe" },
         { heading: "Déroulement du développement", text: `La phase de pré-production a bien démarré. En collaboration avec notre game artist, j'ai défini les références visuelles et l'ambiance générale du jeu, ce qui a permis à l'équipe d'avoir une direction claire dès le début. Les mécaniques ont été définies rapidement et les programmeurs ont pu se mettre au travail sans attendre. Je donnais des retours réguliers sur le character design et l'UI pour m'assurer que tout restait cohérent avec la direction artistique établie.`, carousel: ["/GeckoPulco/Moodboard/1.jpg", "/GeckoPulco/Moodboard/2.jpg", "/GeckoPulco/Moodboard/3.jpg"], carouselCaption: "Moodboard" },
         { heading: "Défis rencontrés", text: `Les principaux défis étaient humains et techniques. Des tensions de communication ont émergé au sein de l'équipe résolues grâce aux méthodes agiles et à la mise en place de règles collectives et de concessions mutuelles. Le manque de temps a provoqué des baisses de motivation, ce qu'on a anticipé en instaurant un système de parole où chacun pouvait signaler une difficulté en avance pour s'adapter. Des tensions techniques sont également apparues autour de l'implémentation du son sur Unity, réglées par la discussion et une aide externe. Le projet s'est avéré trop ambitieux dans sa forme initiale. Plutôt que de s'épuiser sur un scope inatteignable, nous avons décidé de couper du contenu pour nous concentrer sur ce qui comptait vraiment livrer un jeu fun, cohérent et satisfaisant. Ce regard nouveau sur le projet nous a permis de retrouver de la motivation et de terminer quelque chose dont on est fiers.`, carousel: ["/GeckoPulco/ConceptArt/Ennemie.jpg", "/GeckoPulco/ConceptArt/Pulco.jpg"], carouselCaption: "Concept Art" },
+        { heading: "Direction artistique & personnage", text: `En tant que directrice artistique, j'ai travaillé en étroite collaboration avec la game artist pour définir l'identité visuelle de Pulco et de ses ennemis. Le turnaround du personnage illustre le soin apporté au character design : proportions, couleurs, et expressivité ont été itérées plusieurs fois pour correspondre à l'univers coloré et dynamique du jeu.`, video: "/GeckoPulco/Vidéo/turnaround_gp.mp4", videoCaption: "Turnaround de Pulco" },
     ],
-    turnaround: "/GeckoPulco/Vidéo/turnaround_gp.mp4",
     playUrl: "https://fauwly.itch.io/gecko-pulco",
     playIcon: "/GeckoPulco/icone.png",
     documents: [
@@ -325,7 +325,7 @@ export default function ProjetGeckoPulco() {
                             <SectionTitle label="Retour d'expérience" title="Analyse & Processus" />
                             <div className="flex flex-col gap-10">
                                 {PROJECT.analysis.map((block, i) => (
-                                    <motion.div key={i} variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.1 }} className={`grid ${(block.image || block.carousel) ? "md:grid-cols-[3fr_2fr]" : "grid-cols-1"} gap-8 items-start`}>
+                                    <motion.div key={i} variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.1 }} className={`grid ${(block.image || block.carousel || block.video) ? "md:grid-cols-[3fr_2fr]" : "grid-cols-1"} gap-8 items-start`}>
                                         <div className="flex flex-col gap-4">
                                             <h3 className="text-lg font-semibold text-[#EDF0FC]">{block.heading}</h3>
                                             <p className="text-[#C3D0F6] leading-relaxed text-sm">{block.text}</p>
@@ -339,14 +339,12 @@ export default function ProjetGeckoPulco() {
                                             </div>
                                         )}
                                         {block.carousel && <AnalysisCarousel images={block.carousel} caption={block.carouselCaption} />}
-                                    </motion.div>
-                                ))}
-                                {PROJECT.turnaround && (
-                                    <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.1 }} className="flex flex-col gap-3">
-                                        <video src={PROJECT.turnaround} controls className="w-full rounded-xl border border-[#C3D0F6]/10" />
-                                        <p className="text-xs text-[#8BA8EE]/80 text-center italic">Turnaround du personnage</p>
-                                    </motion.div>
-                                )}
+                                        {block.video && (
+                                            <div className="flex flex-col gap-2">
+                                                <video src={block.video} autoPlay loop muted playsInline className="w-full rounded-xl border border-[#C3D0F6]/10 object-cover" />
+                                                {block.videoCaption && <p className="text-xs text-[#8BA8EE]/80 text-center italic">{block.videoCaption}</p>}
+                                            </div>
+                                        )}
                             </div>
                         </section>
 
