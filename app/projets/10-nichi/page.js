@@ -37,11 +37,8 @@ const PROJECT = {
     },
     secondaryRole: null,
     analysis: [
-        { heading: "Conception du jeu", text: `Le développement de 10-Nichi ! s’est construit autour d’un concept central : proposer une expérience coopérative où les joueurs doivent gérer un village sous pression sur une durée limitée de 10 jours. Dès les premières phases de conception, l’objectif était de créer une tension constante entre gestion de ressources, défense et prise de décision collective.Les premières versions du jeu étaient plus simples dans leur structure, mais rapidement, des mécaniques ont été ajoutées pour enrichir la profondeur stratégique, comme le système de phases journalières (matin, journée, soir) et l’introduction d’événements aléatoires.Au fil des itérations, certaines mécaniques ont été ajustées ou simplifiées pour améliorer la lisibilité du jeu. Par exemple, la gestion des ressources et du Grenier a été clarifiée afin de rendre les choix plus compréhensibles pour les joueurs. L’ajout des bénédictions et malédictions des Kami a également permis de renforcer l’aspect imprévisible et la rejouabilité.L’équilibrage a été un point central du processus, notamment pour trouver un bon compromis entre difficulté et accessibilité. L’objectif n’était pas de créer un jeu punitif, mais un jeu exigeant où la coopération et la communication sont essentielles.`, image: null, images: [
-            { src: "/10nichi/Images/cartes.png", caption: "Les cartes du jeu" },
-            { src: "/10nichi/Images/plateau.png", caption: "Le plateau de jeu" },
-        ] },
-        { heading: "Sessions de playtesting", text: `Les sessions de playtesting ont été essentielles pour affiner les mécaniques et valider les choix de design. Elles ont été organisées de manière régulière, en impliquant à la fois des membres de l’équipe et des joueurs extérieurs afin d’obtenir des retours variés.Lors de ces sessions, plusieurs observations ont été faites. Tout d’abord, les joueurs avaient tendance à sous-estimer l’importance de la gestion de la nourriture, ce qui entraînait rapidement des situations critiques. Cela a permis de rééquilibrer certains aspects pour mieux guider les joueurs dans leurs priorités.Les retours ont également mis en évidence une forte appréciation du côté coopératif du jeu, notamment dans les phases de discussion et de prise de décision collective. En revanche, certains joueurs pouvaient se sentir perdus face à la quantité d’informations et de règles au début de la partie, ce qui a conduit à simplifier certaines explications et à améliorer la clarté du livret.Un point particulièrement intéressant a été de constater que les moments les plus marquants pour les joueurs étaient liés aux imprévus (événements, malédictions), confirmant l’intérêt de conserver une part d’aléatoire forte dans l’expérience.`, image: null },
+        { heading: "Conception du jeu", text: `Le développement de 10-Nichi ! s’est construit autour d’un concept central : proposer une expérience coopérative où les joueurs doivent gérer un village sous pression sur une durée limitée de 10 jours. Dès les premières phases de conception, l’objectif était de créer une tension constante entre gestion de ressources, défense et prise de décision collective.Les premières versions du jeu étaient plus simples dans leur structure, mais rapidement, des mécaniques ont été ajoutées pour enrichir la profondeur stratégique, comme le système de phases journalières (matin, journée, soir) et l’introduction d’événements aléatoires.Au fil des itérations, certaines mécaniques ont été ajustées ou simplifiées pour améliorer la lisibilité du jeu. Par exemple, la gestion des ressources et du Grenier a été clarifiée afin de rendre les choix plus compréhensibles pour les joueurs. L’ajout des bénédictions et malédictions des Kami a également permis de renforcer l’aspect imprévisible et la rejouabilité.L’équilibrage a été un point central du processus, notamment pour trouver un bon compromis entre difficulté et accessibilité. L’objectif n’était pas de créer un jeu punitif, mais un jeu exigeant où la coopération et la communication sont essentielles.`, image: "/10nichi/Images/cartes.png", imageCaption: "Les cartes du jeu" },
+        { heading: "Sessions de playtesting", text: `Les sessions de playtesting ont été essentielles pour affiner les mécaniques et valider les choix de design. Elles ont été organisées de manière régulière, en impliquant à la fois des membres de l’équipe et des joueurs extérieurs afin d’obtenir des retours variés.Lors de ces sessions, plusieurs observations ont été faites. Tout d’abord, les joueurs avaient tendance à sous-estimer l’importance de la gestion de la nourriture, ce qui entraînait rapidement des situations critiques. Cela a permis de rééquilibrer certains aspects pour mieux guider les joueurs dans leurs priorités.Les retours ont également mis en évidence une forte appréciation du côté coopératif du jeu, notamment dans les phases de discussion et de prise de décision collective. En revanche, certains joueurs pouvaient se sentir perdus face à la quantité d’informations et de règles au début de la partie, ce qui a conduit à simplifier certaines explications et à améliorer la clarté du livret.Un point particulièrement intéressant a été de constater que les moments les plus marquants pour les joueurs étaient liés aux imprévus (événements, malédictions), confirmant l’intérêt de conserver une part d’aléatoire forte dans l’expérience.`, image: "/10nichi/Images/plateau.png", imageCaption: "Le plateau de jeu" },
         { heading: "Défis et apprentissages", text: `Le principal défi du projet a été l’équilibrage du jeu. Concevoir un système à la fois stratégique, coopératif et dépendant d’aléas nécessite de nombreux ajustements pour éviter qu’une partie soit trop facile ou, au contraire, frustrante.Un autre défi important a été la complexité des règles. Il a fallu trouver un équilibre entre richesse mécanique et accessibilité, afin de ne pas décourager les joueurs dès les premières parties.Ce projet a également permis de mieux comprendre l’importance du playtesting dans la conception d’un jeu de société. Les retours des joueurs ont été essentiels pour identifier des problèmes qui n’étaient pas visibles en interne, notamment sur la compréhension des règles et le ressenti global.Enfin, ce travail a renforcé des compétences en conception systémique, en équilibrage et en travail d’équipe. Il a mis en évidence l’importance de l’itération, de l’écoute des retours et de la capacité à remettre en question ses idées initiales pour améliorer l’expérience finale.`, image: null },
     ],
     documents: [
@@ -263,28 +260,19 @@ export default function Projet10Nichi() {
                             <SectionTitle label="Retour d'expérience" title="Analyse & Processus" />
                             <div className="flex flex-col gap-10">
                                 {PROJECT.analysis.map((block, i) => (
-                                    <motion.div key={i} variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.1 }}>
-                                        <div className="overflow-hidden">
-                                            {block.images && (
-                                                <div style={{ float: 'right', marginLeft: '2rem', marginBottom: '1rem', width: '38%' }} className="flex flex-col gap-5">
-                                                    {block.images.map((img, j) => (
-                                                        <div key={j} className="flex flex-col gap-2">
-                                                            <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10">
-                                                                <Image src={img.src} alt={img.caption} width={500} height={360} className="w-full object-cover" />
-                                                            </div>
-                                                            <p className="text-xs text-[#8BA8EE]/80 text-center italic leading-snug">{img.caption}</p>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                            {block.image && (
-                                                <div style={{ float: 'right', marginLeft: '2rem', marginBottom: '1rem', width: '38%' }} className="rounded-2xl overflow-hidden border border-[#C3D0F6]/10">
-                                                    <Image src={block.image} alt={block.heading} width={600} height={380} className="w-full object-cover" />
-                                                </div>
-                                            )}
-                                            <h3 className="text-lg font-semibold text-[#EDF0FC] mb-3">{block.heading}</h3>
+                                    <motion.div key={i} variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.1 }} className={`grid ${block.image ? "md:grid-cols-[3fr_2fr]" : "grid-cols-1"} gap-8 items-start`}>
+                                        <div className="flex flex-col gap-4">
+                                            <h3 className="text-lg font-semibold text-[#EDF0FC]">{block.heading}</h3>
                                             <p className="text-[#C3D0F6] leading-relaxed text-sm">{block.text}</p>
                                         </div>
+                                        {block.image && (
+                                            <div className="flex flex-col gap-2">
+                                                <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10">
+                                                    <Image src={block.image} alt={block.imageCaption || block.heading} width={500} height={360} className="w-full object-cover" />
+                                                </div>
+                                                {block.imageCaption && <p className="text-xs text-[#8BA8EE]/80 text-center italic">{block.imageCaption}</p>}
+                                            </div>
+                                        )}
                                     </motion.div>
                                 ))}
                             </div>
