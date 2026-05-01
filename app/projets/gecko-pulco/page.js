@@ -345,6 +345,8 @@ export default function ProjetGeckoPulco() {
                                                 {block.videoCaption && <p className="text-xs text-[#8BA8EE]/80 text-center italic">{block.videoCaption}</p>}
                                             </div>
                                         )}
+                                    </motion.div>
+                                ))}
                             </div>
                         </section>
 
