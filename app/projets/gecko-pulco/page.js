@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText, X } from "lucide-react";
 
 const fadeUp = {
     initial: { opacity: 0, y: 24 },
@@ -48,9 +48,11 @@ const PROJECT = {
         { heading: "Déroulement du développement", text: `La phase de pré-production a bien démarré. En collaboration avec notre game artist, j'ai défini les références visuelles et l'ambiance générale du jeu, ce qui a permis à l'équipe d'avoir une direction claire dès le début. Les mécaniques ont été définies rapidement et les programmeurs ont pu se mettre au travail sans attendre. Je donnais des retours réguliers sur le character design et l'UI pour m'assurer que tout restait cohérent avec la direction artistique établie.`, image: null },
         { heading: "Défis rencontrés", text: `Les principaux défis étaient humains et techniques. Des tensions de communication ont émergé au sein de l'équipe résolues grâce aux méthodes agiles et à la mise en place de règles collectives et de concessions mutuelles. Le manque de temps a provoqué des baisses de motivation, ce qu'on a anticipé en instaurant un système de parole où chacun pouvait signaler une difficulté en avance pour s'adapter. Des tensions techniques sont également apparues autour de l'implémentation du son sur Unity, réglées par la discussion et une aide externe. Le projet s'est avéré trop ambitieux dans sa forme initiale. Plutôt que de s'épuiser sur un scope inatteignable, nous avons décidé de couper du contenu pour nous concentrer sur ce qui comptait vraiment livrer un jeu fun, cohérent et satisfaisant. Ce regard nouveau sur le projet nous a permis de retrouver de la motivation et de terminer quelque chose dont on est fiers.`, image: null },
     ],
+    playUrl: "https://fauwly.itch.io/gecko-pulco",
+    playIcon: "/GeckoPulco/icone.png",
     documents: [
-        { title: "Document de cadrage", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
-        { title: "Planning de production", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
+        { title: "GDD - Gecko Pulco", description: "À remplir — décris le contenu de ce Game Design Document.", cover: null, file: "/GeckoPulco/Documents/GeckoPulcoGDD.pdf", type: "pdf" },
+        { title: "Diagramme de Gantt", description: "À remplir — planning de production sous forme de diagramme.", cover: "/GeckoPulco/Documents/DiagrammeGantt.png", file: "/GeckoPulco/Documents/DiagrammeGantt.png", type: "image" },
     ],
     screenshots: [
         "/GeckoPulco/GP1.png",
@@ -112,6 +114,68 @@ function ScreenshotCarousel() {
     );
 }
 
+function DocumentCard({ doc, onClick }) {
+    return (
+        <motion.div variants={fadeUp} onClick={onClick}
+            className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 overflow-hidden cursor-pointer hover:border-[#8BA8EE]/40 transition-all group">
+            <div className="h-44 bg-[#0D1F3E]/60 overflow-hidden flex items-center justify-center">
+                {doc.cover ? (
+                    <img src={doc.cover} alt={doc.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                ) : (
+                    <div className="flex flex-col items-center gap-2">
+                        <FileText className="h-12 w-12 text-[#4782E4]/50" />
+                        <span className="text-xs text-[#8BA8EE]/60 uppercase tracking-wider">{doc.type === "pdf" ? "PDF" : "Image"}</span>
+                    </div>
+                )}
+            </div>
+            <div className="p-5 flex flex-col gap-1.5">
+                <h3 className="font-semibold text-[#EDF0FC] text-sm">{doc.title}</h3>
+                <p className="text-[#C3D0F6] text-xs leading-relaxed line-clamp-2">{doc.description}</p>
+            </div>
+        </motion.div>
+    );
+}
+
+function DocumentViewer({ documents, initialIndex, onClose }) {
+    const [index, setIndex] = React.useState(initialIndex);
+    const doc = documents[index];
+    return (
+        <div className="fixed inset-0 z-[100] bg-[#080f1e]/95 backdrop-blur flex flex-col">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#C3D0F6]/10 flex-shrink-0">
+                <div>
+                    <h3 className="font-semibold text-[#EDF0FC]">{doc.title}</h3>
+                    {documents.length > 1 && <p className="text-xs text-[#8BA8EE] mt-0.5">{index + 1} / {documents.length}</p>}
+                </div>
+                <button onClick={onClose} className="rounded-xl border border-[#C3D0F6]/20 p-2 hover:bg-[#1F3E71]/35 transition">
+                    <X className="h-5 w-5 text-[#EDF0FC]" />
+                </button>
+            </div>
+            <div className="flex-1 relative overflow-hidden">
+                {doc.type === "pdf" ? (
+                    <iframe src={doc.file} className="w-full h-full border-0" title={doc.title} />
+                ) : (
+                    <img src={doc.file} alt={doc.title} className="w-full h-full object-contain p-4" />
+                )}
+                {documents.length > 1 && index > 0 && (
+                    <button onClick={() => setIndex(i => i - 1)}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/80 backdrop-blur p-3 hover:bg-[#1F3E71] transition">
+                        <ChevronLeft className="h-6 w-6 text-[#EDF0FC]" />
+                    </button>
+                )}
+                {documents.length > 1 && index < documents.length - 1 && (
+                    <button onClick={() => setIndex(i => i + 1)}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/80 backdrop-blur p-3 hover:bg-[#1F3E71] transition">
+                        <ChevronRight className="h-6 w-6 text-[#EDF0FC]" />
+                    </button>
+                )}
+            </div>
+            <div className="px-6 py-4 border-t border-[#C3D0F6]/10 flex-shrink-0 bg-[#080f1e]/80">
+                <p className="text-[#C3D0F6] text-sm leading-relaxed">{doc.description}</p>
+            </div>
+        </div>
+    );
+}
+
 function SectionTitle({ label, title }) {
     return <div className="mb-8"><p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">{label}</p><h2 className="text-2xl font-semibold tracking-tight">{title}</h2></div>;
 }
@@ -136,6 +200,7 @@ function Sidebar() {
 }
 
 export default function ProjetGeckoPulco() {
+    const [viewerIndex, setViewerIndex] = React.useState(null);
     return (
         <div className="min-h-screen bg-[#080f1e] text-[#EDF0FC]" style={{ position: "relative" }}>
             <StarField />
@@ -154,6 +219,15 @@ export default function ProjetGeckoPulco() {
                         <ScreenshotCarousel />
                     </motion.div>
                 </div>
+                {PROJECT.playUrl && (
+                    <div className="mx-auto max-w-7xl px-6 pt-5">
+                        <a href={PROJECT.playUrl} target="_blank" rel="noopener noreferrer"
+                            className="inline-flex items-center gap-3 rounded-2xl bg-white text-[#0D1F3E] px-6 py-3 font-semibold hover:bg-[#EDF0FC] transition text-sm">
+                            {PROJECT.playIcon && <img src={PROJECT.playIcon} alt="itch.io" className="h-6 w-6 object-contain" />}
+                            Jouer au jeu sur itch.io
+                        </a>
+                    </div>
+                )}
                 <div className="mx-auto max-w-7xl px-6 py-10 flex gap-10 items-start">
                     <Sidebar />
                     <main className="flex-1 min-w-0 flex flex-col gap-16">
@@ -234,17 +308,19 @@ export default function ProjetGeckoPulco() {
 
                         <section id="documents" className="scroll-mt-24">
                             <SectionTitle label="Livrables" title="Documents de production" />
-                            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }} className="grid md:grid-cols-2 gap-6">
+                            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
+                                className="grid md:grid-cols-3 gap-6">
                                 {PROJECT.documents.map((doc, i) => (
-                                    <motion.div key={i} variants={fadeUp} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
-                                        <div className="flex items-start gap-3">
-                                            <div className="rounded-xl bg-[#4782E4]/15 p-2.5 flex-shrink-0"><FileText className="h-5 w-5 text-[#4782E4]" /></div>
-                                            <div><h3 className="font-semibold text-[#EDF0FC] mb-1">{doc.title}</h3><p className="text-[#C3D0F6] text-sm leading-relaxed">{doc.description}</p></div>
-                                        </div>
-                                        {doc.url !== "#" && <a href={doc.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-4 py-2 text-sm font-medium hover:bg-[#EDF0FC] transition self-start">Télécharger</a>}
-                                    </motion.div>
+                                    <DocumentCard key={i} doc={doc} onClick={() => setViewerIndex(i)} />
                                 ))}
                             </motion.div>
+                            {viewerIndex !== null && (
+                                <DocumentViewer
+                                    documents={PROJECT.documents}
+                                    initialIndex={viewerIndex}
+                                    onClose={() => setViewerIndex(null)}
+                                />
+                            )}
                         </section>
 
                         <div className="flex flex-wrap justify-between items-center gap-4 pt-4">

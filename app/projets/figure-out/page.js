@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText, X } from "lucide-react";
 
 const fadeUp = {
     initial: { opacity: 0, y: 24 },
@@ -50,8 +50,9 @@ const PROJECT = {
         { heading: "Bilan et apprentissages", text: 'Le projet n’a finalement pas pu être mené à terme, notamment suite au départ du chef de projet, qui a entraîné une perte de repères et de motivation au sein de l’équipe. Malgré plusieurs tentatives pour relancer la dynamique, le manque de leadership global a empêché la finalisation du jeu.Cependant, cette expérience reste très formatrice. La gestion d’une équipe de plus de 7 personnes sur le pôle artistique a été un véritable défi, qui m’a permis de développer des compétences en organisation, communication et encadrement.Ce projet a surtout confirmé mon intérêt pour la production et la gestion d’équipe. Avec du recul, je serais plus attentive à la définition du scope dès le départ, à la stabilité des décisions, et à la mise en place de leads clairs dans chaque pôle afin d’assurer un meilleur équilibre de production.Malgré les difficultés rencontrées, cette expérience m’a donné envie de m’investir davantage dans des rôles à responsabilité, avec pour objectif de mener des projets à leur aboutissement de manière plus structurée et efficace.'}
     ],
     documents: [
-        { title: "Art Style Guide", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
-        { title: "Comptes rendus hebdomadaires", description: "À remplir — décris ce document et ce qu'il contient.", url: "#" },
+        { title: "Concept Environnement", description: "À remplir — décris ce document.", cover: null, file: "/Figureout/Document/Concept_Environnement.pdf", type: "pdf" },
+        { title: "FO-RM", description: "À remplir — décris ce document.", cover: null, file: "/Figureout/Document/FO-RM.pdf", type: "pdf" },
+        { title: "Rôles", description: "À remplir — décris ce document.", cover: null, file: "/Figureout/Document/Roles.pdf", type: "pdf" },
     ],
     screenshots: [
         "/Figureout/FO.png",
@@ -113,6 +114,66 @@ function ScreenshotCarousel() {
     );
 }
 
+function DocumentCard({ doc, onClick }) {
+    return (
+        <motion.div variants={fadeUp} onClick={onClick}
+            className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 overflow-hidden cursor-pointer hover:border-[#8BA8EE]/40 transition-all group">
+            <div className="h-44 bg-[#0D1F3E]/60 overflow-hidden flex items-center justify-center">
+                {doc.cover ? (
+                    <img src={doc.cover} alt={doc.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                ) : (
+                    <div className="flex flex-col items-center gap-2">
+                        <FileText className="h-12 w-12 text-[#4782E4]/50" />
+                        <span className="text-xs text-[#8BA8EE]/60 uppercase tracking-wider">PDF</span>
+                    </div>
+                )}
+            </div>
+            <div className="p-5 flex flex-col gap-1.5">
+                <h3 className="font-semibold text-[#EDF0FC] text-sm">{doc.title}</h3>
+                <p className="text-[#C3D0F6] text-xs leading-relaxed line-clamp-2">{doc.description}</p>
+            </div>
+        </motion.div>
+    );
+}
+
+function DocumentViewer({ documents, initialIndex, onClose }) {
+    const [index, setIndex] = React.useState(initialIndex);
+    const doc = documents[index];
+    return (
+        <div className="fixed inset-0 z-[100] bg-[#080f1e]/95 backdrop-blur flex flex-col">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#C3D0F6]/10 flex-shrink-0">
+                <div>
+                    <h3 className="font-semibold text-[#EDF0FC]">{doc.title}</h3>
+                    {documents.length > 1 && <p className="text-xs text-[#8BA8EE] mt-0.5">{index + 1} / {documents.length}</p>}
+                </div>
+                <button onClick={onClose} className="rounded-xl border border-[#C3D0F6]/20 p-2 hover:bg-[#1F3E71]/35 transition">
+                    <X className="h-5 w-5 text-[#EDF0FC]" />
+                </button>
+            </div>
+            <div className="flex-1 relative overflow-hidden">
+                {doc.type === "pdf" ? (
+                    <iframe src={doc.file} className="w-full h-full border-0" title={doc.title} />
+                ) : (
+                    <img src={doc.file} alt={doc.title} className="w-full h-full object-contain p-4" />
+                )}
+                {documents.length > 1 && index > 0 && (
+                    <button onClick={() => setIndex(i => i - 1)} className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/80 backdrop-blur p-3 hover:bg-[#1F3E71] transition">
+                        <ChevronLeft className="h-6 w-6 text-[#EDF0FC]" />
+                    </button>
+                )}
+                {documents.length > 1 && index < documents.length - 1 && (
+                    <button onClick={() => setIndex(i => i + 1)} className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/80 backdrop-blur p-3 hover:bg-[#1F3E71] transition">
+                        <ChevronRight className="h-6 w-6 text-[#EDF0FC]" />
+                    </button>
+                )}
+            </div>
+            <div className="px-6 py-4 border-t border-[#C3D0F6]/10 flex-shrink-0 bg-[#080f1e]/80">
+                <p className="text-[#C3D0F6] text-sm leading-relaxed">{doc.description}</p>
+            </div>
+        </div>
+    );
+}
+
 function SectionTitle({ label, title }) {
     return <div className="mb-8"><p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">{label}</p><h2 className="text-2xl font-semibold tracking-tight">{title}</h2></div>;
 }
@@ -137,6 +198,7 @@ function Sidebar() {
 }
 
 export default function ProjetFigureOut() {
+    const [viewerIndex, setViewerIndex] = React.useState(null);
     return (
         <div className="min-h-screen bg-[#080f1e] text-[#EDF0FC]" style={{ position: "relative" }}>
             <StarField />
@@ -235,17 +297,14 @@ export default function ProjetFigureOut() {
 
                         <section id="documents" className="scroll-mt-24">
                             <SectionTitle label="Livrables" title="Documents de production" />
-                            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }} className="grid md:grid-cols-2 gap-6">
+                            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }} className="grid md:grid-cols-3 gap-6">
                                 {PROJECT.documents.map((doc, i) => (
-                                    <motion.div key={i} variants={fadeUp} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7 flex flex-col gap-4">
-                                        <div className="flex items-start gap-3">
-                                            <div className="rounded-xl bg-[#4782E4]/15 p-2.5 flex-shrink-0"><FileText className="h-5 w-5 text-[#4782E4]" /></div>
-                                            <div><h3 className="font-semibold text-[#EDF0FC] mb-1">{doc.title}</h3><p className="text-[#C3D0F6] text-sm leading-relaxed">{doc.description}</p></div>
-                                        </div>
-                                        {doc.url !== "#" && <a href={doc.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-4 py-2 text-sm font-medium hover:bg-[#EDF0FC] transition self-start">Télécharger</a>}
-                                    </motion.div>
+                                    <DocumentCard key={i} doc={doc} onClick={() => setViewerIndex(i)} />
                                 ))}
                             </motion.div>
+                            {viewerIndex !== null && (
+                                <DocumentViewer documents={PROJECT.documents} initialIndex={viewerIndex} onClose={() => setViewerIndex(null)} />
+                            )}
                         </section>
 
                         <div className="flex flex-wrap justify-between items-center gap-4 pt-4">
