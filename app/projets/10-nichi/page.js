@@ -270,13 +270,13 @@ export default function Projet10Nichi() {
                                         </motion.div>
                                         {block.image && <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden border border-[#C3D0F6]/10"><Image src={block.image} alt={block.heading} width={600} height={380} className="w-full object-cover" /></motion.div>}
                                         {block.images && (
-                                            <motion.div variants={fadeUp} className="grid grid-cols-2 gap-3">
+                                            <motion.div variants={fadeUp} className="flex flex-col gap-5">
                                                 {block.images.map((img, j) => (
                                                     <div key={j} className="flex flex-col gap-2">
-                                                        <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10 aspect-[4/3]">
-                                                            <Image src={img.src} alt={img.caption} width={400} height={300} className="w-full h-full object-cover" />
+                                                        <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10">
+                                                            <Image src={img.src} alt={img.caption} width={500} height={360} className="w-full object-cover" />
                                                         </div>
-                                                        <p className="text-xs text-[#8BA8EE] text-center leading-snug">{img.caption}</p>
+                                                        <p className="text-xs text-[#8BA8EE]/80 text-center italic leading-snug">{img.caption}</p>
                                                     </div>
                                                 ))}
                                             </motion.div>
