@@ -294,6 +294,7 @@ export default function ProjetIRA() {
                                 className="w-full h-full object-cover" priority />
                         </div>
                         <ScreenshotCarousel />
+                        <video src="/IRA/Vidéos/Gameplay.mp4" controls className="w-full rounded-3xl border border-[#C3D0F6]/10" />
                     </motion.div>
                 </div>
 

@@ -249,6 +249,7 @@ export default function ProjetGeckoPulco() {
                             <Image src={PROJECT.src} alt={PROJECT.title} width={700} height={400} className="w-full h-full object-cover" priority />
                         </div>
                         <ScreenshotCarousel />
+                        <video src="/GeckoPulco/Vidéo/CinematiqueGp.mp4" controls className="w-full rounded-3xl border border-[#C3D0F6]/10" />
                     </motion.div>
                 </div>
                 {PROJECT.playUrl && (
