@@ -127,7 +127,7 @@ const TR = {
             title: "Skills",
             items: [
                 { title: "Leadership & Ambition", description: "I strive to improve every day and apply this constant progression to the teams I am part of. I firmly believe in facilitating and supporting the team so it grows throughout a project, whether through one-on-ones, retrospectives or post-mortems. This encourages individual reflection that benefits the whole group." },
-                { title: "Creativity", description: "As much as I am a producer, I am also a game designer and I understand the creative aspects of game design. I try to bring this creativity to my producer role — not by being limited to a fixed toolkit or a proven method, but by offering creative solutions tailored to the challenges of a project. This is why I continually seek to learn and find the right balance between method and personal touch." },
+                { title: "Creativity", description: "As much as I am a producer, I am also a game designer and I understand the creative aspects of game design. I try to bring this creativity to my producer role, not by being limited to a fixed toolkit or a proven method, but by offering creative solutions tailored to the challenges of a project. This is why I continually seek to learn and find the right balance between method and personal touch." },
             ],
             colTitles: ["Production Skills", "Design Skills", "Software & Tools"],
             cols: [
@@ -145,7 +145,7 @@ const TR = {
                 { period: "90 days - Ongoing", title: "Internship - Data Project Management", place: "Orange", items: ["Monitoring and coordination of data projects in a DSI environment", "Managing deliverables and reporting to stakeholders", "Backlog management and facilitating review meetings"] },
                 { period: "2026 - Ongoing", title: "Freelance Mission - Producer", place: "StellarPunk", items: ["Formalising and driving the team backlog", "Structuring production for a Vertical Slice", "Coordinating teams for the delivery of key milestones"] },
                 { period: "2025 - 44 days", title: "Internship - Game / Narrative Designer", place: "StellarPunk", items: ["Board game development", "Facilitating game sessions", "Game design & narrative writing"] },
-                { period: "2023 — 2025", title: "Student job - Administrative Assistant", place: "Fradin & Associés: Enforcement Officers", items: ["Managing incoming and outgoing mail (sorting, scanning, recording)", "Filing and archiving administrative documents", "Supporting the team with various office tasks"] },
+                { period: "2023 - 2025", title: "Student job - Administrative Assistant", place: "Fradin & Associés: Enforcement Officers", items: ["Managing incoming and outgoing mail (sorting, scanning, recording)", "Filing and archiving administrative documents", "Supporting the team with various office tasks"] },
             ],
         },
         contact: { title: "Let's talk!", desc: "A project, an opportunity, a question? Write to me." },
