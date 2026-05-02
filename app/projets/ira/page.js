@@ -51,17 +51,17 @@ const PROJECT = {
             heading: "Mise en place du projet",
             text: `Dès le lancement d'IRA, j'ai structuré l'équipe autour de deux leads : une Lead Game Art et un Lead Game Programer afin d'établir une hiérarchie claire et des canaux de communication efficaces entre les départements qui dans cette catégorie était assez nombreux. Les réunions d'équipe se tenaient chaque mercredi, en présentiel ou à distance, complétées par un suivi continu sur Discord. L'ensemble de la production était centralisé sur Notion : backlog, sprints, attribution des tâches par département et comptes rendus hebdomadaires.
 `,
-            image: null,
+            image: "/IRA/images/reunion discord.jpg", imageCaption: "Réunion hebdomadaire sur Discord",
         },
         {
             heading: "Déroulement du développement",
             text: `La phase de pré-production s'est bien déroulée. La Direction Artistique a fourni un travail solide très tôt, ce qui a permis aux artistes de disposer d'une base visuelle claire dès le départ. De leur côté, les programmeurs ont pu commencer à travailler directement après la définition des mécaniques. Je coordonnais les décisions de design en collaboration avec les leads, en m'assurant de recueillir leur avis avant de trancher. Certains désaccords ont émergé autour des mécaniques de combat , notamment sur l'armement du personnage et c'est moi qui ai pris la décision finale après concertation.Face aux contraintes de temps imposées par le cadre scolaire, nous avons dû réduire le scope à deux reprises. Le nombre d'ennemis prévus a été réduit : le projet initial comprenait cinq ennemis dont un boss final, une charge trop importante pour notre character artist seule dans le temps imparti. Les environnements ont également été rescopés , le jeu devait initialement comprendre trois zones (la ville, le marché et la zone du boss). Après de longues discussions en équipe, nous avons décidé de nous concentrer sur les deux zones les plus importantes pour la vertical slice, réduisant également le nombre de props à produire pour notre environment artist.`,
-            image: null,
+            image: "/IRA/images/reunion2.0.jpg", imageCaption: "Réunion en présentiel",
         },
         {
             heading: "Défis rencontrés",
             text: `Les principaux défis étaient humains. Des inégalités d'implication au sein de l'équipe ont créé des tensions : certains membres très investis se frustraient de voir d'autres contribuer moins. Plutôt que de laisser ces tensions s'installer, j'ai organisé des entretiens individuels avec chaque personne concernée. Ces discussions m'ont permis de comprendre qu'il s'agissait avant tout de malentendus. Des compromis ont été trouvés, sans promesses vides ,chacun a pu ajuster son implication sans générer de frustration supplémentaire ni de conflit ouvert. C'est l'une des décisions dont je suis la plus fière sur ce projet.`,
-            image: null,
+            pdfPreview: "/IRA/images/Moodboard.pdf", pdfCaption: "Moodboard",
         },
     ],
 
@@ -164,6 +164,35 @@ function ScreenshotCarousel() {
                     </div>
                 </>
             )}
+        </div>
+    );
+}
+
+function AnalysisCarousel({ images, caption }) {
+    const [current, setCurrent] = React.useState(0);
+    const prev = () => setCurrent(c => (c - 1 + images.length) % images.length);
+    const next = () => setCurrent(c => (c + 1) % images.length);
+    return (
+        <div className="flex flex-col gap-2">
+            <div className="relative rounded-xl overflow-hidden border border-[#C3D0F6]/10">
+                <Image src={images[current]} alt={`${caption} ${current + 1}`} width={500} height={360} className="w-full object-cover" />
+                {images.length > 1 && (
+                    <>
+                        <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/75 backdrop-blur p-1.5 hover:bg-[#1F3E71] transition">
+                            <ChevronLeft className="h-4 w-4 text-[#EDF0FC]" />
+                        </button>
+                        <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-[#080f1e]/75 backdrop-blur p-1.5 hover:bg-[#1F3E71] transition">
+                            <ChevronRight className="h-4 w-4 text-[#EDF0FC]" />
+                        </button>
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                            {images.map((_, i) => (
+                                <button key={i} onClick={() => setCurrent(i)} className={`w-1.5 h-1.5 rounded-full transition ${i === current ? "bg-[#EDF0FC]" : "bg-[#EDF0FC]/40"}`} />
+                            ))}
+                        </div>
+                    </>
+                )}
+            </div>
+            {caption && <p className="text-xs text-[#8BA8EE]/80 text-center italic">{caption}</p>}
         </div>
     );
 }
@@ -388,16 +417,28 @@ export default function ProjetIRA() {
 
                             <div className="flex flex-col gap-10">
                                 {PROJECT.analysis.map((block, i) => (
-                                    <motion.div key={i} variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.15 }}
-                                        className={`grid ${block.image ? "md:grid-cols-2" : "grid-cols-1"} gap-8 items-start`}>
-                                        <motion.div variants={fadeUp} className="flex flex-col gap-4">
+                                    <motion.div key={i} variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.1 }}
+                                        className={`grid ${(block.image || block.carousel || block.pdfPreview) ? "md:grid-cols-[3fr_2fr]" : "grid-cols-1"} gap-8 items-start`}>
+                                        <div className="flex flex-col gap-4">
                                             <h3 className="text-lg font-semibold text-[#EDF0FC]">{block.heading}</h3>
                                             <p className="text-[#C3D0F6] leading-relaxed text-sm">{block.text}</p>
-                                        </motion.div>
+                                        </div>
                                         {block.image && (
-                                            <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden border border-[#C3D0F6]/10">
-                                                <Image src={block.image} alt={block.heading} width={600} height={380} className="w-full object-cover" />
-                                            </motion.div>
+                                            <div className="flex flex-col gap-2">
+                                                <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10">
+                                                    <Image src={block.image} alt={block.imageCaption || block.heading} width={500} height={360} className="w-full object-cover" />
+                                                </div>
+                                                {block.imageCaption && <p className="text-xs text-[#8BA8EE]/80 text-center italic">{block.imageCaption}</p>}
+                                            </div>
+                                        )}
+                                        {block.carousel && <AnalysisCarousel images={block.carousel} caption={block.carouselCaption} />}
+                                        {block.pdfPreview && (
+                                            <div className="flex flex-col gap-2">
+                                                <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10 h-64">
+                                                    <iframe src={`${block.pdfPreview}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`} className="w-full h-full border-0" title={block.pdfCaption || "Document"} />
+                                                </div>
+                                                {block.pdfCaption && <p className="text-xs text-[#8BA8EE]/80 text-center italic">{block.pdfCaption}</p>}
+                                            </div>
                                         )}
                                     </motion.div>
                                 ))}
