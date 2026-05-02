@@ -425,8 +425,8 @@ export default function ProjetIRA() {
                                         </div>
                                         {block.image && (
                                             <div className="flex flex-col gap-2">
-                                                <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10">
-                                                    <Image src={block.image} alt={block.imageCaption || block.heading} width={500} height={360} className="w-full object-cover" />
+                                                <div className="rounded-xl overflow-hidden border border-[#C3D0F6]/10 h-52">
+                                                    <Image src={block.image} alt={block.imageCaption || block.heading} width={500} height={360} className="w-full h-full object-cover" />
                                                 </div>
                                                 {block.imageCaption && <p className="text-xs text-[#8BA8EE]/80 text-center italic">{block.imageCaption}</p>}
                                             </div>
