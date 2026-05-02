@@ -148,6 +148,29 @@ function GamesMarquee() {
 }
 
 
+const COLLECTION_PHOTOS = [
+    "/A propos de moi/C1.jpg",
+    "/A propos de moi/C2.jpg",
+    "/A propos de moi/C3.jpg",
+];
+
+function AutoSlider({ images }) {
+    const [current, setCurrent] = React.useState(0);
+    React.useEffect(() => {
+        const id = setInterval(() => setCurrent(c => (c + 1) % images.length), 3000);
+        return () => clearInterval(id);
+    }, [images.length]);
+    return (
+        <div className="relative w-full h-full">
+            {images.map((src, i) => (
+                <Image key={i} src={src} alt={`Collection ${i + 1}`} width={600} height={450}
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                    style={{ opacity: i === current ? 1 : 0 }} />
+            ))}
+        </div>
+    );
+}
+
 export default function AboutPage() {
     return (
         <div className="min-h-screen bg-[#080f1e] text-[#EDF0FC] selection:bg-[#4782E4]/30" style={{ position: "relative" }}>
@@ -238,9 +261,8 @@ export default function AboutPage() {
                             <motion.div variants={fadeUp}
                                 className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 overflow-hidden flex flex-col">
                                 <div className="p-6 pb-0">
-                                    <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden">
-                                        <Image src="/A propos de moi/collection.jpg" alt="Ma collection" width={600} height={450}
-                                            className="w-full h-full object-cover" />
+                                    <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative">
+                                        <AutoSlider images={COLLECTION_PHOTOS} />
                                     </div>
                                 </div>
                                 <div className="p-7 flex flex-col gap-4">
@@ -260,7 +282,7 @@ export default function AboutPage() {
                             <motion.div variants={fadeUp}
                                 className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 overflow-hidden flex flex-col">
                                 <div className="p-6 pb-0">
-                                    <Image src="/A propos de moi/collectionvinyle.jpg" alt="Ma collection de vinyles" width={600} height={450} className="w-full h-full object-cover" />
+                                    <Image src="/A propos de moi/collectionvinyle.jpg" alt="Ma collection de vinyles" width={600} height={450} className="w-full h-full object-cover object-top" />
                                 </div>
                                 <div className="p-7 flex flex-col gap-4">
                                     <div className="flex items-center gap-3">
