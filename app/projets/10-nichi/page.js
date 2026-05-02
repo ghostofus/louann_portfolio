@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText, X } from "lucide-react";
+import LangToggle from "../../components/LangToggle";
 
 const fadeUp = {
     initial: { opacity: 0, y: 24 },
@@ -197,7 +198,10 @@ export default function Projet10Nichi() {
                 <div className="sticky top-0 z-50 backdrop-blur bg-[#080f1e]/70 border-b border-[#C3D0F6]/10">
                     <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
                         <Link href="/" className="inline-flex items-center gap-2 text-[#8BA8EE] hover:text-[#EDF0FC] transition text-sm"><ChevronLeft className="h-4 w-4" /> Retour au portfolio</Link>
-                        <span className="font-semibold text-[#EDF0FC] hidden md:block">{PROJECT.title}</span>
+                        <div className="flex items-center gap-4">
+                            <span className="font-semibold text-[#EDF0FC] hidden md:block">{PROJECT.title}</span>
+                            <LangToggle />
+                        </div>
                     </div>
                 </div>
                 <div className="mx-auto max-w-7xl px-6 pt-10 pb-0">

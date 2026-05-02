@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText, X } from "lucide-react";
+import LangToggle from "../../components/LangToggle";
 
 const fadeUp = {
     initial: { opacity: 0, y: 24 },
@@ -281,7 +282,10 @@ export default function ProjetIRA() {
                         <Link href="/" className="inline-flex items-center gap-2 text-[#8BA8EE] hover:text-[#EDF0FC] transition text-sm">
                             <ChevronLeft className="h-4 w-4" /> Retour au portfolio
                         </Link>
-                        <span className="font-semibold text-[#EDF0FC] hidden md:block">{PROJECT.title}</span>
+                        <div className="flex items-center gap-4">
+                            <span className="font-semibold text-[#EDF0FC] hidden md:block">{PROJECT.title}</span>
+                            <LangToggle />
+                        </div>
                     </div>
                 </div>
 
