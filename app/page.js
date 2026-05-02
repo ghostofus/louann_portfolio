@@ -6,193 +6,180 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Download, Users, Clock, ChevronRight, Lightbulb, Globe } from "lucide-react";
-
-// ——— Données ———
-const PROJECTS = [
-    {
-        title: "IRA",
-        period: "2025/2026 : 10 mois",
-        role: "Producer / Cheffe de Projet",
-        summary: "Souls like narratif 3D réaliste - Unreal Engine 5",
-        tags: ["Agile", "Notion", "Roadmapping", "Playtesting", "GDD"],
-        src: "/ira.png",
-        slug: "ira",
-        teamSize: "8",
-        duration: "10 mois" ,
-        responsibilities: [
-            "Organiser des entretiens individuels réguliers avec l'ensemble de l'équipe tout au long du projet.",
-            "Fournir aux départements Art et Audio des listes de ressources afin de prioriser les tâches et d'éviter les dépendances.",
-            "Animer les réunions de planification de sprint et les rétrospectives conformément à notre approche agile.",
-            "Organisation et coordination des sessions de playtesting.",
-            "Gestion de la documentation de production et du GDD.",
-        ],
-    },
-    {
-        title: "Gecko Pulco",
-        period: "2025 : 4 mois",
-        role: "Producer / Cheffe de Projet",
-        summary: "Plateformer 3D cartoon - Unity 6",
-        tags: ["Agile", "Notion", "Roadmapping"],
-        src: "/gecko.jpg",
-        slug: "gecko-pulco",
-        teamSize: "4",
-        duration: "4 mois",
-        responsibilities: [
-            "Rédiger le document de cadrage initial du projet (scope, organisation, livrables) via le GDD.",
-            "Créer un planning haut niveau et l'utiliser comme base pour structurer les plannings hebdomadaires.",
-            "Suivre la vélocité et l'avancement en fournissant des rapports de progression à l'équipe.",
-            "Définir les deadlines et les livrables clés et assurer leur suivi tout au long du projet.",
-            "Gérer le scope et prendre des décisions de coupure de contenu en fonction des contraintes.",
-            "Gérer le backlog et résoudre les conflits au sein de l'équipe.",
-        ],
-    },
-    {
-        title: "Figure Out",
-        period: "2023/2024",
-        role: "Directrice Artistique / Producer",
-        summary: "Click & Point 3D - Unreal",
-        tags: ["Jira", "Nuclino", "Figma"],
-        src: "/figureout.jpg",
-        slug: "figure-out",
-        teamSize: "13",
-        duration: "1 ans",
-        responsibilities: [
-            {
-                category: "DIRECTION ARTISTIQUE",
-                items: [
-                    "Définir l'ambiance générale et la direction visuelle du jeu, en se concentrant sur la direction des environnements.",
-                    "Rédiger et maintenir l'Art Style Guide en s'appuyant sur une veille de jeux et techniques de référence.",
-                    "Collaborer avec les artistes en fournissant un feedback créatif itératif pour guider la production visuelle.",
-                ],
-            },
-            {
-                category: "PRODUCTION",
-                items: [
-                    "Gérer le backlog et les tâches de l'ensemble de l'équipe artistique via Jira.",
-                    "Assurer l'intégration et la documentation de la production sur Nuclino.",
-                    "Former et accompagner l'équipe à l'utilisation de Jira et Nuclino tout au long du projet.",
-                    "Produire des comptes rendus hebdomadaires à destination du chef de projet suite aux réunions d'équipe."
-                ],
-            },
-        ],
-    },
-    {
-        title: "10 Nichi!",
-        period: "2023 : 4 mois",
-        role: "Conceptrice de jeu",
-        summary: "Jeu de société coopératif stratégique - Univers Japon féodal/Samouraïs",
-        tags: ["Playtesting", "QA"],
-        src: "/10nichi.png",
-        slug: "10-nichi",
-        teamSize: "4",
-        duration: "4 mois",
-        responsibilities: [
-            "Participer à la conception des mécaniques et des règles du jeu, avec itérations successives basées sur les retours des sessions de test.",
-            "Créer les illustrations et icônes des éléments de jeu (gourde, feu, etc.) sur Illustrator.",
-            "Animer les sessions de playtesting : présentation des règles, observation des joueurs et collecte de feedback structuré.",
-            "Présenter le jeu devant un jury et auprès de testeurs externes.",
-        ],
-    },
-];
-
-const SKILLS_TOP = [
-    {
-        icon: Users,
-        title: "Leadership & Ambition",
-        description: "Je cherche à m'améliorer chaque jour et à appliquer cette progression constante aux équipes dont je fais partie. Je crois fermement en la facilitation et le soutien de l'équipe pour qu'elle grandisse tout au long d'un projet, que ce soit via des entretiens individuels, des rétrospectives ou des post-mortems. Cela favorise une réflexion individuelle qui bénéficie à l'ensemble du groupe.",
-    },
-    {
-        icon: Lightbulb,
-        title: "Créativité",
-        description: "Autant que je suis productrice, je suis aussi game designer et je comprends les aspects créatifs de la conception de jeux. J'essaie d'apporter cette créativité dans mon rôle de productrice , non pas en étant limitée à une boîte à outils ou une méthode éprouvée, mais en proposant des solutions créatives et adaptées aux défis d'un projet. C'est pourquoi je cherche continuellement à apprendre et à trouver le bon équilibre entre méthode et touche personnelle.",
-    },
-];
-
-const SKILLS_PRODUCTION = [
-    "Identification et gestion des risques",
-    "JIRA · Notion",
-    "Scrum et méthodologies Agile",
-    "Kanban · Waterfall",
-    "Sprint Planning & Rétrospectives",
-    "Décomposition du scope et du budget",
-    "Gestion des ressources",
-    "Définition des jalons et deadlines",
-    "Suivi de la progression individuelle",
-    "Représentation d'un projet ou d'une équipe",
-    "Réalisation de présentations",
-    "Gestion de la sous-traitance",
-    "Planification haut niveau & dépendances",
-    "Surveillance du scope projet",
-];
-
-const SKILLS_DESIGN = [
-    "Intégration design, programmation et art",
-    "Analyse concurrentielle",
-    "Game Design",
-    "Direction Artistique",
-    "Conception de jeux de société",
-    "Veille créative & références",
-];
-
-const SKILLS_SOFTWARE = [
-    "Unreal Engine 5",
-    "Unity 6",
-    "JIRA",
-    "Notion · Nuclino",
-    "Figma",
-    "Adobe Illustrator",
-    "Photoshop",
-    "Microsoft Office Suite",
-    "GitHub",
-];
-
-const LANGUAGES = [
-    { name: "Français", level: "Natif" },
-    { name: "Anglais", level: "Courant" },
-];
-
-const EXPERIENCE = [
-    {
-        period: "90 jours - En cours",
-        title: "Stage - Gestion de projets Data",
-        place: "Orange",
-        items: ["Suivi et coordination de projets data en environnement DSI","Pilotage des livrables et reporting aux parties prenantes","Gestion du backlog et animation des réunions de suivi"],
-    },
-
-    {
-        period: "2026 - En cours",
-        title: "Mission Freelance - Producer",
-        place: "StellarPunk",
-        items: ["Formalisation et pilotage du backlog de l'équipe","Structuration de la production en vue d'une Vertical Slice","Coordination des équipes pour la livraison des livrables clés"],
-    },
-
-    {
-        period: "2025 - 44 jours",
-        title: "Stage - Game / Narrative Designer",
-        place: "StellarPunk",
-        items: [
-            "Développement de jeu de société",
-            "Animation de sessions de jeu",
-            "Game design & Ecriture narrative",
-        ],
-    },
-    {
-        period: "2023 — 2025",
-        title: "Job étudiant - Assistante Administrative",
-        place: "Fradin & Associés : Huissiers de Justice",
-        items: [
-            "Gestion du courrier entrant et sortant (tri, scan, enregistrement)",
-            "Classement et archivage de documents administratifs",
-            "Soutien à l'équipe pour diverses tâches de bureau",
-        ],
-    },
-];
+import { useLanguage } from "./contexts/LanguageContext";
+import LangToggle from "./components/LangToggle";
 
 const LINKS = {
     resumeUrl: "/CV.pdf",
     email: "louann.barry05@gmail.com",
     github: "https://github.com/",
     linkedin: "https://linkedin.com/in/",
+};
+
+// ——— Traductions ———
+const TR = {
+    fr: {
+        nav: { about: "À propos", projects: "Projets", skills: "Compétences", experience: "Expérience", contact: "Contact" },
+        hero: {
+            line1: "Bonjour, je m'appelle",
+            line2: "BARRY Lou-Ann",
+            p1pre: "J'ai 20 ans et je suis actuellement étudiante en troisième année à l'ICAN à Lyon, où je suis une formation en Game Design, avec une spécialisation en TechArt.",
+            p1strong: "Dans l'optique de devenir productrice,",
+            p1post: "cette formation m'a permis de mener à bien des projets au sein d'équipes importantes et plus réduites.",
+            p2: "Parmi mes compétences : gestion de projet Agile, Waterfall, Kanban, Scrum, JIRA, et bien plus. Consultez la section",
+            p2link: "Compétences",
+            p2end: "pour plus d'informations.",
+            cta1: "Voir mes projets",
+            cta2: "Me contacter",
+            aboutLink: "À propos de moi",
+        },
+        proj: {
+            title: "Projets",
+            learnMore: "En savoir plus",
+            team: "Équipe",
+            duration: "Durée",
+            responsibilities: "Responsabilités",
+            role: "Rôle : ",
+        },
+        skills: {
+            subtitle: "Ce que je sais faire",
+            title: "Compétences",
+            items: [
+                { title: "Leadership & Ambition", description: "Je cherche à m'améliorer chaque jour et à appliquer cette progression constante aux équipes dont je fais partie. Je crois fermement en la facilitation et le soutien de l'équipe pour qu'elle grandisse tout au long d'un projet, que ce soit via des entretiens individuels, des rétrospectives ou des post-mortems. Cela favorise une réflexion individuelle qui bénéficie à l'ensemble du groupe." },
+                { title: "Créativité", description: "Autant que je suis productrice, je suis aussi game designer et je comprends les aspects créatifs de la conception de jeux. J'essaie d'apporter cette créativité dans mon rôle de productrice , non pas en étant limitée à une boîte à outils ou une méthode éprouvée, mais en proposant des solutions créatives et adaptées aux défis d'un projet. C'est pourquoi je cherche continuellement à apprendre et à trouver le bon équilibre entre méthode et touche personnelle." },
+            ],
+            colTitles: ["Compétences de Production", "Compétences Design", "Logiciels & Outils"],
+            cols: [
+                ["Identification et gestion des risques", "JIRA · Notion", "Scrum et méthodologies Agile", "Kanban · Waterfall", "Sprint Planning & Rétrospectives", "Décomposition du scope et du budget", "Gestion des ressources", "Définition des jalons et deadlines", "Suivi de la progression individuelle", "Représentation d'un projet ou d'une équipe", "Réalisation de présentations", "Gestion de la sous-traitance", "Planification haut niveau & dépendances", "Surveillance du scope projet"],
+                ["Intégration design, programmation et art", "Analyse concurrentielle", "Game Design", "Direction Artistique", "Conception de jeux de société", "Veille créative & références"],
+                ["Unreal Engine 5", "Unity 6", "JIRA", "Notion · Nuclino", "Figma", "Adobe Illustrator", "Photoshop", "Microsoft Office Suite", "GitHub"],
+            ],
+            langsTitle: "Langues",
+            langs: [{ name: "Français", level: "Natif" }, { name: "Anglais", level: "Courant" }],
+        },
+        exp: {
+            subtitle: "Mon parcours",
+            title: "Expérience",
+            items: [
+                { period: "90 jours - En cours", title: "Stage - Gestion de projets Data", place: "Orange", items: ["Suivi et coordination de projets data en environnement DSI", "Pilotage des livrables et reporting aux parties prenantes", "Gestion du backlog et animation des réunions de suivi"] },
+                { period: "2026 - En cours", title: "Mission Freelance - Producer", place: "StellarPunk", items: ["Formalisation et pilotage du backlog de l'équipe", "Structuration de la production en vue d'une Vertical Slice", "Coordination des équipes pour la livraison des livrables clés"] },
+                { period: "2025 - 44 jours", title: "Stage - Game / Narrative Designer", place: "StellarPunk", items: ["Développement de jeu de société", "Animation de sessions de jeu", "Game design & Ecriture narrative"] },
+                { period: "2023 — 2025", title: "Job étudiant - Assistante Administrative", place: "Fradin & Associés : Huissiers de Justice", items: ["Gestion du courrier entrant et sortant (tri, scan, enregistrement)", "Classement et archivage de documents administratifs", "Soutien à l'équipe pour diverses tâches de bureau"] },
+            ],
+        },
+        contact: { title: "Discutons !", desc: "Un projet, une opportunité, des questions ? Écrivez-moi." },
+        footer: { rights: "Tous droits réservés." },
+        projects: [
+            {
+                title: "IRA", period: "2025/2026 : 10 mois", role: "Producer / Cheffe de Projet",
+                summary: "Souls like narratif 3D réaliste - Unreal Engine 5",
+                tags: ["Agile", "Notion", "Roadmapping", "Playtesting", "GDD"], src: "/ira.png", slug: "ira", teamSize: "8", duration: "10 mois",
+                responsibilities: ["Organiser des entretiens individuels réguliers avec l'ensemble de l'équipe tout au long du projet.", "Fournir aux départements Art et Audio des listes de ressources afin de prioriser les tâches et d'éviter les dépendances.", "Animer les réunions de planification de sprint et les rétrospectives conformément à notre approche agile.", "Organisation et coordination des sessions de playtesting.", "Gestion de la documentation de production et du GDD."],
+            },
+            {
+                title: "Gecko Pulco", period: "2025 : 4 mois", role: "Producer / Cheffe de Projet",
+                summary: "Plateformer 3D cartoon - Unity 6",
+                tags: ["Agile", "Notion", "Roadmapping"], src: "/gecko.jpg", slug: "gecko-pulco", teamSize: "4", duration: "4 mois",
+                responsibilities: ["Rédiger le document de cadrage initial du projet (scope, organisation, livrables) via le GDD.", "Créer un planning haut niveau et l'utiliser comme base pour structurer les plannings hebdomadaires.", "Suivre la vélocité et l'avancement en fournissant des rapports de progression à l'équipe.", "Définir les deadlines et les livrables clés et assurer leur suivi tout au long du projet.", "Gérer le scope et prendre des décisions de coupure de contenu en fonction des contraintes.", "Gérer le backlog et résoudre les conflits au sein de l'équipe."],
+            },
+            {
+                title: "Figure Out", period: "2023/2024", role: "Directrice Artistique / Producer",
+                summary: "Click & Point 3D - Unreal",
+                tags: ["Jira", "Nuclino", "Figma"], src: "/figureout.jpg", slug: "figure-out", teamSize: "13", duration: "1 ans",
+                responsibilities: [
+                    { category: "DIRECTION ARTISTIQUE", items: ["Définir l'ambiance générale et la direction visuelle du jeu, en se concentrant sur la direction des environnements.", "Rédiger et maintenir l'Art Style Guide en s'appuyant sur une veille de jeux et techniques de référence.", "Collaborer avec les artistes en fournissant un feedback créatif itératif pour guider la production visuelle."] },
+                    { category: "PRODUCTION", items: ["Gérer le backlog et les tâches de l'ensemble de l'équipe artistique via Jira.", "Assurer l'intégration et la documentation de la production sur Nuclino.", "Former et accompagner l'équipe à l'utilisation de Jira et Nuclino tout au long du projet.", "Produire des comptes rendus hebdomadaires à destination du chef de projet suite aux réunions d'équipe."] },
+                ],
+            },
+            {
+                title: "10 Nichi!", period: "2023 : 4 mois", role: "Conceptrice de jeu",
+                summary: "Jeu de société coopératif stratégique - Univers Japon féodal/Samouraïs",
+                tags: ["Playtesting", "QA"], src: "/10nichi.png", slug: "10-nichi", teamSize: "4", duration: "4 mois",
+                responsibilities: ["Participer à la conception des mécaniques et des règles du jeu, avec itérations successives basées sur les retours des sessions de test.", "Créer les illustrations et icônes des éléments de jeu (gourde, feu, etc.) sur Illustrator.", "Animer les sessions de playtesting : présentation des règles, observation des joueurs et collecte de feedback structuré.", "Présenter le jeu devant un jury et auprès de testeurs externes."],
+            },
+        ],
+    },
+    en: {
+        nav: { about: "About", projects: "Projects", skills: "Skills", experience: "Experience", contact: "Contact" },
+        hero: {
+            line1: "Hello, my name is",
+            line2: "BARRY Lou-Ann",
+            p1pre: "I am 20 years old and currently a third-year student at ICAN Lyon, studying Game Design with a specialisation in TechArt.",
+            p1strong: "With the goal of becoming a producer,",
+            p1post: "this training has allowed me to successfully lead projects within both large and small teams.",
+            p2: "Among my skills: Agile project management, Waterfall, Kanban, Scrum, JIRA, and much more. Check the",
+            p2link: "Skills",
+            p2end: "section for more information.",
+            cta1: "See my projects",
+            cta2: "Contact me",
+            aboutLink: "About me",
+        },
+        proj: {
+            title: "Projects",
+            learnMore: "Learn more",
+            team: "Team",
+            duration: "Duration",
+            responsibilities: "Responsibilities",
+            role: "Role: ",
+        },
+        skills: {
+            subtitle: "What I can do",
+            title: "Skills",
+            items: [
+                { title: "Leadership & Ambition", description: "I strive to improve every day and apply this constant progression to the teams I am part of. I firmly believe in facilitating and supporting the team so it grows throughout a project, whether through one-on-ones, retrospectives or post-mortems. This encourages individual reflection that benefits the whole group." },
+                { title: "Creativity", description: "As much as I am a producer, I am also a game designer and I understand the creative aspects of game design. I try to bring this creativity to my producer role — not by being limited to a fixed toolkit or a proven method, but by offering creative solutions tailored to the challenges of a project. This is why I continually seek to learn and find the right balance between method and personal touch." },
+            ],
+            colTitles: ["Production Skills", "Design Skills", "Software & Tools"],
+            cols: [
+                ["Risk identification and management", "JIRA · Notion", "Scrum and Agile methodologies", "Kanban · Waterfall", "Sprint Planning & Retrospectives", "Scope and budget breakdown", "Resource management", "Milestone and deadline definition", "Individual progress tracking", "Project or team representation", "Presentation creation", "Outsourcing management", "High-level planning & dependencies", "Project scope monitoring"],
+                ["Design, programming and art integration", "Competitive analysis", "Game Design", "Art Direction", "Board game design", "Creative benchmarking & references"],
+                ["Unreal Engine 5", "Unity 6", "JIRA", "Notion · Nuclino", "Figma", "Adobe Illustrator", "Photoshop", "Microsoft Office Suite", "GitHub"],
+            ],
+            langsTitle: "Languages",
+            langs: [{ name: "French", level: "Native" }, { name: "English", level: "Fluent" }],
+        },
+        exp: {
+            subtitle: "My background",
+            title: "Experience",
+            items: [
+                { period: "90 days - Ongoing", title: "Internship - Data Project Management", place: "Orange", items: ["Monitoring and coordination of data projects in a DSI environment", "Managing deliverables and reporting to stakeholders", "Backlog management and facilitating review meetings"] },
+                { period: "2026 - Ongoing", title: "Freelance Mission - Producer", place: "StellarPunk", items: ["Formalising and driving the team backlog", "Structuring production for a Vertical Slice", "Coordinating teams for the delivery of key milestones"] },
+                { period: "2025 - 44 days", title: "Internship - Game / Narrative Designer", place: "StellarPunk", items: ["Board game development", "Facilitating game sessions", "Game design & narrative writing"] },
+                { period: "2023 — 2025", title: "Student job - Administrative Assistant", place: "Fradin & Associés: Enforcement Officers", items: ["Managing incoming and outgoing mail (sorting, scanning, recording)", "Filing and archiving administrative documents", "Supporting the team with various office tasks"] },
+            ],
+        },
+        contact: { title: "Let's talk!", desc: "A project, an opportunity, a question? Write to me." },
+        footer: { rights: "All rights reserved." },
+        projects: [
+            {
+                title: "IRA", period: "2025/2026: 10 months", role: "Producer / Project Manager",
+                summary: "Narrative 3D realistic Souls-like - Unreal Engine 5",
+                tags: ["Agile", "Notion", "Roadmapping", "Playtesting", "GDD"], src: "/ira.png", slug: "ira", teamSize: "8", duration: "10 months",
+                responsibilities: ["Organise regular one-on-one meetings with the entire team throughout the project.", "Provide Art and Audio departments with resource lists to prioritise tasks and avoid dependencies.", "Facilitate sprint planning meetings and retrospectives in line with our agile approach.", "Organise and coordinate playtesting sessions.", "Manage production documentation and GDD."],
+            },
+            {
+                title: "Gecko Pulco", period: "2025: 4 months", role: "Producer / Project Manager",
+                summary: "3D cartoon platformer - Unity 6",
+                tags: ["Agile", "Notion", "Roadmapping"], src: "/gecko.jpg", slug: "gecko-pulco", teamSize: "4", duration: "4 months",
+                responsibilities: ["Write the initial project framing document (scope, organisation, deliverables) via the GDD.", "Create a high-level schedule and use it as a basis for structuring weekly schedules.", "Track velocity and progress by providing progress reports to the team.", "Define key deadlines and deliverables and monitor them throughout the project.", "Manage scope and make content cut decisions based on constraints.", "Manage the backlog and resolve conflicts within the team."],
+            },
+            {
+                title: "Figure Out", period: "2023/2024", role: "Art Director / Producer",
+                summary: "3D Point & Click - Unreal",
+                tags: ["Jira", "Nuclino", "Figma"], src: "/figureout.jpg", slug: "figure-out", teamSize: "13", duration: "1 year",
+                responsibilities: [
+                    { category: "ART DIRECTION", items: ["Define the overall atmosphere and visual direction of the game, focusing on environment direction.", "Write and maintain the Art Style Guide based on a review of reference games and techniques.", "Collaborate with artists by providing iterative creative feedback to guide visual production."] },
+                    { category: "PRODUCTION", items: ["Manage the backlog and tasks for the entire art team via Jira.", "Ensure production integration and documentation on Nuclino.", "Train and support the team in using Jira and Nuclino throughout the project.", "Produce weekly reports for the project manager following team meetings."] },
+                ],
+            },
+            {
+                title: "10 Nichi!", period: "2023: 4 months", role: "Game Designer",
+                summary: "Strategic cooperative board game - Feudal Japan/Samurai universe",
+                tags: ["Playtesting", "QA"], src: "/10nichi.png", slug: "10-nichi", teamSize: "4", duration: "4 months",
+                responsibilities: ["Participate in designing game mechanics and rules, with successive iterations based on test session feedback.", "Create illustrations and icons for game elements (water bottle, fire, etc.) in Illustrator.", "Facilitate playtesting sessions: presenting rules, observing players and collecting structured feedback.", "Present the game to a jury and to external testers."],
+            },
+        ],
+    },
 };
 
 // ——— Animations ———
@@ -277,6 +264,8 @@ export default function Page() {
 
 // ——— Header ———
 function Header() {
+    const { lang } = useLanguage();
+    const t = TR[lang];
     return (
         <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-[#080f1e]/70 border-b border-[#C3D0F6]/10">
             <div className="mx-auto max-w-6xl px-6">
@@ -288,14 +277,15 @@ function Header() {
                         <span className="font-semibold tracking-tight text-[#EDF0FC]">Lou-Ann Barry</span>
                     </div>
                     <nav className="hidden md:flex items-center gap-6 text-[#C3D0F6] text-sm">
-                        <Link href="/about" className="hover:text-[#EDF0FC] transition">À propos</Link>
-                        <a href="#projets" className="hover:text-[#EDF0FC] transition">Projets</a>
-                        <a href="#competences" className="hover:text-[#EDF0FC] transition">Compétences</a>
-                        <a href="#experience" className="hover:text-[#EDF0FC] transition">Expérience</a>
-                        <a href="#contact" className="hover:text-[#EDF0FC] transition">Contact</a>
+                        <Link href="/about" className="hover:text-[#EDF0FC] transition">{t.nav.about}</Link>
+                        <a href="#projets" className="hover:text-[#EDF0FC] transition">{t.nav.projects}</a>
+                        <a href="#competences" className="hover:text-[#EDF0FC] transition">{t.nav.skills}</a>
+                        <a href="#experience" className="hover:text-[#EDF0FC] transition">{t.nav.experience}</a>
+                        <a href="#contact" className="hover:text-[#EDF0FC] transition">{t.nav.contact}</a>
                         <a href={LINKS.resumeUrl} download className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-3 py-1.5 text-sm hover:bg-[#1F3E71]/35 transition">
                             <Download className="h-4 w-4" /> CV
                         </a>
+                        <LangToggle />
                     </nav>
                 </div>
             </div>
@@ -305,6 +295,8 @@ function Header() {
 
 // ——— Hero ———
 function Hero() {
+    const { lang } = useLanguage();
+    const t = TR[lang].hero;
     return (
         <section id="home" className="relative overflow-hidden">
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_40%_at_50%_-10%,rgba(71,130,228,0.18),transparent_60%)]" />
@@ -313,20 +305,20 @@ function Hero() {
                     className="grid gap-10 md:grid-cols-2 md:items-center">
                     <div>
                         <motion.h1 variants={fadeUp} className="text-4xl/tight md:text-5xl/tight font-semibold tracking-tight">
-                            Bonjour, je m'appelle<br />BARRY Lou-Ann
+                            {t.line1}<br />{t.line2}
                         </motion.h1>
                         <motion.p variants={fadeUp} className="mt-6 text-[#C3D0F6] leading-relaxed">
-                            J'ai 20 ans et je suis actuellement étudiante en troisième année à l'ICAN à Lyon, où je suis une formation en Game Design, avec une spécialisation en TechArt. <strong className="text-[#EDF0FC]">Dans l'optique de devenir productrice,</strong> cette formation m'a permis de mener à bien des projets au sein d'équipes importantes et plus réduites.
+                            {t.p1pre} <strong className="text-[#EDF0FC]">{t.p1strong}</strong> {t.p1post}
                         </motion.p>
                         <motion.p variants={fadeUp} className="mt-3 text-[#C3D0F6] leading-relaxed">
-                            Parmi mes compétences : gestion de projet Agile, Waterfall, Kanban, Scrum, JIRA, et bien plus. Consultez la section <a href="#competences" className="text-[#8BA8EE] underline underline-offset-4 hover:text-[#EDF0FC]">Compétences</a> pour plus d'informations.
+                            {t.p2} <a href="#competences" className="text-[#8BA8EE] underline underline-offset-4 hover:text-[#EDF0FC]">{t.p2link}</a> {t.p2end}
                         </motion.p>
                         <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
                             <a href="#projets" className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-2.5 font-medium hover:bg-[#EDF0FC] transition text-sm">
-                                Voir mes projets <ChevronRight className="h-4 w-4" />
+                                {t.cta1} <ChevronRight className="h-4 w-4" />
                             </a>
                             <a href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-5 py-2.5 text-sm hover:bg-[#1F3E71]/35 transition">
-                                Me contacter
+                                {t.cta2}
                             </a>
                         </motion.div>
                         <motion.div variants={fadeUp} className="mt-6 flex items-center gap-4 text-[#8BA8EE]">
@@ -339,7 +331,7 @@ function Hero() {
                         <Image src="/moi.png" alt="Photo de Lou-Ann Barry" width={360} height={480}
                             className="rounded-3xl object-cover shadow-2xl border border-[#C3D0F6]/10" priority />
                         <Link href="/about" className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-5 py-2.5 text-sm text-[#C3D0F6] hover:bg-[#1F3E71]/35 hover:text-[#EDF0FC] transition">
-                            À propos de moi <ChevronRight className="h-4 w-4" />
+                            {t.aboutLink} <ChevronRight className="h-4 w-4" />
                         </Link>
                     </motion.div>
                 </motion.div>
@@ -359,76 +351,67 @@ function Divider() {
 
 // ——— Project Showcase ———
 function ProjectShowcase() {
+    const { lang } = useLanguage();
+    const t = TR[lang];
     return (
         <section id="projets" className="mx-auto max-w-6xl px-6 py-20">
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-14">
-                <h2 className="text-3xl font-semibold tracking-tight">Projets</h2>
+                <h2 className="text-3xl font-semibold tracking-tight">{t.proj.title}</h2>
             </motion.div>
-
             <div className="grid gap-24">
-                {PROJECTS.map((p, i) => (
-                    <ProjectRow key={i} project={p} reverse={i % 2 !== 0} />
+                {t.projects.map((p, i) => (
+                    <ProjectRow key={i} project={p} reverse={i % 2 !== 0} pt={t.proj} />
                 ))}
             </div>
         </section>
     );
 }
 
-function ProjectRow({ project, reverse }) {
+function ProjectRow({ project, reverse, pt }) {
     return (
         <motion.div
             variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.15 }}
             className="flex flex-col gap-8"
         >
-            {/* ——— Haut : image + infos (2 colonnes alternées) ——— */}
             <div className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
-
-                {/* Image */}
                 <motion.div variants={fadeLeft} className="overflow-hidden rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20">
                     <Image src={project.src} alt={project.title} width={600} height={340}
                         className="w-full object-cover" />
                 </motion.div>
-
-                {/* Infos : titre + tags + stats + bouton */}
                 <motion.div variants={fadeUp} className="flex flex-col gap-5">
                     <div>
                         <h3 className="text-2xl font-semibold">{project.title}</h3>
                         <p className="mt-1 text-[#8BA8EE] text-sm">{project.period}</p>
                         <p className="mt-2 text-[#C3D0F6]">{project.summary}</p>
                         <div className="mt-3 flex flex-wrap gap-2">
-                            {project.tags.map((t, idx) => (
+                            {project.tags.map((tag, idx) => (
                                 <span key={idx} className="rounded-full border border-[#C3D0F6]/15 bg-[#0D1F3E]/40 px-3 py-1 text-xs text-[#EDF0FC]">
-                                    {t}
+                                    {tag}
                                 </span>
                             ))}
                         </div>
                     </div>
-
                     <div className="grid grid-cols-2 gap-3">
                         <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
                             <Users className="h-5 w-5 mx-auto mb-1.5 text-[#8BA8EE]" />
-                            <p className="text-xs text-[#8BA8EE] mb-1">Équipe</p>
+                            <p className="text-xs text-[#8BA8EE] mb-1">{pt.team}</p>
                             <p className="text-sm font-medium text-[#EDF0FC]">{project.teamSize}</p>
                         </div>
                         <div className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center">
                             <Clock className="h-5 w-5 mx-auto mb-1.5 text-[#8BA8EE]" />
-                            <p className="text-xs text-[#8BA8EE] mb-1">Durée</p>
+                            <p className="text-xs text-[#8BA8EE] mb-1">{pt.duration}</p>
                             <p className="text-sm font-medium text-[#EDF0FC]">{project.duration}</p>
                         </div>
                     </div>
-
                     <a href={`/projets/${project.slug}`}
                         className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-2.5 font-medium hover:bg-[#EDF0FC] transition text-sm self-start">
-                        En savoir plus <ChevronRight className="h-4 w-4" />
+                        {pt.learnMore} <ChevronRight className="h-4 w-4" />
                     </a>
                 </motion.div>
             </div>
-
-            {/* ——— Bas : responsabilités (pleine largeur) ——— */}
             <motion.div variants={fadeUp} className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
-                <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-2">Responsabilités</h4>
-                <p className="text-[#C3D0F6] text-sm italic mb-4">Rôle : {project.role}</p>
-
+                <h4 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest mb-2">{pt.responsibilities}</h4>
+                <p className="text-[#C3D0F6] text-sm italic mb-4">{pt.role}{project.role}</p>
                 {typeof project.responsibilities[0] === "string" ? (
                     <ul className="grid md:grid-cols-2 gap-x-10 gap-y-2 text-[#C3D0F6] text-sm list-disc pl-5">
                         {project.responsibilities.map((r, idx) => (
@@ -454,40 +437,37 @@ function ProjectRow({ project, reverse }) {
 
 // ——— Skills ———
 function Skills() {
+    const { lang } = useLanguage();
+    const t = TR[lang].skills;
     return (
         <section id="competences" className="mx-auto max-w-6xl px-6 py-20">
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-14">
-                <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Ce que je sais faire</p>
-                <h2 className="text-3xl font-semibold tracking-tight">Compétences</h2>
+                <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">{t.subtitle}</p>
+                <h2 className="text-3xl font-semibold tracking-tight">{t.title}</h2>
             </motion.div>
-
-            {/* ——— Bloc 1 : Leadership & Créativité (2 colonnes, icône + texte long) ——— */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
                 className="grid md:grid-cols-2 gap-8 mb-16">
-                {SKILLS_TOP.map((s, i) => (
+                {t.items.map((s, i) => (
                     <motion.div key={i} variants={fadeUp}
                         className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-8 flex flex-col items-center text-center gap-4">
-                        <s.icon className="h-10 w-10 text-[#8BA8EE]" strokeWidth={1.5} />
+                        {i === 0
+                            ? <Users className="h-10 w-10 text-[#8BA8EE]" strokeWidth={1.5} />
+                            : <Lightbulb className="h-10 w-10 text-[#8BA8EE]" strokeWidth={1.5} />
+                        }
                         <h3 className="text-base font-semibold text-[#8BA8EE] uppercase tracking-wider">{s.title}</h3>
                         <p className="text-[#C3D0F6] text-sm leading-relaxed">{s.description}</p>
                     </motion.div>
                 ))}
             </motion.div>
-
-            {/* ——— Bloc 2 : 3 colonnes de listes (Production / Design / Logiciels) ——— */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }}
                 className="grid md:grid-cols-3 gap-8 mb-16">
-                {[
-                    { title: "Compétences de Production", items: SKILLS_PRODUCTION },
-                    { title: "Compétences Design", items: SKILLS_DESIGN },
-                    { title: "Logiciels & Outils", items: SKILLS_SOFTWARE },
-                ].map((col, i) => (
+                {t.cols.map((col, i) => (
                     <motion.div key={i} variants={fadeUp} className="flex flex-col gap-4">
                         <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest text-center pb-2 border-b border-[#C3D0F6]/10">
-                            {col.title}
+                            {t.colTitles[i]}
                         </h3>
                         <ul className="space-y-2">
-                            {col.items.map((item, idx) => (
+                            {col.map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-2 text-[#C3D0F6] text-sm">
                                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4782E4] flex-shrink-0" />
                                     {item}
@@ -497,13 +477,11 @@ function Skills() {
                     </motion.div>
                 ))}
             </motion.div>
-
-            {/* ——— Bloc 3 : Langues (drapeaux centrés) ——— */}
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
                 className="flex flex-col items-center gap-6">
-                <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">Langues</h3>
+                <h3 className="text-sm font-semibold text-[#8BA8EE] uppercase tracking-widest">{t.langsTitle}</h3>
                 <div className="flex gap-12">
-                    {LANGUAGES.map((l, i) => (
+                    {t.langs.map((l, i) => (
                         <div key={i} className="rounded-2xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-4 text-center w-32">
                             <Globe className="h-6 w-6 mx-auto mb-2 text-[#8BA8EE]" />
                             <p className="text-xs text-[#8BA8EE] mb-1">{l.name}</p>
@@ -518,15 +496,16 @@ function Skills() {
 
 // ——— Experience ———
 function Experience() {
+    const { lang } = useLanguage();
+    const t = TR[lang];
     return (
         <section id="experience" className="mx-auto max-w-6xl px-6 py-20">
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mb-14">
-                <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">Mon parcours</p>
-                <h2 className="text-3xl font-semibold tracking-tight">Expérience</h2>
+                <p className="text-xs text-[#8BA8EE] uppercase tracking-widest mb-2">{t.exp.subtitle}</p>
+                <h2 className="text-3xl font-semibold tracking-tight">{t.exp.title}</h2>
             </motion.div>
-
             <div className="grid gap-5">
-                {EXPERIENCE.map((e, i) => (
+                {t.exp.items.map((e, i) => (
                     <motion.div key={i} variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
                         className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 p-7">
                         <div className="flex flex-wrap items-baseline justify-between gap-3 mb-4">
@@ -548,12 +527,14 @@ function Experience() {
 
 // ——— Contact ———
 function Contact() {
+    const { lang } = useLanguage();
+    const t = TR[lang].contact;
     return (
         <section id="contact" className="mx-auto max-w-6xl px-6 py-20">
             <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
                 className="rounded-3xl border border-[#C3D0F6]/10 bg-gradient-to-br from-[#1F3E71]/30 to-[#0D1F3E]/20 p-12 text-center">
-                <h2 className="text-3xl font-semibold tracking-tight mb-3">Discutons !</h2>
-                <p className="text-[#C3D0F6] mb-8">Un projet, une opportunité, des questions ? Écrivez-moi.</p>
+                <h2 className="text-3xl font-semibold tracking-tight mb-3">{t.title}</h2>
+                <p className="text-[#C3D0F6] mb-8">{t.desc}</p>
                 <div className="flex flex-wrap justify-center gap-3">
                     <a href={`mailto:${LINKS.email}`} className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0D1F3E] px-5 py-2.5 font-medium hover:bg-[#EDF0FC] transition text-sm">
                         <Mail className="h-4 w-4" /> {LINKS.email}
@@ -572,10 +553,12 @@ function Contact() {
 
 // ——— Footer ———
 function Footer() {
+    const { lang } = useLanguage();
+    const t = TR[lang].footer;
     return (
         <footer className="border-t border-[#C3D0F6]/10">
             <div className="mx-auto max-w-6xl px-6 py-10 flex flex-wrap items-center justify-between gap-4 text-sm text-[#8BA8EE]">
-                <span>© {new Date().getFullYear()} Lou-Ann Barry. Tous droits réservés.</span>
+                <span>© {new Date().getFullYear()} Lou-Ann Barry. {t.rights}</span>
                 <div className="flex items-center gap-4">
                     <a href={LINKS.github} className="hover:text-[#EDF0FC] transition"><Github className="h-4 w-4" /></a>
                     <a href={LINKS.linkedin} className="hover:text-[#EDF0FC] transition"><Linkedin className="h-4 w-4" /></a>
