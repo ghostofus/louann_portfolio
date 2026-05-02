@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, ArrowLeft, Settings2, Gamepad2, Palette, Music, Package, Camera } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ArrowLeft, Settings2, Gamepad2, Palette, Music, Package } from "lucide-react";
 
 const LINKS = {
     resumeUrl: "/CV.pdf",
@@ -147,14 +147,6 @@ function GamesMarquee() {
     );
 }
 
-function PhotoPlaceholder({ label }) {
-    return (
-        <div className="w-full aspect-[4/3] rounded-2xl border border-dashed border-[#C3D0F6]/20 bg-[#0D1F3E]/40 flex flex-col items-center justify-center gap-3">
-            <Camera className="h-10 w-10 text-[#4782E4]/40" />
-            <p className="text-xs text-[#8BA8EE]/60">{label}</p>
-        </div>
-    );
-}
 
 export default function AboutPage() {
     return (
@@ -268,7 +260,7 @@ export default function AboutPage() {
                             <motion.div variants={fadeUp}
                                 className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 overflow-hidden flex flex-col">
                                 <div className="p-6 pb-0">
-                                    <PhotoPlaceholder label="Ajouter une photo musique" />
+                                    <Image src="/A propos de moi/collectionvinyle.jpg" alt="Ma collection de vinyles" width={600} height={450} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="p-7 flex flex-col gap-4">
                                     <div className="flex items-center gap-3">
