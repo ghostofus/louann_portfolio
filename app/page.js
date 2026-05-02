@@ -293,9 +293,9 @@ function Header() {
                         <a href="#competences" className="hover:text-[#EDF0FC] transition">Compétences</a>
                         <a href="#experience" className="hover:text-[#EDF0FC] transition">Expérience</a>
                         <a href="#contact" className="hover:text-[#EDF0FC] transition">Contact</a>
-                        <a href={LINKS.resumeUrl} download className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-3 py-1.5 text-sm hover:bg-[#1F3E71]/35 transition">
+                        <Link href="/cv" className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-3 py-1.5 text-sm hover:bg-[#1F3E71]/35 transition">
                             <Download className="h-4 w-4" /> CV
-                        </a>
+                        </Link>
                     </nav>
                 </div>
             </div>
