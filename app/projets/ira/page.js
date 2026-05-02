@@ -294,7 +294,6 @@ export default function ProjetIRA() {
                                 className="w-full h-full object-cover" priority />
                         </div>
                         <ScreenshotCarousel />
-                        <video src="/IRA/Vidéos/Gameplay.mp4" controls className="w-full rounded-3xl border border-[#C3D0F6]/10" />
                     </motion.div>
                 </div>
 
@@ -363,6 +362,9 @@ export default function ProjetIRA() {
                                         <p className="text-[#C3D0F6] text-sm leading-relaxed">{f.description}</p>
                                     </motion.div>
                                 ))}
+                            </motion.div>
+                            <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="mt-6">
+                                <video src="/IRA/Vidéos/Gameplay.mp4" controls className="w-full rounded-3xl border border-[#C3D0F6]/10" />
                             </motion.div>
 
                         </section>
