@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, ArrowLeft, Settings2, Gamepad2, Palette, Music, Package } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ArrowLeft, Music, Package } from "lucide-react";
 
 const LINKS = {
     resumeUrl: "/CV.pdf",
@@ -149,9 +149,9 @@ function GamesMarquee() {
 
 
 const COLLECTION_PHOTOS = [
-    "/A propos de moi/C1.jpg",
-    "/A propos de moi/C2.jpg",
-    "/A propos de moi/C3.jpg",
+    { src: "/A propos de moi/C1.jpg", aspect: "3/4" },
+    { src: "/A propos de moi/C2.jpg", aspect: "4/3" },
+    { src: "/A propos de moi/C3.jpg", aspect: "3/4" },
 ];
 
 function AutoSlider({ images }) {
@@ -161,9 +161,9 @@ function AutoSlider({ images }) {
         return () => clearInterval(id);
     }, [images.length]);
     return (
-        <div className="relative w-full h-full">
-            {images.map((src, i) => (
-                <Image key={i} src={src} alt={`Collection ${i + 1}`} width={600} height={450}
+        <div className="relative w-full overflow-hidden rounded-2xl transition-all duration-700" style={{ aspectRatio: images[current].aspect }}>
+            {images.map((img, i) => (
+                <Image key={i} src={img.src} alt={`Collection ${i + 1}`} width={600} height={800}
                     className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
                     style={{ opacity: i === current ? 1 : 0 }} />
             ))}
@@ -261,9 +261,7 @@ export default function AboutPage() {
                             <motion.div variants={fadeUp}
                                 className="rounded-3xl border border-[#C3D0F6]/10 bg-[#1F3E71]/20 overflow-hidden flex flex-col">
                                 <div className="p-6 pb-0">
-                                    <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative">
-                                        <AutoSlider images={COLLECTION_PHOTOS} />
-                                    </div>
+                                    <AutoSlider images={COLLECTION_PHOTOS} />
                                 </div>
                                 <div className="p-7 flex flex-col gap-4">
                                     <div className="flex items-center gap-3">
