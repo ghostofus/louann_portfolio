@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Clock, Monitor, FileText, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Linkedin, Mail, Users, Clock, Monitor, FileText, X } from "lucide-react";
 import LangToggle from "../../components/LangToggle";
 import { useLanguage } from "../../contexts/LanguageContext";
 
@@ -121,7 +121,7 @@ const TR = {
     },
 };
 
-const LINKS = { github: "https://github.com/", linkedin: "https://linkedin.com/in/", email: "louann.barry05@gmail.com" };
+const LINKS = { linkedin: "https://linkedin.com/in/", email: "louann.barry05@gmail.com" };
 
 function StarField() {
     const canvasRef = React.useRef(null);
@@ -343,7 +343,6 @@ export default function Projet10Nichi() {
                     <div className="mx-auto max-w-7xl px-6 py-8 flex flex-wrap items-center justify-between gap-4 text-sm text-[#8BA8EE]">
                         <span>© {new Date().getFullYear()} Lou-Ann Barry.</span>
                         <div className="flex items-center gap-4">
-                            <a href={LINKS.github} className="hover:text-[#EDF0FC] transition"><Github className="h-4 w-4" /></a>
                             <a href={LINKS.linkedin} className="hover:text-[#EDF0FC] transition"><Linkedin className="h-4 w-4" /></a>
                             <a href={`mailto:${LINKS.email}`} className="hover:text-[#EDF0FC] transition"><Mail className="h-4 w-4" /></a>
                         </div>

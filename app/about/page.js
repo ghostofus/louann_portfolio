@@ -5,14 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, Music, Package } from "lucide-react";
+import { Mail, Linkedin, Download, Music, Package } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import LangToggle from "../components/LangToggle";
 
 const LINKS = {
     resumeUrl: "/CV.pdf",
     email: "louann.barry05@gmail.com",
-    github: "https://github.com/",
     linkedin: "https://linkedin.com/in/",
 };
 
@@ -179,7 +178,6 @@ function Header() {
                         ← {t.backLink}
                     </Link>
                     <div className="flex items-center gap-4">
-                        <a href={LINKS.github} className="text-[#8BA8EE] hover:text-[#EDF0FC] transition"><Github className="h-4 w-4" /></a>
                         <a href={LINKS.linkedin} className="text-[#8BA8EE] hover:text-[#EDF0FC] transition"><Linkedin className="h-4 w-4" /></a>
                         <a href={LINKS.resumeUrl} download className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-3 py-1.5 text-sm text-[#C3D0F6] hover:bg-[#1F3E71]/35 transition">
                             <Download className="h-4 w-4" /> CV
@@ -200,7 +198,6 @@ function Footer() {
             <div className="mx-auto max-w-6xl px-6 py-10 flex flex-wrap items-center justify-between gap-4 text-sm text-[#8BA8EE]">
                 <span>© {new Date().getFullYear()} Lou-Ann Barry. {t.rights}</span>
                 <div className="flex items-center gap-4">
-                    <a href={LINKS.github} className="hover:text-[#EDF0FC] transition"><Github className="h-4 w-4" /></a>
                     <a href={LINKS.linkedin} className="hover:text-[#EDF0FC] transition"><Linkedin className="h-4 w-4" /></a>
                     <a href={`mailto:${LINKS.email}`} className="hover:text-[#EDF0FC] transition"><Mail className="h-4 w-4" /></a>
                 </div>

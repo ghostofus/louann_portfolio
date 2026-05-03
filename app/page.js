@@ -5,14 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, Users, Clock, ChevronRight, Lightbulb, Globe } from "lucide-react";
+import { Mail, Linkedin, Download, Users, Clock, ChevronRight, Lightbulb, Globe } from "lucide-react";
 import { useLanguage } from "./contexts/LanguageContext";
 import LangToggle from "./components/LangToggle";
 
 const LINKS = {
     resumeUrl: "/CV.pdf",
     email: "louann.barry05@gmail.com",
-    github: "https://github.com/",
     linkedin: "https://linkedin.com/in/",
 };
 
@@ -322,7 +321,6 @@ function Hero() {
                             </a>
                         </motion.div>
                         <motion.div variants={fadeUp} className="mt-6 flex items-center gap-4 text-[#8BA8EE]">
-                            <a href={LINKS.github} className="hover:text-[#EDF0FC] transition" aria-label="GitHub"><Github className="h-5 w-5" /></a>
                             <a href={LINKS.linkedin} className="hover:text-[#EDF0FC] transition" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
                             <a href={`mailto:${LINKS.email}`} className="hover:text-[#EDF0FC] transition" aria-label="Email"><Mail className="h-5 w-5" /></a>
                         </motion.div>
@@ -542,9 +540,6 @@ function Contact() {
                     <a href={LINKS.linkedin} className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-5 py-2.5 text-sm hover:bg-[#1F3E71]/35 transition">
                         <Linkedin className="h-4 w-4" /> LinkedIn
                     </a>
-                    <a href={LINKS.github} className="inline-flex items-center gap-2 rounded-xl border border-[#C3D0F6]/20 px-5 py-2.5 text-sm hover:bg-[#1F3E71]/35 transition">
-                        <Github className="h-4 w-4" /> GitHub
-                    </a>
                 </div>
             </motion.div>
         </section>
@@ -560,7 +555,6 @@ function Footer() {
             <div className="mx-auto max-w-6xl px-6 py-10 flex flex-wrap items-center justify-between gap-4 text-sm text-[#8BA8EE]">
                 <span>© {new Date().getFullYear()} Lou-Ann Barry. {t.rights}</span>
                 <div className="flex items-center gap-4">
-                    <a href={LINKS.github} className="hover:text-[#EDF0FC] transition"><Github className="h-4 w-4" /></a>
                     <a href={LINKS.linkedin} className="hover:text-[#EDF0FC] transition"><Linkedin className="h-4 w-4" /></a>
                     <a href={`mailto:${LINKS.email}`} className="hover:text-[#EDF0FC] transition"><Mail className="h-4 w-4" /></a>
                 </div>
