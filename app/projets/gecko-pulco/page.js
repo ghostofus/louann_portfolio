@@ -137,20 +137,40 @@ const TR = {
 
 const LINKS = { github: "https://github.com/", linkedin: "https://linkedin.com/in/", email: "louann.barry05@gmail.com" };
 
-function StarField() {
-    const canvasRef = React.useRef(null);
-    React.useEffect(() => {
-        const canvas = canvasRef.current; const ctx = canvas.getContext("2d"); let animationId;
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        const stars = Array.from({ length: 140 }, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.2 + 0.2, alpha: Math.random() * 0.5 + 0.15, offset: Math.random() * Math.PI * 2, vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25 }));
-        let t = 0;
-        const draw = () => { t += 0.02; ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach((s) => { s.x += s.vx; s.y += s.vy; if (s.x < 0) s.x = canvas.width; if (s.x > canvas.width) s.x = 0; if (s.y < 0) s.y = canvas.height; if (s.y > canvas.height) s.y = 0; const pulse = s.alpha + Math.sin(t + s.offset) * 0.3; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(195, 215, 255, ${Math.max(0.05, pulse)})`; ctx.fill(); }); animationId = requestAnimationFrame(draw); };
-        draw();
-        const onResize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
-        window.addEventListener("resize", onResize);
-        return () => { cancelAnimationFrame(animationId); window.removeEventListener("resize", onResize); };
-    }, []);
-    return <canvas ref={canvasRef} style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />;
+function GeckoField() {
+    const geckos = React.useMemo(() =>
+        Array.from({ length: 20 }, (_, i) => ({
+            id: i,
+            left: `${(i * 37 + 13) % 92}%`,
+            top: `${(i * 53 + 7) % 88}%`,
+            size: 30 + (i * 7) % 38,
+            opacity: 0.05 + (i * 0.007) % 0.10,
+            duration: `${16 + (i * 3) % 20}s`,
+            delay: `${-((i * 2.7) % 18)}s`,
+            anim: i % 2 === 0 ? "gecko-float" : "gecko-drift",
+        })),
+    []);
+    return (
+        <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
+            {geckos.map((g) => (
+                <img
+                    key={g.id}
+                    src="/GeckoPulco/icone.png"
+                    alt=""
+                    style={{
+                        position: "absolute",
+                        left: g.left,
+                        top: g.top,
+                        width: g.size,
+                        height: g.size,
+                        opacity: g.opacity,
+                        objectFit: "contain",
+                        animation: `${g.anim} ${g.duration} ease-in-out ${g.delay} infinite`,
+                    }}
+                />
+            ))}
+        </div>
+    );
 }
 
 function ScreenshotCarousel() {
@@ -270,7 +290,7 @@ export default function ProjetGeckoPulco() {
 
     return (
         <div className="min-h-screen bg-[#080f1e] text-[#EDF0FC]" style={{ position: "relative" }}>
-            <StarField />
+            <GeckoField />
             <div style={{ position: "relative", zIndex: 1 }}>
                 <div className="sticky top-0 z-50 backdrop-blur bg-[#080f1e]/70 border-b border-[#C3D0F6]/10">
                     <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
