@@ -138,18 +138,20 @@ const TR = {
 const LINKS = { github: "https://github.com/", linkedin: "https://linkedin.com/in/", email: "louann.barry05@gmail.com" };
 
 function GeckoField() {
-    const geckos = React.useMemo(() =>
-        Array.from({ length: 20 }, (_, i) => ({
+    const [geckos, setGeckos] = React.useState([]);
+    React.useEffect(() => {
+        setGeckos(Array.from({ length: 25 }, (_, i) => ({
             id: i,
-            left: `${(i * 37 + 13) % 92}%`,
-            top: `${(i * 53 + 7) % 88}%`,
-            size: 30 + (i * 7) % 38,
-            opacity: 0.05 + (i * 0.007) % 0.10,
-            duration: `${16 + (i * 3) % 20}s`,
-            delay: `${-((i * 2.7) % 18)}s`,
-            anim: i % 2 === 0 ? "gecko-float" : "gecko-drift",
-        })),
-    []);
+            left: `${Math.random() * 94}%`,
+            top: `${Math.random() * 90}%`,
+            size: Math.floor(Math.random() * 28 + 20),
+            opacity: Math.random() * 0.10 + 0.05,
+            duration: `${Math.random() * 16 + 14}s`,
+            delay: `${-(Math.random() * 18)}s`,
+            anim: Math.random() > 0.5 ? "gecko-float" : "gecko-drift",
+        })));
+    }, []);
+    if (geckos.length === 0) return null;
     return (
         <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
             {geckos.map((g) => (
