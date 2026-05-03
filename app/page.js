@@ -71,7 +71,7 @@ const TR = {
         footer: { rights: "Tous droits réservés." },
         projects: [
             {
-                title: "IRA", period: "2025/2026 : 10 mois", role: "Producer / Cheffe de Projet",
+                title: "IRA <i> In progress <i>", period: "2025/2026 : 10 mois", role: "Producer / Cheffe de Projet",
                 summary: "Souls like narratif 3D réaliste - Unreal Engine 5",
                 tags: ["Agile", "Notion", "Roadmapping", "Playtesting", "GDD"], src: "/ira.png", slug: "ira", teamSize: "8", duration: "10 mois",
                 responsibilities: ["Organiser des entretiens individuels réguliers avec l'ensemble de l'équipe tout au long du projet.", "Fournir aux départements Art et Audio des listes de ressources afin de prioriser les tâches et d'éviter les dépendances.", "Animer les réunions de planification de sprint et les rétrospectives conformément à notre approche agile.", "Organisation et coordination des sessions de playtesting.", "Gestion de la documentation de production et du GDD."],
