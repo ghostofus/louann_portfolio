@@ -33,6 +33,7 @@ const PROJECT_BASE = {
         { cover: null, file: "/IRA/Documents/Plandeproduction.pdf", type: "pdf" },
         { cover: null, file: "/IRA/Documents/RetroPlanning.pdf", type: "pdf" },
         { cover: null, file: "/IRA/Documents/Reunion.pdf", type: "pdf" },
+        { cover: null, file: "/IRA/Documents/QADocument.pdf", type: "pdf" },
     ],
 };
 
@@ -80,6 +81,8 @@ const TR = {
                 { title: "Production Roadmap", description: "J'ai structuré le projet via un planning de production par milestones, détaillant les tâches assignées à chaque membre de l'équipe." },
                 { title: "Rétro Planning", description: "J'ai concu 2 retroplanning à partir de dexu deadlines (nos deux rendu de projet fin d'année) et remonter pour définir toutes les étapes" },
                 { title: "Meeting reports", description: "Ce document à permis a l'équipe de suivre l'avancement en gardant une trace des décisions et synchroniser l'équipe" },
+                { title: "Document QA", description: "Ce document à permis a l'équipe d'identifier les erreurs en amont et d'éviter des correctifs post-production qui peuvent être coûteux pour nous" },
+
             ],
         },
     },
