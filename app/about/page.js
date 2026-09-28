@@ -34,9 +34,9 @@ const TR = {
         s2: {
             tag: "À propos de moi",
             title: "Qu'est-ce qui me motive ?",
-            p1: "Ce qui me motive est de créer le jeu le plus abouti possible , en sachant que la perfection n'existe pas, mais qu'on peut toujours s'en approcher.",
-            p2: "Pour y arriver, je me concentre sur l'amélioration et le soutien des personnes autour de moi. Créer un jeu est un effort d'équipe, et faciliter la progression de chacun tout au long du développement est l'un de mes moteurs principaux.",
-            p3: "C'est, selon moi, la base du succès et ce que je cherche à atteindre dans chaque équipe dont je fais partie.",
+            p1: "Je suis Lou-Ann Barry, Junior Game Producer, récemment diplômée d'un bachelor Game Design à l'ICAN Lyon et sur le point de démarrer un master en gestion de projet jeux vidéo.",
+            p2: "Ce qui me motive est de créer le jeu le plus abouti possible, en sachant que la perfection n'existe pas, mais qu'on peut toujours s'en approcher !",
+            p3: "Pour y arriver, je me concentre sur l'amélioration et le soutien des personnes autour de moi. Créer un jeu est un effort d'équipe, et faciliter la progression de chacun tout au long du développement est l'un de mes moteurs principaux. C'est, selon moi, la base du succès et ce que je cherche à atteindre dans chaque équipe dont je fais partie.",
         },
         s3: {
             title: "Mes passions",
@@ -70,9 +70,9 @@ const TR = {
         s2: {
             tag: "About me",
             title: "What motivates me?",
-            p1: "What motivates me is creating the most accomplished game possible, knowing that perfection doesn't exist, but that we can always get closer.",
-            p2: "To achieve this, I focus on improving and supporting the people around me. Creating a game is a team effort, and facilitating everyone's progress throughout development is one of my main drivers.",
-            p3: "This is, in my opinion, the foundation of success and what I strive to achieve in every team I am part of.",
+            p1: "I am Lou-Ann Barry, Junior Game Producer, recently graduated from a Game Design bachelor’s degree at ICAN Lyon and about to start a master’s in video game project management.",
+            p2: "What motivates me is creating the most accomplished game possible, knowing that perfection does not exist, but that we can always get closer!",
+            p3: "To achieve this, I focus on improving and supporting the people around me. Creating a game is a team effort, and facilitating everyone’s progress throughout development is one of my main drivers. This is, in my opinion, the foundation of success and what I strive to achieve in every team I am part of.",
         },
         s3: {
             title: "My passions",
